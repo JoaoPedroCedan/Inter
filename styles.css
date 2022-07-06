@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap");
 
+/* configurações do corpo do html - início*/
+
 * {
   font-family: 'Poppins', sans-serif;
   margin: 0;
@@ -25,7 +27,7 @@ html::-webkit-scrollbar {
 }
 
 html::-webkit-scrollbar-track {
-  background: #111;
+  background: #282828;
 }
 
 html::-webkit-scrollbar-thumb {
@@ -34,14 +36,14 @@ html::-webkit-scrollbar-thumb {
 }
 
 body {
-  background: #111;
+  background: #eeeeee;
   overflow-x: hidden;
 }
+/* configurações do corpo do html - início*/
 
 section {
   padding: 2rem 9%;
 }
-
 
 .cabecalho {
   text-align: center;
@@ -111,17 +113,49 @@ section {
 
 .logo {
   font-size: 2.3rem;
-  color: #fff;
+  color: #eeeeee;
   font-weight: bolder;
 }
 
 #menu-btn {
   font-size: 2.5rem;
-  color: #fff;
+  color: #eeeeee;
   cursor: pointer;
   display: none;
 }
 
+
+.home{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap:1.5rem;
+    padding-top: 7rem;
+}
+
+.home .image{
+    flex:1 1 45rem;
+}
+
+.home .image img{
+    width: 100%;
+}
+
+.home .content{
+    flex:1 1 45rem;
+}
+
+.home .content h3{
+    color:var(--text-color-1);
+    font-size: 4rem;
+}
+
+.home .content p{
+    color:var(--text-color-2);
+    font-size: 1.7rem;
+    line-height: 1.7;
+    padding:1rem 0;
+}
 @media (max-width: 991px) {
   html {
     font-size: 55%;
