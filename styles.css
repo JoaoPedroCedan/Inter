@@ -4,8 +4,6 @@
 
 * {
   font-family: 'Poppins', sans-serif;
-  margin: 0;
-  padding: 0;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   outline: none;
@@ -38,11 +36,12 @@ html::-webkit-scrollbar-thumb {
 body {
   background: #eeeeee;
   overflow-x: hidden;
-}
+} 
+
 /* configurações do corpo do html - início*/
 
 section {
-  padding: 2rem 9%;
+  padding: 5rem 9%;
 }
 
 .cabecalho {
@@ -124,7 +123,6 @@ section {
   display: none;
 }
 
-
 .home{
     display: flex;
     align-items: center;
@@ -156,6 +154,7 @@ section {
     line-height: 1.7;
     padding:1rem 0;
 }
+
 @media (max-width: 991px) {
   html {
     font-size: 55%;
