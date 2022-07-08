@@ -1,9 +1,14 @@
+/*Paleta de Cores pré-definidas (até o momento)
+Tons de Branco: #f0ffde #eeeeee
+Tons de Roxo: #201b2c
+Tons de Verde: #00ff88*/
+
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap");
 
-/* configurações do corpo do html - início*/
 
 * {
   font-family: 'Poppins', sans-serif;
+  margin: auto;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   outline: none;
@@ -13,6 +18,7 @@
   transition: all .1s linear;
 }
 
+/*Configurações da Barra de Rolagem - starts*/
 html {
   font-size: 62.5%;
   overflow-x: hidden;
@@ -25,20 +31,22 @@ html::-webkit-scrollbar {
 }
 
 html::-webkit-scrollbar-track {
-  background: #282828;
+  background: #201b2c;
 }
 
 html::-webkit-scrollbar-thumb {
-  background: #29d9d5;
+  background: #00ff88;
   border-radius: 5rem;
 }
 
+/*Configurações da Barra de Rolagem - ends*/
+
+/* configurações do corpo do html - starts*/
 body {
   background: #eeeeee;
   overflow-x: hidden;
-} 
-
-/* configurações do corpo do html - fim*/
+  box-sizing: border-box;
+}
 
 section {
   padding: 5rem 9%;
@@ -50,39 +58,42 @@ section {
 }
 
 .cabecalho span {
-  color: #29d9d5;
+  color: #00ff88;
   font-size: 2rem;
 }
 
 .cabecalho h1 {
   font-size: 4rem;
-  color: #fff;
+  color: #eeeeee;
 }
 
+/*Configurações dos Botões - starts*/
 .btn {
   margin-top: 1rem;
   display: inline-block;
   padding: 1rem 3rem;
   font-size: 1.7rem;
-  color: #29d9d5;
-  border: 0.2rem solid #29d9d5;
+  color: #00ff88;
+  border: 0.2rem solid #00ff88;
   border-radius: 5rem;
   cursor: pointer;
   background: none;
 }
 
 .btn:hover {
-  background: #29d9d5;
+  background: #00ff88;
   color: #111;
 }
 
+/*Configurações dos Botões - ends*/
+/*Configurações do Cabeçalho - starts*/
 .header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
-  background: #282828;
+  background: #201b2c;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -96,6 +107,7 @@ section {
 }
 
 .header .navbar a {
+  font-weight: 400;
   font-size: 1.7rem;
   color: #aaa;
   display: inline-block;
@@ -103,11 +115,29 @@ section {
 }
 
 .header .navbar a:hover {
-  color: #29d9d5;
+  color: #00ff88;
 }
 
 .header .btn {
   margin-top: 0;
+}
+
+.header .icons div {
+  height: 4.5rem;
+  width: 4.5rem;
+  line-height: 4.5rem;
+  font-size: 2rem;
+  border-radius: .5rem;
+  margin-left: .5rem;
+  background: var(--bg-color-2);
+  color: #eeeeee;
+  cursor: pointer;
+  text-align: center;
+}
+
+.header .icons div:hover {
+  color: #00ff88;
+  background: var(--orange);
 }
 
 .logo {
@@ -123,37 +153,144 @@ section {
   display: none;
 }
 
-.home{
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap:1.5rem;
-    padding-top: 7rem;
+/*Configurações do Cabeçalho - ends*/
+/*Configurações seção de apresentação - starts*/
+.home {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding-top: 7rem;
 }
 
-.home .image{
-    flex:1 1 45rem;
+.home .image {
+  flex: 1 1 45rem;
 }
 
-.home .image img{
-    width: 100%;
+.home .image img {
+  width: 100%;
 }
 
-.home .content{
-    flex:1 1 45rem;
+.home .content {
+  flex: 1 1 45rem;
 }
 
-.home .content h3{
-    color:var(--text-color-1);
-    font-size: 4rem;
+.home .content h3 {
+  color: var(--text-color-1);
+  font-size: 4rem;
 }
 
-.home .content p{
-    color:var(--text-color-2);
-    font-size: 1.7rem;
-    line-height: 1.7;
-    padding:1rem 0;
+.home .content p {
+  color: var(--text-color-2);
+  font-size: 1.7rem;
+  line-height: 1.7;
+  padding: 1rem 0;
 }
+
+/* configurações do corpo do html - início*/
+
+/*Configurações responsáveis pelo CSS do Login - starts*/
+.main-login {
+  width: 100vw;
+  height: 100vh;
+  background: #201b2c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left-login {
+  width: 50vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.left-login>h1 {
+  font-size: 3vw;
+  color: #00ff88;
+}
+
+.left-login-image {
+  width: 30vw;
+}
+
+.right-login {
+  width: 50vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-login {
+  width: 60%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 30px 35px;
+  background: #2f2841;
+  border-radius: 20px;
+}
+
+.card-login>h1 {
+  color: #00ff88;
+  font-weight: 800;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.textfield {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 10px 0px;
+}
+
+.textfield>input {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  padding: 15px;
+  background: #514869;
+  color: #f0ffde;
+  font-size: 12px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.textfield>input::placeholder {
+  color: #f0ffff94;
+}
+
+.textfield>label {
+  color: #f0ffde;
+  margin-bottom: 10px;
+}
+
+.btn-login {
+  width: 100%;
+  padding: 16px 0px;
+  margin: 25px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: #2b134b;
+  background: #00ff88;
+  cursor: pointer;
+
+}
+
+/*Configurações responsáveis pelo CSS do Login - ends*/
 
 @media (max-width: 991px) {
   html {
@@ -166,6 +303,10 @@ section {
 
   section {
     padding: 3rem 2rem;
+  }
+
+  .card-login {
+    width: 85%;
   }
 }
 
@@ -196,8 +337,36 @@ section {
   }
 }
 
+@media only screen and (max-width: 600px) {
+  .main-login {
+    flex-direction: column;
+  }
+
+  .left-login>h1 {
+    display: none;
+  }
+
+  .left-login {
+    width: 100%;
+    height: auto;
+  }
+
+  .right-login {
+    width: 100%;
+    height: auto;
+  }
+
+  .left-login-image {
+    width: 50vw;
+  }
+}
+
 @media (max-width: 450px) {
   html {
     font-size: 50%;
+  }
+  .left-login-image {
+    width: 80vw;
+    outline: 0px;
   }
 }
