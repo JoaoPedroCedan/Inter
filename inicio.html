@@ -24,8 +24,6 @@ Projeto Interdisciplinar
     <!-- css file link -->
     <link rel="stylesheet" href="style.css">
 
-    <!-- custom js file link -->
-    <script src="script.js" defer></script>
 </head>
 
 <!-- header html - fim -->
@@ -49,10 +47,10 @@ Projeto Interdisciplinar
         </nav>
 
         <a href="login.html" class="btn"><strong>Acesse sua conta</strong></a>
-
+        <!--
         <div class="icons">
             <div class="fas fa-user" id="login-btn"></div>
-        </div>
+        </div>-->
 
     </header>
 
@@ -79,3 +77,15 @@ Projeto Interdisciplinar
 </body>
 
 <!-- corpo do documento - fim -->
+
+<script>
+    let navbar = document.querySelector('.header .navbar');
+
+    document.querySelector('#menu-btn').onclick = () => {
+        navbar.classList.toggle('active');
+    }
+
+    window.onscroll = () => {
+        navbar.classList.remove('active');
+    }
+</script>

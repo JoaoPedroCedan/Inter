@@ -154,6 +154,18 @@ section {
 }
 
 /*Configurações do Cabeçalho - ends*/
+
+.modal-container{
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(0, 0, 0, 0.5);
+  position: fixed;
+  display: flex;
+}
+.modal{
+  width: 60vw;
+  background-color: #eeeeee;
+}
 /*Configurações seção de apresentação - starts*/
 .home {
   display: flex;
@@ -365,6 +377,7 @@ section {
   html {
     font-size: 50%;
   }
+
   .left-login-image {
     width: 80vw;
     outline: 0px;
