@@ -1,4 +1,5 @@
 <?php
+
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: access");
 header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
@@ -17,7 +18,3 @@ $select->bindValue('senha', $senha);
 $select->execute();
 $result = $select->fetchAll(PDO::FETCH_ASSOC);
 echo json_encode($result);
-
-
-
-?> 

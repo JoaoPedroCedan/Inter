@@ -1,385 +1,227 @@
-/*Paleta de Cores pré-definidas (até o momento)
-Tons de Branco: #f0ffde #eeeeee
-Tons de Roxo: #201b2c
-Tons de Verde: #00ff88*/
-
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap");
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;700&family=Roboto:wght@100;300;400;500;700;900&family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap');
 
 * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
-  margin: auto;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  outline: none;
-  border: none;
-  text-decoration: none;
-  -webkit-transition: all .1s linear;
-  transition: all .1s linear;
 }
 
-/*Configurações da Barra de Rolagem - starts*/
-html {
-  font-size: 62.5%;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
-  scroll-padding-top: 9rem;
-}
-
-html::-webkit-scrollbar {
-  width: 1rem;
-}
-
-html::-webkit-scrollbar-track {
-  background: #201b2c;
-}
-
-html::-webkit-scrollbar-thumb {
-  background: #00ff88;
-  border-radius: 5rem;
-}
-
-/*Configurações da Barra de Rolagem - ends*/
-
-/* configurações do corpo do html - starts*/
 body {
-  background: #eeeeee;
-  overflow-x: hidden;
-  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0,0,0,0.1);
 }
 
-section {
-  padding: 5rem 9%;
-}
-
-.cabecalho {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-.cabecalho span {
-  color: #00ff88;
-  font-size: 2rem;
-}
-
-.cabecalho h1 {
-  font-size: 4rem;
-  color: #eeeeee;
-}
-
-/*Configurações dos Botões - starts*/
-.btn {
-  margin-top: 1rem;
-  display: inline-block;
-  padding: 1rem 3rem;
-  font-size: 1.7rem;
-  color: #00ff88;
-  border: 0.2rem solid #00ff88;
-  border-radius: 5rem;
+button {
   cursor: pointer;
-  background: none;
 }
 
-.btn:hover {
-  background: #00ff88;
-  color: #111;
+.container {
+  width: 90%;
+  height: 80%;
+  border-radius: 10px;
+  background: white;
 }
 
-/*Configurações dos Botões - ends*/
-/*Configurações do Cabeçalho - starts*/
 .header {
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: auto 12px;
+}
+
+.header span {
+  font-weight: 900;
+  font-size: 20px;
+  word-break: break-all;
+}
+
+#new {
+  font-size: 16px;
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  background-color: rgb(57, 57, 226);
+}
+
+.divTable {
+  padding: 10px;
+  width: auto; 
+  height:inherit; 
+  overflow:auto;
+}
+
+.divTable::-webkit-scrollbar {
+  width: 12px;
+  background-color: whitesmoke; 
+}
+
+.divTable::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: darkgray; 
+}
+
+table {
+  width: 100%;
+  border-spacing: 10px;
+  word-break: break-all;
+  border-collapse: collapse;
+}
+
+thead {
+  background-color: whitesmoke;
+}
+
+tr {
+  border-bottom: 1px solid rgb(238, 235, 235)!important;
+}
+
+tbody tr td {
+  vertical-align: text-top;
+  padding: 6px;
+  max-width: 50px;
+}
+
+thead tr th {
+  padding: 5px;
+  text-align: start;
+  margin-bottom: 50px;
+}
+
+tbody tr {
+  margin-bottom: 50px;
+}
+
+thead tr th.acao {
+  width: 100px!important;
+  text-align: center;
+}
+
+tbody tr td.acao {
+  text-align: center;
+}
+
+@media (max-width: 700px) {
+  body {
+    font-size: 10px;
+  }
+  
+  .header span {
+    font-size: 15px;
+  }
+
+  #new {
+    padding: 5px;
+    font-size: 10px;
+  }
+
+  thead tr th.acao {
+    width: auto!important;
+  }
+  
+  td button i {
+    font-size: 20px!important;
+  }
+
+  td button i:first-child {
+    margin-right: 0;
+  }
+
+  .modal {
+    width: 90%!important;
+  }
+
+  .modal label {
+    font-size: 12px!important;
+  }
+}
+
+.modal-container {
+  width: 100vw;
+  height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  z-index: 1000;
-  background: #201b2c;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  padding: 1.0rem 9%;
-}
-
-.header .navbar a {
-  font-weight: 400;
-  font-size: 1.7rem;
-  color: #aaa;
-  display: inline-block;
-  margin: 0 1rem;
-}
-
-.header .navbar a:hover {
-  color: #00ff88;
-}
-
-.header .btn {
-  margin-top: 0;
-}
-
-.header .icons div {
-  height: 4.5rem;
-  width: 4.5rem;
-  line-height: 4.5rem;
-  font-size: 2rem;
-  border-radius: .5rem;
-  margin-left: .5rem;
-  background: var(--bg-color-2);
-  color: #eeeeee;
-  cursor: pointer;
-  text-align: center;
-}
-
-.header .icons div:hover {
-  color: #00ff88;
-  background: var(--orange);
-}
-
-.logo {
-  font-size: 2.3rem;
-  color: #eeeeee;
-  font-weight: bolder;
-}
-
-#menu-btn {
-  font-size: 2.5rem;
-  color: #eeeeee;
-  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.5);
   display: none;
-}
-
-/*Configurações do Cabeçalho - ends*/
-
-.modal-container{
-  width: 100vw;
-  height: 100vh;
-  background-color: rgb(0, 0, 0, 0.5);
-  position: fixed;
-  display: flex;
-}
-.modal{
-  width: 60vw;
-  background-color: #eeeeee;
-}
-/*Configurações seção de apresentação - starts*/
-.home {
-  display: flex;
+  z-index: 999;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  padding-top: 7rem;
-}
-
-.home .image {
-  flex: 1 1 45rem;
-}
-
-.home .image img {
-  width: 100%;
-}
-
-.home .content {
-  flex: 1 1 45rem;
-}
-
-.home .content h3 {
-  color: var(--text-color-1);
-  font-size: 4rem;
-}
-
-.home .content p {
-  color: var(--text-color-2);
-  font-size: 1.7rem;
-  line-height: 1.7;
-  padding: 1rem 0;
-}
-
-/* configurações do corpo do html - início*/
-
-/*Configurações responsáveis pelo CSS do Login - starts*/
-.main-login {
-  width: 100vw;
-  height: 100vh;
-  background: #201b2c;
-  display: flex;
   justify-content: center;
-  align-items: center;
 }
 
-.left-login {
-  width: 50vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.left-login>h1 {
-  font-size: 3vw;
-  color: #00ff88;
-}
-
-.left-login-image {
-  width: 30vw;
-}
-
-.right-login {
-  width: 50vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.card-login {
-  width: 60%;
-  height: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding: 30px 35px;
-  background: #2f2841;
-  border-radius: 20px;
-}
-
-.card-login>h1 {
-  color: #00ff88;
-  font-weight: 800;
-  margin: 0;
-  text-transform: uppercase;
-}
-
-.textfield {
-  width: 100%;
+.modal {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  margin: 10px 0px;
-}
-
-.textfield>input {
-  width: 100%;
-  border: none;
+  align-items: center;
+  padding: 40px;
+  background-color: white;
   border-radius: 10px;
-  padding: 15px;
-  background: #514869;
-  color: #f0ffde;
-  font-size: 12px;
-  outline: none;
-  box-sizing: border-box;
+  width: 50%;
 }
 
-.textfield>input::placeholder {
-  color: #f0ffff94;
-}
-
-.textfield>label {
-  color: #f0ffde;
-  margin-bottom: 10px;
-}
-
-.btn-login {
+.modal label {
+  font-size: 14px;
   width: 100%;
-  padding: 16px 0px;
-  margin: 25px;
-  border: none;
-  border-radius: 8px;
+}
+
+.modal input {
+  width: 100%;
   outline: none;
-  text-transform: uppercase;
-  font-weight: 800;
-  letter-spacing: 3px;
-  color: #2b134b;
-  background: #00ff88;
-  cursor: pointer;
-
+  padding: 5px 10px; 
+  width: 100%;
+  margin-bottom: 20px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
 }
 
-/*Configurações responsáveis pelo CSS do Login - ends*/
-
-@media (max-width: 991px) {
-  html {
-    font-size: 55%;
-  }
-
-  .header {
-    padding: 1.5rem 2rem;
-  }
-
-  section {
-    padding: 3rem 2rem;
-  }
-
-  .card-login {
-    width: 85%;
-  }
+.modal button {
+  width: 100%;
+  margin: 10px auto;
+  outline: none;
+  border-radius: 20px; 
+  padding: 5px 10px; 
+  width: 100%;
+  border: none;
+  background-color: rgb(57, 57, 226);
+  color: white;
 }
 
-@media (max-width: 768px) {
-  #menu-btn {
-    display: inline-block;
-  }
+.active {
+  display: flex;
+}
 
-  .header .navbar {
-    position: absolute;
-    top: 99%;
-    left: 0;
-    right: 0;
-    background: #282828;
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-  }
+.active .modal {
+  animation: modal .4s;
+}
 
-  .header .navbar.active {
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+@keyframes modal {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -60px, 0);
   }
-
-  .header .navbar a {
-    margin: 2rem;
-    font-size: 2rem;
-    display: block;
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
   }
 }
 
-@media only screen and (max-width: 600px) {
-  .main-login {
-    flex-direction: column;
-  }
-
-  .left-login>h1 {
-    display: none;
-  }
-
-  .left-login {
-    width: 100%;
-    height: auto;
-  }
-
-  .right-login {
-    width: 100%;
-    height: auto;
-  }
-
-  .left-login-image {
-    width: 50vw;
-  }
+td button {
+  border: none;
+  outline: none;
+  background: transparent;
 }
 
-@media (max-width: 450px) {
-  html {
-    font-size: 50%;
-  }
+td button i {
+  font-size: 25px;
+}
 
-  .left-login-image {
-    width: 80vw;
-    outline: 0px;
-  }
+td button i:first-child {
+  margin-right: 10px;
 }
