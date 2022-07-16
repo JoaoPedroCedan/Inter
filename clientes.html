@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<!-- header html - início -->
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BestLane</title>
+
+  <!-- font awesome cdn link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <!-- css file link -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- script file link -->
+  <script src="script.js" defer></script>
+
+</head>
+
+<body>
+
+  <!-- cabeçalho sem autenticação - início-->
+
+  <header class="header">
+
+    <div id="menu-btn" class="fas fa-bars"></div>
+    <img src="" alt="">
+    <a href="#" class="logo">BESTLANE</a>
+
+    <nav class="navbar">
+      <a href="#">Entregas</a>
+      <a href="#">Clientes</a>
+    </nav>
+
+    <div class="icons">
+      <div class="fas fa-sign-in-alt" id="login-btn"></div>
+    </div>
+
+  </header>
+
+  <div class="banner">
+
+    <div class="conteudo">
+      <br><br><br>
+      <h3>Painel de Clientes</h3>
+      <br><br><br>
+    </div>
+
+  </div>
+
+  <div class="painel">
+
+    <div class="icons">
+      <label class="fa fa-plus-circle fa-3x" for="modal-1"></label>
+    </div>
+
+    <div class="container">
+
+      <table>
+
+        <thead>
+          <tr>
+            <th>Nome Completo</th>
+            <th>Senha</th>
+            <th>CPF</th>
+            <th>Contato</th>
+            <th>Tipo de Logradouro</th>
+            <th>Logradouro</th>
+            <th>Numero</th>
+            <th>Bairro</th>
+            <th>Cidade</th>
+            <th>Estado</th>
+            <th>CEP</th>
+            <th>Status</th>
+            <th>Editar</th>
+            <th>Excluir</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td data-label="Nome Completo: ">
+              </th>
+            <td data-label="CPF: ">
+              </th>
+            <td data-label="Senha: ">
+              </th>
+            <td class="acao">
+              </th>
+            <td class="acao">
+              </th>
+          </tr>
+        </tbody>
+
+      </table>
+
+    </div>
+  </div>
+
+  <input class="modal-state" id="modal-1" type="checkbox" />
+
+  <div class="modal">
+
+    <label class="modal__bg" for="modal-1"></label>
+
+    <div class="modal__inner">
+
+      <label class="modal__close" for="modal-1"></label>
+
+      <form method="post" action="">
+
+        <input name="nome" id="nome" type="text" placeholder="Nome Completo" maxlength="40" required />
+
+        <input name="senha" id="senha" type="password" placeholder="Senha" maxlength="60" required />
+
+        <input name="cpf" id="cpf" type="text" placeholder="CPF" required />
+
+        <input name="contato" id="contato" type="text" placeholder="Contato" required />
+
+        <input name="tipologradouro" id="tipologradouro" type="text" placeholder="Tipo de Logradouro" required />
+
+        <input name="logradouro" id="logradouro" type="text" placeholder="Logradouro" required />
+
+        <input name="numero" id="numero" type="text" placeholder="Número" required />
+
+        <input name="bairro" id="bairro" type="text" placeholder="Bairro" required />
+
+        <input name="estado" id="estado" type="text" placeholder="Estado" required />
+
+        <input name="cep" id="cep" type="text" placeholder="CEP" required />
+
+        <input name="status" id="status" type="radio" value="Ativo" required />
+        <label for="ativo">Ativo</label>
+        <input name="status" id="status" type="radio" value="Inativo" required />
+        <label for="intivo">Inativo</label>
+
+        <input type="submit" value="Cadastrar Cliente" class="btn-form" name="submit">
+
+      </form>
+
+    </div>
+  </div>
+
+</body>
+
+</html>
+
+<!-- script responsável pela animação do navbar quando a tela diminui - início-->
+
+<script>
+  let navbar = document.querySelector('.header .navbar');
+
+  document.querySelector('#menu-btn').onclick = () => {
+    navbar.classList.toggle('active');
+  }
+
+  window.onscroll = () => {
+    navbar.classList.remove('active');
+  }
+</script>
+
+<!-- script responsável pela animação do navbar quando a tela diminui - fim-->
