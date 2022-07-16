@@ -16,6 +16,9 @@
   <!-- css file link -->
   <link rel="stylesheet" href="assets/css/style.css">
 
+  <!-- jquery cdn link-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js" type="text/javascript" defer></script>
+
   <!-- script file link -->
   <script src="script.js" defer></script>
 
@@ -71,24 +74,29 @@
             <th>Excluir</th>
           </tr>
         </thead>
+        <script>
+
+
+        </script>
 
         <tbody>
-          <tr>
-            <td data-label="Nome Completo: ">
-              </th>
-            <td data-label="CPF: ">
-              </th>
-            <td data-label="Senha: ">
-              </th>
-            <td class="acao">
-              </th>
-            <td class="acao">
-              </th>
-          </tr>
+          <script>
+            `<tr>
+                <td data-label='Nome Completo: '>
+                </th>
+                <td data-label='CPF: '>
+                </th>
+                <td data-label='Senha: '>
+                </th>
+                <td class='cao'>
+                </th>
+                <td class='acao'>
+                </th>
+              </tr>`
+          </script>
         </tbody>
 
       </table>
-
     </div>
   </div>
 
@@ -133,6 +141,18 @@
   window.onscroll = () => {
     navbar.classList.remove('active');
   }
+
+  $(document).ready(() => {
+    const buscar = () => {
+      const url = 'http://localhost/Inter/api/listagem/listarOperador/?default';
+      $.ajax({
+        url: url
+      }).done((data) => {
+        console.log(data)
+      })
+    }
+  })
+  buscar();
 </script>
 
 <!-- script responsável pela animação do navbar quando a tela diminui - fim-->
