@@ -1,7 +1,8 @@
 /*Paleta de Cores pré-definidas (até o momento)
 Tons de Branco: #f0ffde #eeeeee
 Tons de Roxo: #201b2c
-Tons de Verde: #00ff88*/
+Tons de Verde: #00ff88
+Tons de Preto: #282828*/
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap");
 
@@ -309,8 +310,7 @@ section {
 
 /*Configurações responsáveis pelo CSS do Login - fim*/
 /*Configurações responsáveis pelo CSS do Painel de Controle- início*/
-.banner {
-  
+.banner { 
   background: linear-gradient(rgba(17, 17, 17, 0.7), rgba(17, 17, 17, 0.7)), url(../images/banner-operadores.jpg) no-repeat;
   background-size: cover;
   background-position: center;
@@ -527,11 +527,13 @@ tbody tr td {
   vertical-align: text-top;
   padding: 6px;
   max-width: 50px;
+  color: #282828;
+  text-align: start;
 }
 
 thead tr th {
   padding: 5px;
-  text-align: start;
+  text-align: center;
   margin-bottom: 50px;
 }
 
