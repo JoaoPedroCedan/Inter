@@ -108,20 +108,18 @@
                   url: 'http://localhost/Inter/api/listagem/listarOperador/?default'
                 }).done((data) => {
                   for (const i in data) {
-                    
-                    console.log(data[i]['nome'])
-                    let x = $('.operador').html();
-                    let y = 
-                    `
+
+                    let y =
+                      `
                     <tr>
                     <td data-label='Nome Completo: '>${data[i]['nome']}</td>
                     <td data-label='CPF: '>${data[i]['cpf']}</td>
-                    <td class='fa fa-edit'></td>
-                    <td class='fa fa-times'></td>
+                    <td><i class="fa fa-edit"></i></td>
+                    <td><i class="fa fa-trash"></i></td>
                     </tr>
                     `
-                    $('.operador').html(x+y)
-                   };
+                    $('.operador').append(y)
+                  };
                 });
               }
 

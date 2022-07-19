@@ -310,7 +310,7 @@ section {
 
 /*Configurações responsáveis pelo CSS do Login - fim*/
 /*Configurações responsáveis pelo CSS do Painel de Controle- início*/
-.banner { 
+.banner {
   background: linear-gradient(rgba(17, 17, 17, 0.7), rgba(17, 17, 17, 0.7)), url(../images/banner-operadores.jpg) no-repeat;
   background-size: cover;
   background-position: center;
@@ -495,7 +495,7 @@ section {
   .modal label {
     font-size: 1.3em;
   }
-  
+
   .modal__inner {
     width: 80%;
     box-sizing: border-box;
@@ -516,11 +516,21 @@ thead {
   background-color: #201b2c;
 }
 
+thead tr th {
+  padding: 5px;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
 tr {
   font-size: 1.7rem;
   color: #eeeeee;
   text-align: center;
   border-bottom: 1px solid rgb(238, 235, 235) !important;
+}
+
+tbody tr {
+  margin-bottom: 50px;
 }
 
 tbody tr td {
@@ -529,16 +539,6 @@ tbody tr td {
   max-width: 50px;
   color: #282828;
   text-align: start;
-}
-
-thead tr th {
-  padding: 5px;
-  text-align: center;
-  margin-bottom: 50px;
-}
-
-tbody tr {
-  margin-bottom: 50px;
 }
 
 thead tr th.acao {
