@@ -70,13 +70,7 @@
             <th>Nome Completo</th>
             <th>CPF</th>
             <th>Contato</th>
-            <th>CEP</th>
-            <th>Logradouro</th>
-            <th>Numero</th>
-            <th>Bairro</th>
-            <th>Cidade</th>
-            <th>Estado</th>
-            <th>Status</th>
+            <th>Exibir</th>
             <th>Editar</th>
             <th>Excluir</th>
           </tr>
@@ -95,6 +89,8 @@
                     <tr>
                     <td data-label='Nome Completo: '>${data[i]['nome']}</td>
                     <td data-label='CPF: '>${data[i]['cpf']}</td>
+                    <td data-label='Contato: '>${data[i]['contato']}</td>
+                    <td><i class="fa fa-eye"></i></td>
                     <td><i class="fa fa-edit"></i></td>
                     <td><i class="fa fa-trash"></i></td>
                     </tr>
@@ -127,7 +123,7 @@
 
         <label for="cpf">Nome Completo: </label>
         <input name="nome" id="nome" type="text" maxlength="40" required />
-        
+
         <label for="cpf">CPF: </label>
         <input name="cpf" id="cpf" type="text" onKeyPress="MascaraGenerica(this, 'CPFCNPJ');" maxlenght="18" required />
 
@@ -138,7 +134,7 @@
         <input name="cep" id="cep" type="text" onblur="pesquisacep(this.value);"
           onKeyPress="MascaraGenerica(this, 'CEP');" maxlenght="11" required />
 
-          <label for="cpf">Logradouro: </label>
+        <label for="cpf">Logradouro: </label>
         <input name="rua" id="rua" type="text" required />
 
         <label for="cpf">Número</label>
@@ -154,43 +150,45 @@
         <input name="uf" id="uf" type="text" required />
 
         <select name="status" id="status" required>
-          <option value="Ativo" selected>Ativo</option>
-          <option value="Inativo">Inativo</option>
-       </select>
-      <button type="submit" class="btn-form" name="submit">Cadastrar Cliente</button>
-      <script>
-        $('.btn-form').click((event)=>{
-          event.preventDefault();
-          var nome = document.getElementById('nome').value;
-          var telefone = document.getElementById('contato').value;
-          var cpf = document.getElementById('cpf').value;
-          var cep = document.getElementById('cep').value;
-          var logradouro = document.getElementById('rua').value;
-          var numero = document.getElementById('numero').value;
-          var bairro = document.getElementById('bairro').value;
-          var cidade = document.getElementById('cidade').value;
-          var estado = document.getElementById('uf').value;
-          var status = document.getElementById('status').value;
-          let dados = {
-            nome : `${nome}`,
-            telefone : `${telefone}`,
-            cpf : `${cpf}`,
-            cep : `${cep}`,
-            logradouro : `${logradouro}`,
-            numero : `${numero}`,
-            bairro : `${bairro}`,
-            cidade : `${cidade}`,
-            estado : `${estado}`,
-            status : `${status}`
-          }
-          $.post("http://localhost/Inter/api/cadastrar/cadastrarCliente/",dados, function(data,status){
-          }).done((resultado)=>{
-            console.log(resultado)
-          }).fail((resultado)=>{
-            console.log(resultado)
+          <option value="ATIVO" selected>Ativo</option>
+          <option value="INATIVO">Inativo</option>
+        </select>
+
+        <input name="submit" type="submit" class="btn-form" value="Cadastrar Cliente" />
+
+        <script>
+          $('.btn-form').click((event) => {
+            event.preventDefault();
+            var nome = document.getElementById('nome').value;
+            var telefone = document.getElementById('contato').value;
+            var cpf = document.getElementById('cpf').value;
+            var cep = document.getElementById('cep').value;
+            var logradouro = document.getElementById('rua').value;
+            var numero = document.getElementById('numero').value;
+            var bairro = document.getElementById('bairro').value;
+            var cidade = document.getElementById('cidade').value;
+            var estado = document.getElementById('uf').value;
+            var status = document.getElementById('status').value;
+            let dados = {
+              nome: `${nome}`,
+              telefone: `${telefone}`,
+              cpf: `${cpf}`,
+              cep: `${cep}`,
+              logradouro: `${logradouro}`,
+              numero: `${numero}`,
+              bairro: `${bairro}`,
+              cidade: `${cidade}`,
+              estado: `${estado}`,
+              status: `${status}`
+            }
+            $.post("http://localhost/Inter/api/cadastrar/cadastrarCliente/", dados, function (data, status) {
+            }).done((resultado) => {
+              console.log(resultado)
+            }).fail((resultado) => {
+              console.log(resultado)
+            })
           })
-        })
-      </script>
+        </script>
       </form>
 
     </div>

@@ -530,14 +530,14 @@ thead {
 
 thead tr th {
   padding: 5px;
-  text-align: center;
+  text-align: start;
   margin-bottom: 50px;
 }
 
 tr {
   font-size: 1.7rem;
   color: #eeeeee;
-  text-align: center;
+  text-align: start;
   border-bottom: 1px solid rgb(238, 235, 235) !important;
 }
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 12-Jul-2022 às 03:51
+-- Tempo de geração: 20-Jul-2022 às 03:51
 -- Versão do servidor: 10.4.21-MariaDB
 -- versão do PHP: 7.3.31
 
@@ -56,16 +56,28 @@ CREATE TABLE `cliente` (
   `bairro` varchar(200) NOT NULL,
   `cep` varchar(200) NOT NULL,
   `logradouro` varchar(200) NOT NULL,
+  `numero` varchar(255) NOT NULL,
   `cidade` varchar(200) NOT NULL,
-  `is_active` int(11) NOT NULL DEFAULT 1
+  `estado` varchar(200) NOT NULL,
+  `is_active` varchar(11) NOT NULL DEFAULT 'Ativo'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `cliente`
 --
 
-INSERT INTO `cliente` (`id`, `nome`, `telefone`, `cpf`, `bairro`, `cep`, `logradouro`, `cidade`, `is_active`) VALUES
-(1, 'teste cliente', '', '', '', '', '', '', 1);
+INSERT INTO `cliente` (`id`, `nome`, `telefone`, `cpf`, `bairro`, `cep`, `logradouro`, `numero`, `cidade`, `estado`, `is_active`) VALUES
+(1, 'teste cliente', '', '0', '', '', '', '', '', '', '1'),
+(2, 'anthony', '', '\r\n', '', '', '', '', '', '', '0'),
+(3, 'Aa', '', '', '', '', '', '', '', '', '1'),
+(4, 'zilda', '', '', '', '', '', '', '', '', '1'),
+(5, 'ana', '', '', '', '', '', '', '', '', '1'),
+(6, 'anan', '', '', '', '', '', '', '', '', '1'),
+(7, 'joao', '', '41569603820', '', '', '', '', '', '', '1'),
+(8, 'awdawd', 'awdawd', '11231', 'awd', 'awd', 'awd', '', '', '', 'ATIVO'),
+(131, '', '', '', '', '', '', '', '', '', 'Ativo'),
+(132, 'gustavo garcia', '(12) 93891-8319', '91.283.190/3810-93', '38.200-120', 'Rua João Elpidio de Souza', '26', 'Centro', 'Frutal', 'MG', 'Ativo'),
+(133, 'gustavo garcia', '(12) 93891-8319', '91.283.190/3810-93', '38.200-120', 'Rua João Elpidio de Souza', '26', 'Centro', 'Frutal', 'MG', 'Inativo');
 
 -- --------------------------------------------------------
 
@@ -88,7 +100,9 @@ CREATE TABLE `entregador` (
 --
 
 INSERT INTO `entregador` (`id`, `nome`, `cpf`, `data_admissao`, `login`, `senha`, `is_active`) VALUES
-(2, 'tonin entregado', '', '2022-07-07 01:51:59', '', '', 1);
+(2, 'tonin entregado', '', '2022-07-07 01:51:59', '', '', 1),
+(3, 'joao', '', '2022-07-15 04:37:31', '', '', 1),
+(4, 'garcia', '', '2022-07-15 04:37:40', '', '', 0);
 
 -- --------------------------------------------------------
 
@@ -108,6 +122,13 @@ CREATE TABLE `entregas` (
   `data_saida` datetime DEFAULT NULL,
   `status` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `entregas`
+--
+
+INSERT INTO `entregas` (`id`, `quantidade`, `descricao`, `pedido`, `id_cliente`, `id_entregador`, `id_operador`, `data_entrada`, `data_saida`, `status`) VALUES
+(2, 10, 'pedido boticario', '00001', 5, 2, 1, '2022-07-15 23:50:28', '2022-07-31 23:50:28', 'SAIU PARA ENTREGA');
 
 -- --------------------------------------------------------
 
@@ -132,7 +153,8 @@ CREATE TABLE `operador` (
 --
 
 INSERT INTO `operador` (`id`, `nome`, `login`, `senha`, `cpf`, `is_admin`, `is_operator`, `data_cadastro`, `is_active`) VALUES
-(1, 'Joao Pedro', 'JoaoPedro', '123456', '41569603820', NULL, 1, '2022-07-07 01:10:20', 1);
+(1, 'Joao Pedro', 'JoaoPedro', '123456', '41569603820', NULL, 1, '2022-07-07 01:10:20', 1),
+(3, 'anthony', 'toin', '123', '1231231313', 0, 1, '2022-07-19 05:18:09', 1);
 
 --
 -- Índices para tabelas despejadas
@@ -185,25 +207,25 @@ ALTER TABLE `administrador`
 -- AUTO_INCREMENT de tabela `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=134;
 
 --
 -- AUTO_INCREMENT de tabela `entregador`
 --
 ALTER TABLE `entregador`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `entregas`
 --
 ALTER TABLE `entregas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `operador`
 --
 ALTER TABLE `operador`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restrições para despejos de tabelas
