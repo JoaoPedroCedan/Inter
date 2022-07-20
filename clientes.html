@@ -81,7 +81,33 @@
             <th>Excluir</th>
           </tr>
         </thead>
+        <tbody class="operador">
+          <script>
+            $(document).ready(() => {
+              const exibir = () => {
+                $.ajax({
+                  url: 'http://localhost/Inter/api/listagem/listarClientes/?default'
+                }).done((data) => {
+                  for (const i in data) {
 
+                    let y =
+                      `
+                    <tr>
+                    <td data-label='Nome Completo: '>${data[i]['nome']}</td>
+                    <td data-label='CPF: '>${data[i]['cpf']}</td>
+                    <td><i class="fa fa-edit"></i></td>
+                    <td><i class="fa fa-trash"></i></td>
+                    </tr>
+                    `
+                    $('.operador').append(y)
+                  };
+                });
+              }
+
+              exibir();
+            })
+          </script>
+        </tbody>
       </table>
 
     </div>
