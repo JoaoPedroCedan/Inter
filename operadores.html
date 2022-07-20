@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<!-- header html - início -->
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BestLane</title>
+
+  <!-- font awesome cdn link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <!-- css file link -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- script file link -->
+  <script src="script.js" defer></script>
+  <!-- jquery cdn link-->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+
+  <!-- modal de cadastro - início-->
+
+  <input class="modal-state" id="modal-1" type="checkbox" />
+
+  <div class="modal">
+
+    <label class="modal__bg" for="modal-1"></label>
+
+    <div class="modal__inner">
+
+      <label class="modal__close" for="modal-1"></label>
+
+      <form method="post" action="">
+
+        <input name="nome" id="nome" type="text" placeholder="Nome Completo" maxlength="40" required />
+
+        <input name="cpf" id="cpf" type="text" placeholder="CPF" maxlenght="14" required />
+
+        <input name="senha" id="senha" type="password" placeholder="Senha" maxlength="60" required />
+
+        <input type="submit" value="registrar operador" class="btn-form" name="submit">
+
+      </form>
+
+    </div>
+  </div>
+
+  <!-- modal de cadastro - fim-->
+  <!-- cabeçalho sem autenticação - início-->
+
+  <header class="header">
+
+    <div id="menu-btn" class="fas fa-bars"></div>
+    <img src="" alt="">
+    <a href="#" class="logo">bestlane</a>
+
+    <nav class="navbar">
+      <a href="#">Entregas</a>
+      <a href="#">Clientes</a>
+    </nav>
+
+    <div class="icons">
+      <div class="fas fa-sign-in-alt" id="login-btn"></div>
+    </div>
+
+  </header>
+
+  <div class="banner">
+
+    <div class="conteudo">
+      <br><br><br>
+      <h3>Painel de Operadores</h3>
+      <br><br><br>
+    </div>
+
+  </div>
+
+  <div class="painel">
+
+    <div class="icons">
+      <label class="fa fa-plus-circle fa-3x" for="modal-1"></label>
+    </div>
+
+    <div class="container">
+
+      <table>
+
+        <thead>
+          <tr>
+            <th>Nome Completo</th>
+            <th>CPF</th>
+            <th>Editar</th>
+            <th>Excluir</th>
+          </tr>
+        </thead>
+
+        <tbody class="operador">
+          <script>
+            $(document).ready(() => {
+              const exibir = () => {
+                $.ajax({
+                  url: 'http://localhost/Inter/api/listagem/listarOperador/?default'
+                }).done((data) => {
+                  for (const i in data) {
+
+                    let y =
+                      `
+                    <tr>
+                    <td data-label='Nome Completo: '>${data[i]['nome']}</td>
+                    <td data-label='CPF: '>${data[i]['cpf']}</td>
+                    <td><i class="fa fa-edit"></i></td>
+                    <td><i class="fa fa-trash"></i></td>
+                    </tr>
+                    `
+                    $('.operador').append(y)
+                  };
+                });
+              }
+
+              exibir();
+            })
+          </script>
+        </tbody>
+
+      </table>
+    </div>
+  </div>
+
+</body>
+
+</html>
+
+<!-- script responsável pela animação do navbar quando a tela diminui - início-->
+
+<script>
+  let navbar = document.querySelector('.header .navbar');
+
+  document.querySelector('#menu-btn').onclick = () => {
+    navbar.classList.toggle('active');
+  }
+
+  window.onscroll = () => {
+    navbar.classList.remove('active');
+  }
+
+</script>
+
+<!-- script responsável pela animação do navbar quando a tela diminui - fim-->

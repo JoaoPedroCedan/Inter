@@ -1,0 +1,95 @@
+<!--
+inicio: 06/07/2022
+fim: 
+Projeto Interdisciplinar
+-->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<!-- header html - início -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BestLane</title>
+
+    <!-- font awesome cdn link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- jquery script cdn link -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- css file link -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+
+<!-- header html - fim -->
+
+<!-- corpo do documento - início -->
+
+<body>
+
+    <!-- cabeçalho sem autenticação - início-->
+
+    <header class="header">
+
+        <div id="menu-btn" class="fas fa-bars"></div>
+        <img src="" alt="">
+        <a href="#" class="logo">bestlane</a>
+
+        <nav class="navbar">
+            <a href="#">Soluções</a>
+            <a href="#">Sobre Nós</a>
+            <a href="#">Fale com um Especialista</a>
+        </nav>
+
+        <a href="login.html" class="btn"><strong>Acesse sua conta</strong></a>
+        <!--
+        <div class="icons">
+            <div class="fas fa-user" id="login-btn"></div>
+        </div>-->
+
+    </header>
+
+    <!-- cabeçalho sem autenticação fim-->
+
+    <!-- seção de apresentação - início  -->
+
+    <section class="home">
+
+        <div class="image">
+            <img src="#" alt="">
+        </div>
+
+        <div class="content">
+            <h3>adventure is worthwhile</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis explicabo eius inventore reprehenderit
+                alias eos facilis, ipsa est asperiores repellendus!</p>
+        </div>
+
+    </section>
+
+    <!-- seção de apresentação - fim -->
+
+</body>
+
+<!-- corpo do documento - fim -->
+
+<!-- script responsável pela animação do navbar quando a tela diminui - início-->
+
+<script>
+    let navbar = document.querySelector('.header .navbar');
+
+    document.querySelector('#menu-btn').onclick = () => {
+        navbar.classList.toggle('active');
+    }
+
+    window.onscroll = () => {
+        navbar.classList.remove('active');
+    }
+</script>
+
+<!-- script responsável pela animação do navbar quando a tela diminui - fim-->

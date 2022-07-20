@@ -1,0 +1,704 @@
+/*Paleta de Cores pré-definidas (até o momento)
+Tons de Branco: #f0ffde #eeeeee
+Tons de Roxo: #201b2c
+Tons de Verde: #00ff88
+Tons de Preto: #282828*/
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap");
+
+* {
+  font-family: 'Poppins', sans-serif;
+  margin: auto;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  -webkit-transition: all .1s linear;
+  transition: all .1s linear;
+}
+
+/*Configurações da Barra de Rolagem - starts*/
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  scroll-padding-top: 9rem;
+}
+
+html::-webkit-scrollbar {
+  width: 1rem;
+}
+
+html::-webkit-scrollbar-track {
+  background: #201b2c;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: #00ff88;
+  border-radius: 5rem;
+}
+
+/*Configurações da Barra de Rolagem - ends*/
+
+/* configurações do corpo do html - starts*/
+body {
+  background: #eeeeee;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+section {
+  padding: 5rem 9%;
+}
+
+.cabecalho {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.cabecalho span {
+  color: #00ff88;
+  font-size: 2rem;
+}
+
+.cabecalho h1 {
+  font-size: 4rem;
+  color: #eeeeee;
+}
+
+/*Configurações dos Botões - starts*/
+.btn {
+  margin-top: 1rem;
+  display: inline-block;
+  padding: 1rem 3rem;
+  font-size: 1.7rem;
+  color: #00ff88;
+  border: 0.2rem solid #00ff88;
+  border-radius: 5rem;
+  cursor: pointer;
+  background: none;
+}
+
+.btn:hover {
+  background: #00ff88;
+  color: #111;
+}
+
+.btn-form {
+  display: block;
+  width: 100%;
+  background-color: #201b2c;
+  color: #fff;
+  margin-top: 1rem;
+  padding: 1.2rem 1.4rem;
+  font-size: 1.6rem;
+  border-radius: 5rem;
+  cursor: pointer;
+}
+
+.btn-form:hover {
+  background: #00ff88;
+  color: #201b2c;
+}
+
+/*Configurações dos Botões - ends*/
+/*Configurações do Cabeçalho - starts*/
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: #201b2c;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 1.0rem 9%;
+}
+
+.header .navbar a {
+  font-weight: 400;
+  font-size: 1.7rem;
+  color: #aaa;
+  display: inline-block;
+  margin: 0 1rem;
+}
+
+.header .navbar a:hover {
+  color: #00ff88;
+}
+
+.header .btn {
+  margin-top: 0;
+}
+
+.header .icons div {
+  height: 4.5rem;
+  width: 4.5rem;
+  line-height: 4.5rem;
+  font-size: 2rem;
+  border-radius: .5rem;
+  margin-left: .5rem;
+  background: var(--bg-color-2);
+  color: #eeeeee;
+  cursor: pointer;
+  text-align: center;
+}
+
+.header .icons div:hover {
+  color: #00ff88;
+  background: var(--orange);
+}
+
+.logo {
+  font-size: 2.3rem;
+  color: #eeeeee;
+  font-weight: bolder;
+}
+
+#menu-btn {
+  font-size: 2.5rem;
+  color: #eeeeee;
+  cursor: pointer;
+  display: none;
+}
+
+/*Configurações do Cabeçalho - ends*/
+
+/*Configurações seção de apresentação - starts*/
+.home {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding-top: 7rem;
+}
+
+.home .image {
+  flex: 1 1 45rem;
+}
+
+.home .image img {
+  width: 100%;
+}
+
+.home .content {
+  flex: 1 1 45rem;
+}
+
+.home .content h3 {
+  color: var(--text-color-1);
+  font-size: 4rem;
+}
+
+.home .content p {
+  color: var(--text-color-2);
+  font-size: 1.7rem;
+  line-height: 1.7;
+  padding: 1rem 0;
+}
+
+/* configurações do corpo do html - início*/
+
+/*Configurações responsáveis pelo CSS do Login - starts*/
+.main-login {
+  width: 100vw;
+  height: 100vh;
+  background: #201b2c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left-login {
+  width: 50vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.left-login>h1 {
+  font-size: 3vw;
+  color: #00ff88;
+}
+
+.left-login-image {
+  width: 30vw;
+}
+
+.right-login {
+  width: 50vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-login {
+  width: 60%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 30px 35px;
+  background: #2f2841;
+  border-radius: 20px;
+}
+
+.card-login>h1 {
+  color: #00ff88;
+  font-weight: 800;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.textfield {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 10px 0px;
+}
+
+.textfield>input {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  padding: 15px;
+  background: #514869;
+  color: #f0ffde;
+  font-size: 12px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.textfield>input::placeholder {
+  color: #f0ffff94;
+}
+
+.textfield>label {
+  color: #f0ffde;
+  margin-bottom: 10px;
+}
+
+.btn-login {
+  width: 100%;
+  padding: 16px 0px;
+  margin: 25px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: #2b134b;
+  background: #00ff88;
+  cursor: pointer;
+
+}
+
+/*Configurações responsáveis pelo CSS do Login - fim*/
+/*Configurações responsáveis pelo CSS do Painel de Controle- início*/
+.banner {
+  background: linear-gradient(rgba(17, 17, 17, 0.7), rgba(17, 17, 17, 0.7)), url(../images/banner-operadores.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 3rem 2rem;
+  background-attachment: fixed;
+  text-align: center;
+}
+
+.banner .conteudo h3 {
+  font-size: 4rem;
+  color: #fff;
+  margin-top: 1rem;
+}
+
+.painel {
+  width: 90%;
+  margin: 1rem auto;
+  margin-top: -5rem;
+  background-color: #fff;
+  border-radius: 1rem;
+  -webkit-box-shadow: 0 0.5rem 1rem rgba(17, 17, 17, 0.3);
+  box-shadow: 0 0.5rem 1rem rgba(17, 17, 17, 0.3);
+  padding: 3rem 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.painel .container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(25rem, 1fr))[auto-fit];
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  gap: 1.5rem;
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 42rem;
+  flex: 1 1 42rem;
+  width: 90%;
+  background-color: #fff;
+  padding: 1.2rem 1.4rem;
+  text-align: left;
+}
+
+.painel span {
+  display: inline-block;
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+  margin: .7rem;
+}
+
+.painel span:hover {
+  background: #29d9d5;
+}
+
+.painel .conteudo {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 42rem;
+  flex: 1 1 42rem;
+  margin-bottom: 5rem;
+}
+
+.painel .conteudo span {
+  color: #29d9d5;
+  font-size: 2rem;
+}
+
+.painel .conteudo p {
+  padding: 1rem 0;
+  font-size: 1.4rem;
+  color: #aaa;
+  line-height: 2;
+}
+
+/*Configurações responsáveis pelo CSS do Modal no Painel de Controle- início*/
+.modal {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+}
+
+.modal input {
+  width: 100%;
+  outline: none;
+  padding: 5px 10px;
+  text-transform: uppercase;
+  width: 100%;
+  margin-bottom: 20px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+.box {
+  border: 0.2rem solid #000;
+  width: 100%;
+  padding: 1.2rem 1.4rem;
+  border-radius: 5rem;
+  font-size: 1.6rem;
+  color: #000;
+  background: none;
+  margin-top: 1rem;
+}
+
+.modal__bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  cursor: pointer;
+}
+
+.modal-state {
+  display: none;
+}
+
+.modal-state:checked+.modal {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-state:checked+.modal .modal__inner {
+  top: 0;
+}
+
+.modal__inner {
+  position: absolute;
+  top: -20%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 50%;
+  margin: auto;
+  overflow: auto;
+  background: #fff;
+  border-radius: 5px;
+  padding: 1em 2em;
+  height: 40%;
+}
+
+.modal__close {
+  position: absolute;
+  right: 1em;
+  top: 1em;
+  width: 1.1em;
+  height: 1.1em;
+  cursor: pointer;
+}
+
+.modal__close:after,
+.modal__close:before {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 1.5em;
+  background: #ccc;
+  display: block;
+  transform: rotate(45deg);
+  left: 50%;
+  margin: -3px 0 0 -1px;
+  top: 0;
+}
+
+.modal__close:hover:after,
+.modal__close:hover:before {
+  background: #aaa;
+}
+
+.modal__close:before {
+  transform: rotate(-45deg);
+}
+
+@media screen and (max-width: 768px) {
+
+  .modal label {
+    font-size: 1.3em;
+  }
+
+  .modal__inner {
+    width: 80%;
+    box-sizing: border-box;
+  }
+}
+
+/*Configurações responsáveis pelo CSS do Modal no Painel de Controle- fim*/
+
+/*Configurações responsáveis pelo CSS da tabela do Painel de Controle- início*/
+
+table {
+  width: 100%;
+  border-spacing: 10px;
+  border-collapse: collapse;
+}
+
+thead {
+  background-color: #201b2c;
+}
+
+thead tr th {
+  padding: 5px;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+tr {
+  font-size: 1.7rem;
+  color: #eeeeee;
+  text-align: center;
+  border-bottom: 1px solid rgb(238, 235, 235) !important;
+}
+
+tbody tr {
+  margin-bottom: 50px;
+}
+
+tbody tr td {
+  vertical-align: text-top;
+  padding: 6px;
+  max-width: 50px;
+  color: #282828;
+  text-align: start;
+}
+
+thead tr th.acao {
+  width: 100px !important;
+  text-align: center;
+}
+
+tbody tr td.acao {
+  text-align: center;
+}
+
+/*Configurações responsáveis pelo CSS da tabela do Painel de Controle- fim*/
+
+/*Configurações responsáveis pelo CSS do Painel de Controle- fim*/
+
+@media (max-width: 991px) {
+  html {
+    font-size: 55%;
+  }
+
+  .header {
+    padding: 1.5rem 2rem;
+  }
+
+  section {
+    padding: 3rem 2rem;
+  }
+
+  .card-login {
+    width: 85%;
+  }
+}
+
+@media (max-width: 768px) {
+  #menu-btn {
+    display: inline-block;
+  }
+
+  .header .navbar {
+    position: absolute;
+    top: 99%;
+    left: 0;
+    right: 0;
+    background: #282828;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+
+  .header .navbar.active {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+
+  .header .navbar a {
+    margin: 2rem;
+    font-size: 2rem;
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+
+  .modal {
+    width: 90% !important;
+  }
+
+  .modal label {
+    font-size: 12px !important;
+  }
+
+  table {
+    border: 0;
+  }
+
+  table caption {
+    font-size: 1.3em;
+  }
+
+  thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+
+  table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: .625em;
+    color: #201b2c;
+  }
+
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: .8em;
+    text-align: left;
+  }
+
+  table td::before {
+    /*
+      * aria-label has no advantage, it won't be read inside a table
+      content: attr(aria-label);
+      */
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  table td:last-child {
+    border-bottom: 0;
+  }
+
+  .main-login {
+    flex-direction: column;
+  }
+
+  .left-login>h1 {
+    display: none;
+  }
+
+  .left-login {
+    width: 100%;
+    height: auto;
+  }
+
+  .right-login {
+    width: 100%;
+    height: auto;
+  }
+
+  .left-login-image {
+    width: 50vw;
+  }
+}
+
+@media (max-width: 450px) {
+  html {
+    font-size: 50%;
+  }
+
+  .left-login-image {
+    width: 80vw;
+    outline: 0px;
+  }
+}
