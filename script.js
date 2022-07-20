@@ -50,7 +50,12 @@ function MascaraGenerica(seletor, tipoMascara) {
         } else if (tipoMascara == 'CEP') {
             formataCampo(seletor, '00.000-000');
         } else if (tipoMascara == 'TELEFONE') {
-            formataCampo(seletor, '(00) 00000-0000');
+            if (seletor.value.length <= 14) {
+                formataCampo(seletor, '(00) 0000-0000');
+            } else {
+                formataCampo(seletor, '(00) 00000-0000');
+            }
+
         }
     }, 200);
 }
