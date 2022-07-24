@@ -24,34 +24,6 @@
 
 <body>
 
-  <!-- modal de cadastro - início-->
-
-  <input class="modal-state" id="modal-1" type="checkbox" />
-
-  <div class="modal">
-
-    <label class="modal__bg" for="modal-1"></label>
-
-    <div class="modal__inner">
-
-      <label class="modal__close" for="modal-1"></label>
-
-      <form method="post" action="">
-
-        <input name="nome" id="nome" type="text" placeholder="Nome Completo" maxlength="40" required />
-
-        <input name="cpf" id="cpf" type="text" placeholder="CPF" maxlenght="14" required />
-
-        <input name="senha" id="senha" type="password" placeholder="Senha" maxlength="60" required />
-
-        <input type="submit" value="registrar operador" class="btn-form" name="submit">
-
-      </form>
-
-    </div>
-  </div>
-
-  <!-- modal de cadastro - fim-->
   <!-- cabeçalho sem autenticação - início-->
 
   <header class="header">
@@ -100,7 +72,7 @@
           </tr>
         </thead>
 
-        <tbody class="operador">
+        <tbody class="operadores">
           <script>
             $(document).ready(() => {
               const exibir = () => {
@@ -118,7 +90,7 @@
                     <td><i class="fa fa-trash"></i></td>
                     </tr>
                     `
-                    $('.operador').append(y)
+                    $('.operadores').append(y)
                   };
                 });
               }
@@ -132,6 +104,35 @@
     </div>
   </div>
 
+  <!-- modal de cadastro - início-->
+
+  <input class="modal-state" id="modal-1" type="checkbox" />
+
+  <div class="modal">
+
+    <label class="modal__bg" for="modal-1"></label>
+
+    <div class="modal__inner">
+
+      <label class="modal__close" for="modal-1"></label>
+
+      <form method="post" action="">
+
+        <input name="nome" id="nome" type="text" placeholder="Nome Completo" maxlength="40" required />
+
+        <input name="cpf" id="cpf" type="text" placeholder="CPF" maxlenght="14" required />
+
+        <input name="senha" id="senha" type="password" placeholder="Senha" maxlength="60" required />
+
+        <input type="submit" value="registrar operador" id="operadores" class="btn-form" name="submit">
+
+      </form>
+
+    </div>
+  </div>
+
+  <!-- modal de cadastro - fim-->
+
 </body>
 
 </html>
@@ -144,6 +145,10 @@
   document.querySelector('#menu-btn').onclick = () => {
     navbar.classList.toggle('active');
   }
+
+  document.querySelector("#operadores").addEventListener("click", function () {
+    location.reload();
+  });
 
   window.onscroll = () => {
     navbar.classList.remove('active');
