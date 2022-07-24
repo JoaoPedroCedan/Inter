@@ -11,7 +11,7 @@ require_once '../../conectiondb.php';
     $cpf = $_POST['cpf'];
     $senha = $_POST['senha'];
 
-    $insert = $conn->prepare("INSERT INTO operador (nome,cpf, senha, is_active) values ('$nome', '$cpf','$senha', '$status')");
+    $insert = $conn->prepare("INSERT INTO operador (nome,cpf, senha) values ('$nome', '$cpf','$senha')");
     if($insert->execute()){
         echo json_encode('efeutado com sucesso') ;
 };
