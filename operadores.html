@@ -129,6 +129,26 @@
 
         <input type="submit" value="registrar operador" id="operadores" class="btn-form" name="submit">
 
+        <script>
+          $('btn-form').click((event)=>{
+            var nome = document.getElementById('nome').value;
+            var cpf = document.getElementById('cpf').value;
+            var senha = document.getElementById('senha').value;
+              let dados = {
+                nome : `${nome}`,
+                cpf : `${cpf}`,
+                senha : `${senha}`
+              }
+              $.post("http://localhost/Inter/api/cadastrar/cadastrarOperador/",dados, function(data,status){
+              }).done((resultado)=>{
+                console.log(resultado)
+              }).fail((resultado)=>{
+                console.log(resultado)
+              })
+          })
+           
+          </script>
+
       </form>
 
     </div>
