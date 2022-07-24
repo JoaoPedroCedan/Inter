@@ -118,10 +118,13 @@
 
       <form method="post" action="">
 
-        <input name="nome" id="nome" type="text" placeholder="Nome Completo" maxlength="40" required />
+        <label for="nome">Nome Completo: </label>
+        <input name="nome" id="nome" type="text" maxlength="40" required />
 
-        <input name="cpf" id="cpf" type="text" placeholder="CPF" maxlenght="14" required />
+        <label for="cpf">CPF: </label>
+        <input name="cpf" id="cpf" type="text" maxlenght="14" required />
 
+        <label for="senha">Senha: </label>
         <input name="senha" id="senha" type="password" placeholder="Senha" maxlength="60" required />
 
         <input type="submit" value="registrar operador" id="operadores" class="btn-form" name="submit">

@@ -127,31 +127,31 @@
         <label for="cpf">CPF: </label>
         <input name="cpf" id="cpf" type="text" onKeyPress="MascaraGenerica(this, 'CPFCNPJ');" maxlenght="18" required />
 
-        <label for="cpf">Contato: </label>
+        <label for="contato">Contato: </label>
         <input name="contato" id="contato" type="text" onKeyPress="MascaraGenerica(this, 'TELEFONE');" required />
 
-        <label for="cpf">CEP: </label>
+        <label for="cep">CEP: </label>
         <input name="cep" id="cep" type="text" onblur="pesquisacep(this.value);"
           onKeyPress="MascaraGenerica(this, 'CEP');" maxlenght="11" required />
 
-        <label for="cpf">Logradouro: </label>
+        <label for="logradouro">Logradouro: </label>
         <input name="rua" id="rua" type="text" required />
 
-        <label for="cpf">Número</label>
+        <label for="numero">Número</label>
         <input name="numero" id="numero" type="text" required />
 
-        <label for="cpf">Bairro</label>
+        <label for="bairro">Bairro</label>
         <input name="bairro" id="bairro" type="text" required />
 
-        <label for="cpf">Cidade</label>
+        <label for="cidade">Cidade</label>
         <input name="cidade" id="cidade" type="text" required />
 
-        <label for="cpf">Estado</label>
+        <label for="estado">Estado</label>
         <input name="uf" id="uf" type="text" required />
 
         <select name="status" id="status" required>
-          <option value="ATIVO" selected>Ativo</option>
-          <option value="INATIVO">Inativo</option>
+          <option value="ATIVO" selected>ATIVO</option>
+          <option value="INATIVO">INATIVO</option>
         </select>
 
         <input name="submit" type="submit" class="btn-form" value="Cadastrar Cliente" />
