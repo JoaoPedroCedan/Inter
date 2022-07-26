@@ -137,83 +137,94 @@
                 <input name="pedido" id="pedido" type="text" required />
 
                 <label>Cliente: </label>
-                <select id="nome_cliente" required>
-                    <script>
-                        $(document).ready(() => {
-                            const exibir = () => {
-                                $.ajax({
-                                    url: 'http://localhost/inter/api/listagem/listarClientes/?ordering=nome'
-                                }).done((data) => {
-                                    for (const i in data) {
+                <div>
+                    <select id="nome_cliente" required>
+                        <script>
+                            $(document).ready(() => {
+                                const exibir = () => {
+                                    $.ajax({
+                                        url: 'http://localhost/inter/api/listagem/listarClientes/?ordering=nome'
+                                    }).done((data) => {
+                                        for (const i in data) {
 
-                                        let y =
-                                            `
+                                            let y =
+                                                `
                                   <option value='${data[i]['id']}'' selected>${data[i]['nome']}</option>
                                 `
-                                        $('#nome_cliente').append(y)
-                                    };
-                                });
-                            }
+                                            $('#nome_cliente').append(y)
+                                        };
+                                    });
+                                }
 
-                            exibir();
-                        })
-                    </script>
-                </select>
+                                exibir();
+                            })
+                        </script>
+                    </select>
+                </div>
 
                 <label>Entregador: </label>
-                <select id="nome_entregador" required>
-                    <script>
-                        $(document).ready(() => {
-                            const exibir = () => {
-                                $.ajax({
-                                    url: 'http://localhost/inter/api/listagem/listarEntregadores/?ordering=nome'
-                                }).done((data) => {
-                                    for (const i in data) {
+                <div>
+                    <select id="nome_entregador" required>
+                        <script>
+                            $(document).ready(() => {
+                                const exibir = () => {
+                                    $.ajax({
+                                        url: 'http://localhost/inter/api/listagem/listarEntregadores/?ordering=nome'
+                                    }).done((data) => {
+                                        for (const i in data) {
 
-                                        let y =
-                                            `
+                                            let y =
+                                                `
                                   <option value='${data[i]['id']}'' selected>${data[i]['nome']}</option>
                                 `
-                                        $('#nome_entregador').append(y)
-                                    };
-                                });
-                            }
+                                            $('#nome_entregador').append(y)
+                                        };
+                                    });
+                                }
 
-                            exibir();
-                        })
-                    </script>
-                </select>
+                                exibir();
+                            })
+                        </script>
+                    </select>
+                </div>
 
                 <label>Operador: </label>
-                <select  id="nome_operador" required>
-                    <script>
-                        $(document).ready(() => {
-                            const exibir = () => {
-                                $.ajax({
-                                    url: 'http://localhost/inter/api/listagem/listarOperador/?ordering=nome'
-                                }).done((data) => {
-                                    for (const i in data) {
+                <div>
+                    <select id="nome_operador" required>
+                        <script>
+                            $(document).ready(() => {
+                                const exibir = () => {
+                                    $.ajax({
+                                        url: 'http://localhost/inter/api/listagem/listarOperador/?ordering=nome'
+                                    }).done((data) => {
+                                        for (const i in data) {
 
-                                        let y =
-                                            `
+                                            let y =
+                                                `
                                   <option value='${data[i]['id']}'' selected>${data[i]['nome']}</option>
                                 `
-                                        $('#nome_operador').append(y)
-                                    };
-                                });
-                            }
+                                            $('#nome_operador').append(y)
+                                        };
+                                    });
+                                }
 
-                            exibir();
-                        })
-                    </script>
-                </select>
+                                exibir();
+                            })
+                        </script>
+                    </select>
+                </div>
+
+                <label>Data de Saída </label>
+                <input name="data_saida" id="dada_saida" type="datetime" required />
 
                 <label for="Status">Status: </label>
-                <select name="status" id="status" required>
-                    <option value="SAIU PARA ENTREGA" selected>SAIU PARA ENTREGA</option>
-                    <option value="NÃO ENCONTRADO">NÃO ENCONTRADO</option>
-                    <option value="ENTREGUE">ENTREGUE</option>
-                </select>
+                <div>
+                    <select name="status" id="status" required>
+                        <option value="SAIU PARA ENTREGA" selected>SAIU PARA ENTREGA</option>
+                        <option value="NÃO ENCONTRADO">NÃO ENCONTRADO</option>
+                        <option value="ENTREGUE">ENTREGUE</option>
+                    </select>
+                </div>
 
                 <input name="submit" type="submit" class="btn-form" value="Cadastrar Cliente" />
 
@@ -225,6 +236,7 @@
                         var nome_cliente = document.getElementById('nome_cliente').value;
                         var nome_entregador = document.getElementById('nome_entregador').value;
                         var nome_operador = document.getElementById('nome_operador').value;
+                        var data_saida = document.getElementById('data_saida').value;
                         var status = document.getElementById('status').value;
                         let dados = {
                             quantidade: `${quantidade}`,
@@ -233,6 +245,7 @@
                             nome_cliente: `${nome_cliente}`,
                             nome_entregador: `${nome_entregador}`,
                             nome_operador: `${nome_operador}`,
+                            data_saida: `${data_saida}`,
                             status: `${status}`
                         }
                         console.log(dados);
