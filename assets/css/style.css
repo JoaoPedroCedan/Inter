@@ -542,6 +542,7 @@ table {
   border-spacing: 10px;
   border-collapse: collapse;
   word-wrap:break-word;
+
 }
 
 thead {
@@ -571,6 +572,7 @@ tbody tr td {
   max-width: 50px;
   color: #282828;
   text-align: start;
+  text-transform: uppercase;
 }
 
 thead tr th.acao {
