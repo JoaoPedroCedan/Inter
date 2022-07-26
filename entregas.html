@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<!-- header html - início -->
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BestLane</title>
+
+    <!-- font awesome cdn link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- css file link -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- script file link -->
+    <script src="script.js" defer></script>
+
+    <!-- jquery cdn link-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+
+    <!-- cabeçalho sem autenticação - início-->
+
+    <header class="header">
+
+        <div id="menu-btn" class="fas fa-bars"></div>
+        <img src="" alt="">
+        <a href="#" class="logo">BESTLANE</a>
+
+        <nav class="navbar">
+            <a href="#">Entregas</a>
+            <a href="#">Clientes</a>
+            <a href="#">Operadores</a>
+            <a href="#">Entregadores</a>
+        </nav>
+
+        <div class="icons">
+            <div class="fas fa-sign-in-alt" id="login-btn"></div>
+        </div>
+
+    </header>
+
+    <div class="banner">
+
+        <div class="conteudo">
+            <br><br><br>
+            <h3>Painel de Entregas</h3>
+            <br><br><br>
+        </div>
+
+    </div>
+
+    <div class="painel">
+
+        <div class="icons">
+            <label class="fa fa-plus-circle fa-3x" for="modal-1"></label>
+        </div>
+
+        <div class="container">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Número de Pedido</th>
+                        <th>Descrição</th>
+                        <th>Nota Fiscal</th>
+                        <th>Cliente</th>
+                        <th>Status</th>
+                        <th>Exibir</th>
+                        <th>Editar</th>
+                        <th>Excluir</th>
+                    </tr>
+                </thead>
+                <tbody class="clientes">
+                    <script>
+                        $(document).ready(() => {
+                            const exibir = () => {
+                                $.ajax({
+                                    url: 'http://localhost/Inter/api/listagem/listarEntregas/?default'
+                                }).done((data) => {
+                                    for (const i in data) {
+
+                                        let y =
+                                            `
+                    <tr>
+                    <td data-label='Número do Pedido: '>${data[i]['id']}</td>
+                    <td data-label='Descrição: '>${data[i]['descricao']}</td>
+                    <td data-label='Nota Fiscal: '>${data[i]['pedido']}</td>
+                    <td data-label='Cliente: '>${data[i]['nome_cliente']}</td>
+                    <td data-label='Status: '>${data[i]['status']}</td>
+                    <td><i class="fa fa-eye"></i></td>
+                    <td><i class="fa fa-edit"></i></td>
+                    <td><i class="fa fa-trash"></i></td>
+                    </tr>
+                    `
+                                        $('.clientes').append(y)
+                                    };
+                                });
+                            }
+
+                            exibir();
+                        })
+                    </script>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+    <input class="modal-state" id="modal-1" type="checkbox" />
+
+    <div class="modal">
+
+        <label class="modal__bg" for="modal-1"></label>
+
+        <div class="modal__inner">
+
+            <label class="modal__close" for="modal-1"></label>
+
+            <form method="post" action="">
+
+                <label>Quantidade: </label>
+                <input name="quantidade" id="quantidade" type="text" maxlength="40" required />
+
+                <label>Descrição: </label>
+                <input name="descricao" id="descricao" type="text" maxlenght="18" required />
+
+                <label>Nota Fiscal: </label>
+                <input name="pedido" id="pedido" type="text" required />
+
+                <label>Cliente: </label>
+                <select class="nome_cliente" id="nome_cliente" required>
+                    <script>
+                        $(document).ready(() => {
+                            const exibir = () => {
+                                $.ajax({
+                                    url: 'http://localhost/inter/api/listagem/listarClientes/?ordering=nome'
+                                }).done((data) => {
+                                    for (const i in data) {
+
+                                        let y =
+                                            `
+                                  <option value='${data[i]['id']}'' selected>${data[i]['nome']}</option>
+                                `
+                                        $('.nome_cliente').append(y)
+                                    };
+                                });
+                            }
+
+                            exibir();
+                        })
+                    </script>
+                </select>
+
+                <label>Entregador: </label>
+                <select class="nome_entregador" id="nome_entregador" required>
+                    <script>
+                        $(document).ready(() => {
+                            const exibir = () => {
+                                $.ajax({
+                                    url: 'http://localhost/inter/api/listagem/listarEntregadores/?ordering=nome'
+                                }).done((data) => {
+                                    for (const i in data) {
+
+                                        let y =
+                                            `
+                                  <option value='${data[i]['id']}'' selected>${data[i]['nome']}</option>
+                                `
+                                        $('.nome_entregador').append(y)
+                                    };
+                                });
+                            }
+
+                            exibir();
+                        })
+                    </script>
+                </select>
+
+                <label>Operador: </label>
+                <select class="nome_operador" id="nome_operador" required>
+                    <script>
+                        $(document).ready(() => {
+                            const exibir = () => {
+                                $.ajax({
+                                    url: 'http://localhost/inter/api/listagem/listarOperador/?ordering=nome'
+                                }).done((data) => {
+                                    for (const i in data) {
+
+                                        let y =
+                                            `
+                                  <option value='${data[i]['id']}'' selected>${data[i]['nome']}</option>
+                                `
+                                        $('.nome_operador').append(y)
+                                    };
+                                });
+                            }
+
+                            exibir();
+                        })
+                    </script>
+                </select>
+
+                <label for="Status">Status: </label>
+                <select name="status" id="status" required>
+                    <option value="SAIU PARA ENTREGA" selected>SAIU PARA ENTREGA</option>
+                    <option value="NÃO ENCONTRADO">NÃO ENCONTRADO</option>
+                    <option value="ENTREGUE">ENTREGUE</option>
+                  </select>
+
+                <input name="submit" type="submit" class="btn-form" value="Cadastrar Cliente" />
+
+                <script>
+                    $('.btn-form').click((event) => {
+                        var quantidade = document.getElementById('quantidade').value;
+                        var descricao = document.getElementById('descricao').value;
+                        var pedido = document.getElementById('pedido').value;
+                        var nome_cliente = document.getElementById('nome_cliente').value;
+                        var nome_entregador = document.getElementById('nome_entregador').value;
+                        var nome_operador = document.getElementById('nome_operador').value;
+                        var status = document.getElementById('status').value;
+                        let dados = {
+                            quantidade: `${nome}`,
+                            descricao: `${descricao}`,
+                            pedido: `${pedido}`,
+                            nome_cliente: `${nome_cliente}`,
+                            nome_entregador: `${nome_entregador}`,
+                            nome_operador: `${nome_operador}`,
+                            status: `${status}`
+                        }
+                        $.post("http://localhost/Inter/api/cadastrar/cadastrarEntregas/", dados, function (data, status) {
+                        }).done((resultado) => {
+                            console.log(resultado)
+                        }).fail((resultado) => {
+                            console.log(resultado)
+                        })
+                    })
+                </script>
+            </form>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<!-- script responsável pela animação do navbar quando a tela diminui - início-->
+
+<script>
+    let navbar = document.querySelector('.header .navbar');
+
+    document.querySelector('#menu-btn').onclick = () => {
+        navbar.classList.toggle('active');
+    }
+
+    window.onscroll = () => {
+        navbar.classList.remove('active');
+    }
+</script>
+
+<!-- script responsável pela animação do navbar quando a tela diminui - fim-->

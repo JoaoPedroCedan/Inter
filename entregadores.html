@@ -135,10 +135,13 @@
                 <script>
                     $('.btn-form').click((event) => {
                         var nome = document.getElementById('nome').value;
+                        var login = document.getElementById('cpf').value;
                         var cpf = document.getElementById('cpf').value;
                         var senha = document.getElementById('senha').value;
+
                         let dados = {
                             nome: `${nome}`,
+                            login: `${cpf}`,
                             cpf: `${cpf}`,
                             senha: `${senha}`
                         }
