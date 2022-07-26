@@ -38,7 +38,7 @@
             <a href="entregas.html">Entregas</a>
             <a href="clientes.html">Clientes</a>
             <a href="operadores.html">Operadores</a>
-            <a href="entregas.html">Entregadores</a>
+            <a href="entregadores.html">Entregadores</a>
         </nav>
 
         <div class="icons">
@@ -137,7 +137,7 @@
                 <input name="pedido" id="pedido" type="text" required />
 
                 <label>Cliente: </label>
-                <select class="nome_cliente" id="nome_cliente" required>
+                <select id="nome_cliente" required>
                     <script>
                         $(document).ready(() => {
                             const exibir = () => {
@@ -150,7 +150,7 @@
                                             `
                                   <option value='${data[i]['id']}'' selected>${data[i]['nome']}</option>
                                 `
-                                        $('.nome_cliente').append(y)
+                                        $('#nome_cliente').append(y)
                                     };
                                 });
                             }
@@ -161,7 +161,7 @@
                 </select>
 
                 <label>Entregador: </label>
-                <select class="nome_entregador" id="nome_entregador" required>
+                <select id="nome_entregador" required>
                     <script>
                         $(document).ready(() => {
                             const exibir = () => {
@@ -174,7 +174,7 @@
                                             `
                                   <option value='${data[i]['id']}'' selected>${data[i]['nome']}</option>
                                 `
-                                        $('.nome_entregador').append(y)
+                                        $('#nome_entregador').append(y)
                                     };
                                 });
                             }
@@ -185,7 +185,7 @@
                 </select>
 
                 <label>Operador: </label>
-                <select class="nome_operador" id="nome_operador" required>
+                <select  id="nome_operador" required>
                     <script>
                         $(document).ready(() => {
                             const exibir = () => {
@@ -198,7 +198,7 @@
                                             `
                                   <option value='${data[i]['id']}'' selected>${data[i]['nome']}</option>
                                 `
-                                        $('.nome_operador').append(y)
+                                        $('#nome_operador').append(y)
                                     };
                                 });
                             }
@@ -213,7 +213,7 @@
                     <option value="SAIU PARA ENTREGA" selected>SAIU PARA ENTREGA</option>
                     <option value="NÃO ENCONTRADO">NÃO ENCONTRADO</option>
                     <option value="ENTREGUE">ENTREGUE</option>
-                  </select>
+                </select>
 
                 <input name="submit" type="submit" class="btn-form" value="Cadastrar Cliente" />
 
@@ -227,7 +227,7 @@
                         var nome_operador = document.getElementById('nome_operador').value;
                         var status = document.getElementById('status').value;
                         let dados = {
-                            quantidade: `${nome}`,
+                            quantidade: `${quantidade}`,
                             descricao: `${descricao}`,
                             pedido: `${pedido}`,
                             nome_cliente: `${nome_cliente}`,
@@ -235,6 +235,7 @@
                             nome_operador: `${nome_operador}`,
                             status: `${status}`
                         }
+                        console.log(dados);
                         $.post("http://localhost/Inter/api/cadastrar/cadastrarEntregas/", dados, function (data, status) {
                         }).done((resultado) => {
                             console.log(resultado)
