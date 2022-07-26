@@ -1,0 +1,5 @@
+<IfModule mod_rewrite.c>
+   # Página de operadores
+  RewriteRule ^operadores/([0-9]+)/([A-Za-z0-9-\+]+)/?$ operadores.html [NC]
+
+</IfModule>
