@@ -39,12 +39,8 @@ function formataCampo(campo, Mascara) {
 
 function MascaraGenerica(seletor, tipoMascara) {
     setTimeout(function () {
-        if (tipoMascara == 'CPFCNPJ') {
-            if (seletor.value.length <= 14) { //cpf
-                formataCampo(seletor, '000.000.000-00');
-            } else { //cnpj
-                formataCampo(seletor, '00.000.000/0000-00');
-            }
+        if (tipoMascara == 'CPF') {
+            formataCampo(seletor, '000.000.000-00');
         } else if (tipoMascara == 'DATA') {
             formataCampo(seletor, '00/00/0000');
         } else if (tipoMascara == 'CEP') {
