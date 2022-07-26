@@ -81,7 +81,7 @@
                         $(document).ready(() => {
                             const exibir = () => {
                                 $.ajax({
-                                    url: 'http://localhost/Inter/api/listagem/listarEntregadores/?default'
+                                    url: 'http://localhost/Inter/api/listagem/listarEntregador/?default'
                                 }).done((data) => {
                                     for (const i in data) {
 
@@ -148,7 +148,7 @@
                             cpf: `${cpf}`,
                             senha: `${senha}`
                         }
-                        $.post("http://localhost/Inter/api/cadastrar/cadastrarEntregadores/", dados, function (data, status) {
+                        $.post("http://localhost/Inter/api/cadastrar/cadastrarEntregador/", dados, function (data, status) {
                         }).done((resultado) => {
                             console.log(resultado)
                         }).fail((resultado) => {
