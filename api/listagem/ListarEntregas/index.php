@@ -32,5 +32,4 @@ if(isset($_GET['default'])){
     $result = $select->fetchAll(PDO::FETCH_ASSOC);
     echo json_encode($result);
 }
-
 ?>

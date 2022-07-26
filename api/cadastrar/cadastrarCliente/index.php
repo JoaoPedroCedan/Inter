@@ -25,7 +25,4 @@ values
 if($insert->execute()){
     echo json_encode('efeutado com sucesso') ;
 };
-
-
-
 ?>

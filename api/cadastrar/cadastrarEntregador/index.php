@@ -10,9 +10,8 @@ require_once '../../conectiondb.php';
     $nome = $_POST['nome'];
     $cpf = $_POST['cpf'];
     $senha = $_POST['senha'];
-
-    $insert = $conn->prepare("INSERT INTO operador (nome,cpf, senha) values ('$nome', '$cpf','$senha')");
+    $insert = $conn->prepare("INSERT INTO entregador (nome,cpf,senha) values ('$nome', '$cpf','$senha')");
     if($insert->execute()){
-        echo json_encode('efeutado com sucesso') ;
+        echo json_encode('efetuado com sucesso') ;   
 };
 ?>
