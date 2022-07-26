@@ -71,8 +71,8 @@
                         <th>Nome Completo</th>
                         <th>CPF</th>
                         <th>Data de Admissão</th>
-                        <th>Editar</th>
-                        <th>Excluir</th>
+                        <th style="text-align: center;">Editar</th>
+                        <th style="text-align: center;">Excluir</th>
                     </tr>
                 </thead>
 
@@ -91,8 +91,8 @@
                     <td data-label='Nome Completo: '>${data[i]['nome']}</td>
                     <td data-label='CPF: '>${data[i]['cpf']}</td>
                     <td data-label='Data de Amissão: '>${data[i]['data_admissao']}</td>
-                    <td><i class="fa fa-edit"></i></td>
-                    <td><i class="fa fa-trash"></i></td>
+                    <td style="text-align: center;"><i class="fa fa-edit"></i></td>
+                    <td style="text-align: center;"><i class="fa fa-trash"></i></td>
                     </tr>
                     `
                                         $('.entregadores').append(y)

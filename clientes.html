@@ -73,9 +73,9 @@
             <th>Nome Completo</th>
             <th>CPF</th>
             <th>Contato</th>
-            <th>Exibir</th>
-            <th>Editar</th>
-            <th>Excluir</th>
+            <th style="text-align: center;">Exibir</th>
+            <th style="text-align: center;">Editar</th>
+            <th style="text-align: center;">Excluir</th>
           </tr>
         </thead>
         <tbody class="clientes">
@@ -93,9 +93,9 @@
                     <td data-label='Nome Completo: '>${data[i]['nome']}</td>
                     <td data-label='CPF: '>${data[i]['cpf']}</td>
                     <td data-label='Contato: '>${data[i]['telefone']}</td>
-                    <td><i class="fa fa-eye"></i></td>
-                    <td><i class="fa fa-edit"></i></td>
-                    <td><i class="fa fa-trash"></i></td>
+                    <td style="text-align: center;"><i class="fa fa-eye"></i></td>
+                    <td style="text-align: center;"><i class="fa fa-edit"></i></td>
+                    <td style="text-align: center;"><i class="fa fa-trash"></i></td>
                     </tr>
                     `
                     $('.clientes').append(y)
@@ -152,6 +152,7 @@
         <label for="estado">Estado</label>
         <input name="uf" id="uf" type="text" required />
 
+        <label for="estado">Situação</label>
         <select name="status" id="status" required>
           <option value="ATIVO" selected>ATIVO</option>
           <option value="INATIVO">INATIVO</option>
