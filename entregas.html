@@ -195,7 +195,7 @@
                             $(document).ready(() => {
                                 const exibir = () => {
                                     $.ajax({
-                                        url: 'http://localhost/inter/api/listagem/listarEntregas/?ordering=nome'
+                                        url: 'http://localhost/inter/api/listagem/listarOperador/?ordering=nome'
                                     }).done((data) => {
                                         for (const i in data) {
 
@@ -215,7 +215,7 @@
                 </div>
 
                 <label>Data de Saída </label>
-                <input name="data_saida" id="dada_saida" type="datetime" required />
+                <input name="data_saida" id="dada_saida" type="date" required />
 
                 <label for="Status">Status: </label>
                 <div>
@@ -226,7 +226,7 @@
                     </select>
                 </div>
 
-                <input name="submit" type="submit" class="btn-form" value="Cadastrar Cliente" />
+                <input name="submit" type="submit" class="btn-form" value="Cadastrar Entrega" />
 
                 <script>
                     $('.btn-form').click((event) => {

@@ -413,13 +413,33 @@ section {
 .modal input {
   width: 100%;
   outline: none;
-  padding: 5px 10px;
   text-transform: uppercase;
-  width: 100%;
-  margin-bottom: 20px;
   border-top: none;
   border-left: none;
   border-right: none;
+  border-radius: 5rem;
+  border: 0.2rem solid #201b2c;
+  color: #eeeeee;
+  padding: 1.2rem 1.4rem;
+  font-size: 1.6rem;
+}
+
+.modal label {
+  outline: none;
+  padding: 5px 10px;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+.modal select {
+  width: 100%;
+  padding: 1.2rem 1.4rem;
+  font-size: 1.6rem;
+  border-radius: 5rem;
+  border: 0.2rem solid #201b2c;
+  color: #201b2c;
+  text-transform: uppercase;
+  outline: none;
 }
 
 .box {
@@ -618,7 +638,7 @@ tbody tr td.acao {
   }
 
   .modal label {
-    font-size: 12px !important;
+    font-size: 1.7rem !important;
   }
 
   table {
