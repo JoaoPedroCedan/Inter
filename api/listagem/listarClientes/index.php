@@ -73,7 +73,7 @@ if(isset($_GET['ordering'])){
 
 //Busca vazia (nula)
 }if(isset($_GET['default'])){
-    $select = $conn->prepare("SELECT * FROM $tabela");
+    $select = $conn->prepare("SELECT * FROM $tabela ORDER BY id ASC");
     $select->execute();
     $result = $select->fetchAll(PDO::FETCH_ASSOC);
     echo json_encode($result);
