@@ -7,11 +7,10 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 
 require_once '../../conectiondb.php';
 
-    $nome = $_POST['nome'];
-    $cpf = $_POST['cpf'];
-    $senha = $_POST['senha'];
-    $insert = $conn->prepare("INSERT INTO entregador (nome,cpf,login,senha) values ('$nome','$cpf', '$cpf','$senha')");
-    if($insert->execute()){
-        echo json_encode('efetuado com sucesso') ;   
-};
+
+
+
+
+
+
 ?>
