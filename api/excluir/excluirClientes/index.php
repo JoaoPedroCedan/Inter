@@ -7,10 +7,9 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 
 require_once '../../conectiondb.php';
 
-
-
-
-
-
+if(isset($_GET['id']))
+{
+    
+}
 
 ?>
