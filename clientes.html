@@ -75,7 +75,6 @@
             <th>Contato</th>
             <th style="text-align: center;">Exibir</th>
             <th style="text-align: center;">Editar</th>
-            <th style="text-align: center;">Excluir</th>
           </tr>
         </thead>
         <tbody class="clientes">
@@ -85,6 +84,7 @@
                 $.ajax({
                   url: 'http://localhost/Inter/api/listagem/listarClientes/?default'
                 }).done((data) => {
+
                   for (const i in data) {
 
                     let y =
@@ -93,9 +93,8 @@
                     <td data-label='Nome Completo: '>${data[i]['nome']}</td>
                     <td data-label='CPF: '>${data[i]['cpf']}</td>
                     <td data-label='Contato: '>${data[i]['telefone']}</td>
-                    <td style="text-align: center;"><i class="fa fa-eye"></i></td>
+                    <td style="text-align: center;"><a href="editar.html?id=${data[i]['id']}" class="fa fa-eye"></a></td>
                     <td style="text-align: center;"><i class="fa fa-edit"></i></td>
-                    <td style="text-align: center;"><i class="fa fa-trash"></i></td>
                     </tr>
                     `
                     $('.clientes').append(y)

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<!-- header html - início -->
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BestLane</title>
+
+    <!-- font awesome cdn link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- css file link -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- script file link -->
+    <script src="script.js" defer></script>
+
+    <!-- jquery cdn link-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+
+    <!-- cabeçalho sem autenticação - início-->
+
+    <header class="header">
+
+        <div id="menu-btn" class="fas fa-bars"></div>
+        <img src="" alt="">
+        <a href="#" class="logo">BESTLANE</a>
+
+        <nav class="navbar">
+            <a href="entregas.html">Entregas</a>
+            <a href="clientes.html">Clientes</a>
+            <a href="operadores.html">Operadores</a>
+            <a href="entregadores.html">Entregadores</a>
+        </nav>
+
+        <div class="icons">
+            <div class="fas fa-sign-in-alt" id="login-btn"></div>
+        </div>
+
+    </header>
+
+    <div class="banner">
+
+        <div class="conteudo">
+            <br><br><br>
+            <h3>Painel de Clientes</h3>
+            <br><br><br>
+        </div>
+
+    </div>
+
+    <div class="painel">
+
+
+        <div class="container">
+
+            <form class="editar" method="post" action="">
+
+                <script>
+
+
+                    $(document).ready(() => {
+                        var valor = 0;
+                        var query = location.search.slice(1);
+                        var partes = query.split('&');
+                        var indice = {};
+                        partes.forEach(function (parte) {
+                            var chaveValor = parte.split('=');
+                            var chave = chaveValor[0];
+                            var valor = chaveValor[1];
+                            indice[chave] = valor;
+
+                            console.log(valor)
+                        });
+
+                        const exibir = () => {
+                            $.ajax({
+                                url: `http://localhost/Inter/api/listagem/listarClientes/?id=${valor}`
+                            }).done((data) => {
+
+
+                                console.log(data)
+                                let y =
+
+                                    `
+                                <label for="cpf">Nome Completo: </label>
+                                <input name="nome" id="nome" type="text" maxlength="40" value="${data['nome']} required />
+
+                                <input name="submit" type="submit" class="btn-form" value="Cadastrar Cliente" />
+                                `
+                                $('.editar').append(y)
+
+                            });
+                        }
+
+                        exibir();
+                    })
+                </script>
+
+
+
+                <script>
+                    $('.btn-form').click((event) => {
+                        var nome = document.getElementById('nome').value;
+                        var telefone = document.getElementById('contato').value;
+                        var cpf = document.getElementById('cpf').value;
+                        var cep = document.getElementById('cep').value;
+                        var logradouro = document.getElementById('rua').value;
+                        var numero = document.getElementById('numero').value;
+                        var bairro = document.getElementById('bairro').value;
+                        var cidade = document.getElementById('cidade').value;
+                        var estado = document.getElementById('uf').value;
+                        var status = document.getElementById('status').value;
+                        let dados = {
+                            nome: `${nome}`,
+                            telefone: `${telefone}`,
+                            cpf: `${cpf}`,
+                            cep: `${cep}`,
+                            logradouro: `${logradouro}`,
+                            numero: `${numero}`,
+                            bairro: `${bairro}`,
+                            cidade: `${cidade}`,
+                            estado: `${estado}`,
+                            status: `${status}`
+                        }
+                        $.post("http://localhost/Inter/api/cadastrar/cadastrarCliente/", dados, function (data, status) {
+                        }).done((resultado) => {
+                            console.log(resultado)
+                        }).fail((resultado) => {
+                            console.log(resultado)
+                        })
+                    })
+                </script>
+            </form>
+
+
+
+        </div>
+
+
+        <div class="modal">
+
+            <div class="modal__inner">
+
+                <label class="modal__close" for="modal-1"></label>
+
+                <form method="post" action="">
+
+                    <label for="cpf">Nome Completo: </label>
+                    <input name="nome" id="nome" type="text" maxlength="40" required />
+
+                    <label for="cpf">CPF: </label>
+                    <input name="cpf" id="cpf" type="text" onKeyPress="MascaraGenerica(this, 'CPF');" maxlenght="18"
+                        required />
+
+                    <label for="contato">Contato: </label>
+                    <input name="contato" id="contato" type="text" onKeyPress="MascaraGenerica(this, 'TELEFONE');"
+                        required />
+
+                    <label for="cep">CEP: </label>
+                    <input name="cep" id="cep" type="text" onblur="pesquisacep(this.value);"
+                        onKeyPress="MascaraGenerica(this, 'CEP');" maxlenght="11" required />
+
+                    <label for="logradouro">Logradouro: </label>
+                    <input name="rua" id="rua" type="text" required />
+
+                    <label for="numero">Número</label>
+                    <input name="numero" id="numero" type="text" required />
+
+                    <label for="bairro">Bairro</label>
+                    <input name="bairro" id="bairro" type="text" required />
+
+                    <label for="cidade">Cidade</label>
+                    <input name="cidade" id="cidade" type="text" required />
+
+                    <label for="estado">Estado</label>
+                    <input name="uf" id="uf" type="text" required />
+
+                    <label for="estado">Situação</label>
+                    <select name="status" id="status" required>
+                        <option value="ATIVO" selected>ATIVO</option>
+                        <option value="INATIVO">INATIVO</option>
+                    </select>
+
+                    <input name="submit" type="submit" class="btn-form" value="Cadastrar Cliente" />
+
+                    <script>
+                        $('.btn-form').click((event) => {
+                            var nome = document.getElementById('nome').value;
+                            var telefone = document.getElementById('contato').value;
+                            var cpf = document.getElementById('cpf').value;
+                            var cep = document.getElementById('cep').value;
+                            var logradouro = document.getElementById('rua').value;
+                            var numero = document.getElementById('numero').value;
+                            var bairro = document.getElementById('bairro').value;
+                            var cidade = document.getElementById('cidade').value;
+                            var estado = document.getElementById('uf').value;
+                            var status = document.getElementById('status').value;
+                            let dados = {
+                                nome: `${nome}`,
+                                telefone: `${telefone}`,
+                                cpf: `${cpf}`,
+                                cep: `${cep}`,
+                                logradouro: `${logradouro}`,
+                                numero: `${numero}`,
+                                bairro: `${bairro}`,
+                                cidade: `${cidade}`,
+                                estado: `${estado}`,
+                                status: `${status}`
+                            }
+                            $.post("http://localhost/Inter/api/cadastrar/cadastrarCliente/", dados, function (data, status) {
+                            }).done((resultado) => {
+                                console.log(resultado)
+                            }).fail((resultado) => {
+                                console.log(resultado)
+                            })
+                        })
+                    </script>
+                </form>
+
+            </div>
+        </div>
+
+</body>
+
+</html>
+
+<!-- script responsável pela animação do navbar quando a tela diminui - início-->
+
+<script>
+    let navbar = document.querySelector('.header .navbar');
+
+    document.querySelector('#menu-btn').onclick = () => {
+        navbar.classList.toggle('active');
+    }
+
+    window.onscroll = () => {
+        navbar.classList.remove('active');
+    }
+</script>
+
+<!-- script responsável pela animação do navbar quando a tela diminui - fim-->
