@@ -68,36 +68,35 @@
 
 
                     $(document).ready(() => {
-                        var valor = 0;
-                        var query = location.search.slice(1);
-                        var partes = query.split('&');
-                        var indice = {};
-                        partes.forEach(function (parte) {
-                            var chaveValor = parte.split('=');
-                            var chave = chaveValor[0];
-                            var valor = chaveValor[1];
-                            indice[chave] = valor;
-
-                            console.log(valor)
-                        });
 
                         const exibir = () => {
+                            var query = location.search.slice(1);
+                            var partes = query.split('&');
+                            var indice = {};
+                            partes.forEach(function (parte) {
+                                var chaveValor = parte.split('=');
+                                var chave = chaveValor[0];
+                                var valor = chaveValor[1];
+                                indice[chave] = valor;
+
+                            });
+                            console.log(indice.id);
                             $.ajax({
-                                url: `http://localhost/Inter/api/listagem/listarClientes/?id=${valor}`
+                                url: `http://localhost/Inter/api/listagem/listarClientes/?id=${indice.id}`
                             }).done((data) => {
 
+                                for(const i in data){
+                                    let y =
 
-                                console.log(data)
-                                let y =
+                                        `
+                                    <label for="cpf">Nome Completo: </label>
+                                    <input name="nome" id="nome" type="text" maxlength="40" value="${data[i]['nome']} required />
 
+                                    <input name="submit" type="submit" class="btn-form" value="Cadastrar Cliente" />
                                     `
-                                <label for="cpf">Nome Completo: </label>
-                                <input name="nome" id="nome" type="text" maxlength="40" value="${data['nome']} required />
+                                    $('.editar').append(y)
 
-                                <input name="submit" type="submit" class="btn-form" value="Cadastrar Cliente" />
-                                `
-                                $('.editar').append(y)
-
+                                }
                             });
                         }
 
