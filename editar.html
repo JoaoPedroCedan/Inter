@@ -119,21 +119,10 @@
 
                                     <label for="estado">Situação</label>
                                     <select name="status" id="status" required>
-                                    `
-                                    if (data[i]['status'] === 'ATIVO') {
-                                        `
                                         <option value="${data[i]['is_active']}" selected >${data[i]['is_active']}</option >
                                         <option value="INATIVO">INATIVO</option>
-                                        </select >
-                                        `
-                                    } else {
-                                        `
-                                        <option value="${data[i]['is_active']}" selected >${data[i]['is_active']}</option >
-                                        <option value="ATIVO">ATIVO</option>
-                                        </select >
-                                        `
-                                    }
-                                    `
+                                    </select >
+
                                     <input name="submit" type="submit" class="btn-form" value="Cadastrar Cliente" />
                                     `
                                     $('.editar').append(y)
@@ -144,11 +133,7 @@
 
                         exibir();
                     })
-                </script>
 
-
-
-                <script>
                     $('.btn-form').click((event) => {
                         var nome = document.getElementById('nome').value;
                         var telefone = document.getElementById('contato').value;
@@ -182,10 +167,7 @@
                 </script>
             </form>
 
-
-
         </div>
-
 
         <div class="modal">
 
