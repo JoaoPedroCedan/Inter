@@ -146,6 +146,7 @@
                         var estado = document.getElementById('uf').value;
                         var status = document.getElementById('status').value;
                         let dados = {
+                            id: `${indice.id}`,
                             nome: `${nome}`,
                             telefone: `${telefone}`,
                             cpf: `${cpf}`,
@@ -156,8 +157,11 @@
                             cidade: `${cidade}`,
                             estado: `${estado}`,
                             status: `${status}`
-                        }
-                        $.post("http://localhost/Inter/api/cadastrar/cadastrarCliente/", dados, function (data, status) {
+
+                            
+                        } 
+                        console.log(dados)
+                        $.post(`http://localhost/Inter/api/cadastrar/cadastrarCliente/`, dados, function (data, status) {
                         }).done((resultado) => {
                             console.log(resultado)
                         }).fail((resultado) => {
