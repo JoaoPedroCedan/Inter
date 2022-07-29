@@ -58,207 +58,102 @@
     </div>
 
     <div class="painel">
-
-
         <div class="container">
-
             <form class="editar" method="post" action="">
+                <label for="cpf">Nome Completo: </label>
+                <input name="nome" id="nome" type="text" maxlength="40" required />
 
-                <script>
+                <label for="cpf">CPF: </label>
+                <input name="cpf" id="cpf" type="text" onKeyPress="MascaraGenerica(this, 'CPF');" maxlenght="18"  required />
 
+                <label>Contato: </label>
+                <input name="contato" id="contato" type="text" onKeyPress="MascaraGenerica(this, 'TELEFONE');"  required />
 
-                    $(document).ready(() => {
+                <label>CEP: </label>
+                <input name="cep" id="cep" type="text" onblur="pesquisacep(this.value);"
+                onKeyPress="MascaraGenerica(this, 'CEP');" maxlenght="11"  required />
 
-                        const exibir = () => {
-                            var query = location.search.slice(1);
-                            var partes = query.split('&');
-                            var indice = {};
-                            partes.forEach(function (parte) {
-                                var chaveValor = parte.split('=');
-                                var chave = chaveValor[0];
-                                var valor = chaveValor[1];
-                                indice[chave] = valor;
+                <label>Logradouro: </label>
+                <input name="rua" id="rua" type="text"  required />
 
-                            });
-                            console.log(indice.id);
-                            $.ajax({
-                                url: `http://localhost/Inter/api/listagem/listarClientes/?id=${indice.id}`
-                            }).done((data) => {
+                <label>Número</label>
+                <input name="numero" id="numero" type="text" required />
 
-                                for (const i in data) {
-                                    let y =
+                <label>Bairro</label>
+                <input name="bairro" id="bairro" type="text"  required />
 
-                                        `
-                                    <label for="cpf">Nome Completo: </label>
-                                    <input name="nome" id="nome" type="text" maxlength="40" value="${data[i]['nome']}" required />
+                <label>Cidade</label>
+                <input name="cidade" id="cidade" type="text"  required />
 
-                                    <label for="cpf">CPF: </label>
-                                    <input name="cpf" id="cpf" type="text" onKeyPress="MascaraGenerica(this, 'CPF');" maxlenght="18" value="${data[i]['cpf']}" required />
+                <label>Estado</label>
+                <input name="uf" id="uf" type="text" required />
 
-                                    <label>Contato: </label>
-                                    <input name="contato" id="contato" type="text" onKeyPress="MascaraGenerica(this, 'TELEFONE');" value="${data[i]['contato']}" required />
+                <label>Situação</label>
+                <select name="status" id="status" required>
+                    <option value="ATIVO" >ATIVO</option >
+                    <option value="INATIVO">INATIVO</option>
+                </select >
 
-                                    <label>CEP: </label>
-                                    <input name="cep" id="cep" type="text" onblur="pesquisacep(this.value);"
-                                    onKeyPress="MascaraGenerica(this, 'CEP');" maxlenght="11" value="${data[i]['cep']}" required />
-
-                                    <label>Logradouro: </label>
-                                    <input name="rua" id="rua" type="text" value="${data[i]['logradouro']}" required />
-
-                                    <label>Número</label>
-                                    <input name="numero" id="numero" type="text" value="${data[i]['numero']}" required />
-
-                                    <label>Bairro</label>
-                                    <input name="bairro" id="bairro" type="text" value="${data[i]['bairro']}" required />
-
-                                    <label>Cidade</label>
-                                    <input name="cidade" id="cidade" type="text" value="${data[i]['cidade']}" required />
-
-                                    <label>Estado</label>
-                                    <input name="uf" id="uf" type="text" value="${data[i]['estado']}" required />
-
-                                    <label>Situação</label>
-                                    <select name="status" id="status" required>
-                                        <option value="${data[i]['is_active']}" selected >${data[i]['is_active']}</option >
-                                        <option value="INATIVO">INATIVO</option>
-                                    </select >
-
-                                    <input name="submit" type="submit" class="btn-form" value="Cadastrar Cliente" onclick="window.location.href = 'clientes.html'"/>
-                                    `
-                                    $('.editar').append(y)
-
-                                }
-                            });
-                        }
-
-                        exibir();
-                    })
-
-                    $('.btn-form').click((event) => {
-                        var nome = document.getElementById('nome').value;
-                        var telefone = document.getElementById('contato').value;
-                        var cpf = document.getElementById('cpf').value;
-                        var cep = document.getElementById('cep').value;
-                        var logradouro = document.getElementById('rua').value;
-                        var numero = document.getElementById('numero').value;
-                        var bairro = document.getElementById('bairro').value;
-                        var cidade = document.getElementById('cidade').value;
-                        var estado = document.getElementById('uf').value;
-                        var status = document.getElementById('status').value;
-                        let dados = {
-                            id: `${indice.id}`,
-                            nome: `${nome}`,
-                            telefone: `${telefone}`,
-                            cpf: `${cpf}`,
-                            cep: `${cep}`,
-                            logradouro: `${logradouro}`,
-                            numero: `${numero}`,
-                            bairro: `${bairro}`,
-                            cidade: `${cidade}`,
-                            estado: `${estado}`,
-                            status: `${status}`
-
-                            
-                        } 
-                        console.log(dados)
-                        $.post(`http://localhost/Inter/api/cadastrar/cadastrarCliente/`, dados, function (data, status) {
-                        }).done((resultado) => {
-                            console.log(resultado)
-                        }).fail((resultado) => {
-                            console.log(resultado)
-                        })
-                    })
-                </script>
+                <input name="submit" type="submit" class="btn-form" value="Cadastrar Cliente"/>
             </form>
+            <script>
+                $(document).ready(() => {
 
-        </div>
+                    const exibir = () => {
+                        var query = location.search.slice(1);
+                        var partes = query.split('&');
+                        var indice = {};
+                        partes.forEach(function (parte) {
+                            var chaveValor = parte.split('=');
+                            var chave = chaveValor[0];
+                            var valor = chaveValor[1];
+                            indice[chave] = valor;
 
-        <div class="modal">
-
-            <div class="modal__inner">
-
-                <label class="modal__close" for="modal-1"></label>
-
-                <form method="post" action="">
-
-                    <label for="cpf">Nome Completo: </label>
-                    <input name="nome" id="nome" type="text" maxlength="40" required />
-
-                    <label for="cpf">CPF: </label>
-                    <input name="cpf" id="cpf" type="text" onKeyPress="MascaraGenerica(this, 'CPF');" maxlenght="18"
-                        required />
-
-                    <label for="contato">Contato: </label>
-                    <input name="contato" id="contato" type="text" onKeyPress="MascaraGenerica(this, 'TELEFONE');"
-                        required />
-
-                    <label for="cep">CEP: </label>
-                    <input name="cep" id="cep" type="text" onblur="pesquisacep(this.value);"
-                        onKeyPress="MascaraGenerica(this, 'CEP');" maxlenght="11" required />
-
-                    <label for="logradouro">Logradouro: </label>
-                    <input name="rua" id="rua" type="text" required />
-
-                    <label for="numero">Número</label>
-                    <input name="numero" id="numero" type="text" required />
-
-                    <label for="bairro">Bairro</label>
-                    <input name="bairro" id="bairro" type="text" required />
-
-                    <label for="cidade">Cidade</label>
-                    <input name="cidade" id="cidade" type="text" required />
-
-                    <label for="estado">Estado</label>
-                    <input name="uf" id="uf" type="text" required />
-
-                    <label for="estado">Situação</label>
-                    <select name="status" id="status" required>
-                        <option value="ATIVO" selected>ATIVO</option>
-                        <option value="INATIVO">INATIVO</option>
-                    </select>
-
-                    <input name="submit" type="submit" class="btn-form" value="Cadastrar Cliente" />
-
-                    <script>
-                        $('.btn-form').click((event) => {
-                            var nome = document.getElementById('nome').value;
-                            var telefone = document.getElementById('contato').value;
-                            var cpf = document.getElementById('cpf').value;
-                            var cep = document.getElementById('cep').value;
-                            var logradouro = document.getElementById('rua').value;
-                            var numero = document.getElementById('numero').value;
-                            var bairro = document.getElementById('bairro').value;
-                            var cidade = document.getElementById('cidade').value;
-                            var estado = document.getElementById('uf').value;
-                            var status = document.getElementById('status').value;
-                            let dados = {
-                                nome: `${nome}`,
-                                telefone: `${telefone}`,
-                                cpf: `${cpf}`,
-                                cep: `${cep}`,
-                                logradouro: `${logradouro}`,
-                                numero: `${numero}`,
-                                bairro: `${bairro}`,
-                                cidade: `${cidade}`,
-                                estado: `${estado}`,
-                                status: `${status}`
+                        });
+                        $.ajax({
+                            url: `http://localhost/Inter/api/listagem/listarClientes/?id=${indice.id}`
+                        }).done((data) => {
+                            for (const i in data) {
+                                document.getElementById('nome').value = data[i].nome
                             }
-                            $.post("http://localhost/Inter/api/cadastrar/cadastrarCliente/", dados, function (data, status) {
-                            }).done((resultado) => {
-                                console.log(resultado)
-                            }).fail((resultado) => {
-                                console.log(resultado)
-                            })
-
-                            location.href(clientes.html);
-
-                        })
-                    </script>
-                </form>
-
-            </div>
+                        });
+                        return indice
+                    }
+                    const id_usuario = exibir();
+                    $('.btn-form').click((event) => {
+                    var nome = document.getElementById('nome').value;
+                    var telefone = document.getElementById('contato').value;
+                    var cpf = document.getElementById('cpf').value;
+                    var cep = document.getElementById('cep').value;
+                    var logradouro = document.getElementById('rua').value;
+                    var numero = document.getElementById('numero').value;
+                    var bairro = document.getElementById('bairro').value;
+                    var cidade = document.getElementById('cidade').value;
+                    var estado = document.getElementById('uf').value;
+                    var status = document.getElementById('status').value;
+                    let dados = {
+                        id:`${id_usuario.id}`,
+                        nome: `${nome}`,
+                        telefone: `${telefone}`,
+                        cpf: `${cpf}`,
+                        cep: `${cep}`,
+                        logradouro: `${logradouro}`,
+                        numero: `${numero}`,
+                        bairro: `${bairro}`,
+                        cidade: `${cidade}`,
+                        estado: `${estado}`,
+                        status: `${status}`
+                    } 
+                    $.post(`http://localhost/Inter/api/editar/editarCliente/`, dados, function (data, status) {
+                    }).done((resultado) => {
+                        console.log(resultado)
+                    }).fail((resultado) => {
+                        console.log(resultado)
+                    })
+                })})
+            </script>
         </div>
-
+    </div>
 </body>
 
 </html>

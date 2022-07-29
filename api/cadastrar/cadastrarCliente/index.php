@@ -26,7 +26,7 @@ if (count($valor) > 0) {
     $status = $_POST['status'];
 
     $insert = $conn->prepare("INSERT INTO cliente 
-    (nome,telefone,cpf,bairro,cep,logradouro,numero,cidade,estado,is_active) 
+    (nome,telefone,cpf,cep,logradouro,numero,bairro,cidade,estado,is_active) 
     values 
     ('$nome','$telefone', '$cpf', '$cep', '$logradouro', '$numero', '$bairro', '$cidade', '$estado', '$status')");
     if($insert->execute()){
