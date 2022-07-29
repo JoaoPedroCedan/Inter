@@ -4,7 +4,6 @@
 <!-- header html - início -->
 
 <head>
-
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -64,37 +63,39 @@
                 <input name="nome" id="nome" type="text" maxlength="40" required />
 
                 <label for="cpf">CPF: </label>
-                <input name="cpf" id="cpf" type="text" onKeyPress="MascaraGenerica(this, 'CPF');" maxlenght="18"  required />
+                <input name="cpf" id="cpf" type="text" onKeyPress="MascaraGenerica(this, 'CPF');" maxlenght="18"
+                    required />
 
                 <label>Contato: </label>
-                <input name="contato" id="contato" type="text" onKeyPress="MascaraGenerica(this, 'TELEFONE');"  required />
+                <input name="contato" id="contato" type="text" onKeyPress="MascaraGenerica(this, 'TELEFONE');"
+                    required />
 
                 <label>CEP: </label>
                 <input name="cep" id="cep" type="text" onblur="pesquisacep(this.value);"
-                onKeyPress="MascaraGenerica(this, 'CEP');" maxlenght="11"  required />
+                    onKeyPress="MascaraGenerica(this, 'CEP');" maxlenght="11" required />
 
                 <label>Logradouro: </label>
-                <input name="rua" id="rua" type="text"  required />
+                <input name="rua" id="rua" type="text" required />
 
                 <label>Número</label>
                 <input name="numero" id="numero" type="text" required />
 
                 <label>Bairro</label>
-                <input name="bairro" id="bairro" type="text"  required />
+                <input name="bairro" id="bairro" type="text" required />
 
                 <label>Cidade</label>
-                <input name="cidade" id="cidade" type="text"  required />
+                <input name="cidade" id="cidade" type="text" required />
 
                 <label>Estado</label>
                 <input name="uf" id="uf" type="text" required />
 
                 <label>Situação</label>
                 <select name="status" id="status" required>
-                    <option value="ATIVO" >ATIVO</option >
+                    <option value="ATIVO">ATIVO</option>
                     <option value="INATIVO">INATIVO</option>
-                </select >
+                </select>
 
-                <input name="submit" type="submit" class="btn-form" value="Cadastrar Cliente"/>
+                <input name="submit" type="submit" class="btn-form" value="Editar Clientes" />
             </form>
             <script>
                 $(document).ready(() => {
@@ -121,37 +122,38 @@
                     }
                     const id_usuario = exibir();
                     $('.btn-form').click((event) => {
-                    var nome = document.getElementById('nome').value;
-                    var telefone = document.getElementById('contato').value;
-                    var cpf = document.getElementById('cpf').value;
-                    var cep = document.getElementById('cep').value;
-                    var logradouro = document.getElementById('rua').value;
-                    var numero = document.getElementById('numero').value;
-                    var bairro = document.getElementById('bairro').value;
-                    var cidade = document.getElementById('cidade').value;
-                    var estado = document.getElementById('uf').value;
-                    var status = document.getElementById('status').value;
-                    let dados = {
-                        id:`${id_usuario.id}`,
-                        nome: `${nome}`,
-                        telefone: `${telefone}`,
-                        cpf: `${cpf}`,
-                        cep: `${cep}`,
-                        logradouro: `${logradouro}`,
-                        numero: `${numero}`,
-                        bairro: `${bairro}`,
-                        cidade: `${cidade}`,
-                        estado: `${estado}`,
-                        status: `${status}`
-                    } 
-                    $.post(`http://localhost/Inter/api/editar/editarCliente/`, dados, function (data, status) {
-                    }).done((resultado) => {
-                        console.log(resultado)
-                        window.location.href = 'clientes.html';
-                    }).fail((resultado) => {
-                        console.log(resultado)
+                        var nome = document.getElementById('nome').value;
+                        var telefone = document.getElementById('contato').value;
+                        var cpf = document.getElementById('cpf').value;
+                        var cep = document.getElementById('cep').value;
+                        var logradouro = document.getElementById('rua').value;
+                        var numero = document.getElementById('numero').value;
+                        var bairro = document.getElementById('bairro').value;
+                        var cidade = document.getElementById('cidade').value;
+                        var estado = document.getElementById('uf').value;
+                        var status = document.getElementById('status').value;
+                        let dados = {
+                            id: `${id_usuario.id}`,
+                            nome: `${nome}`,
+                            telefone: `${telefone}`,
+                            cpf: `${cpf}`,
+                            cep: `${cep}`,
+                            logradouro: `${logradouro}`,
+                            numero: `${numero}`,
+                            bairro: `${bairro}`,
+                            cidade: `${cidade}`,
+                            estado: `${estado}`,
+                            status: `${status}`
+                        }
+                        $.post(`http://localhost/Inter/api/editar/editarCliente/`, dados, function (data, status) {
+                        }).done((resultado) => {
+                            console.log(resultado)
+                            window.location.href = 'clientes.html';
+                        }).fail((resultado) => {
+                            console.log(resultado)
+                        })
                     })
-                })})
+                })
             </script>
         </div>
     </div>

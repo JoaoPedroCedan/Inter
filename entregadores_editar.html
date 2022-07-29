@@ -4,7 +4,6 @@
 <!-- header html - início -->
 
 <head>
-
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -58,176 +57,79 @@
     </div>
 
     <div class="painel">
-
-
         <div class="container">
-
             <form class="editar" method="post" action="">
+                <label for="cpf">Nome Completo: </label>
+                <input name="nome" id="nome" type="text" maxlength="40" required />
 
-                <script>
+                <label for="cpf">CPF: </label>
+                <input name="cpf" id="cpf" type="text" onKeyPress="MascaraGenerica(this, 'CPF');" maxlenght="18"
+                    required />
 
+                <label>Senha</label>
+                <input name="senha" id="senha" type="text" required />
 
-                    $(document).ready(() => {
+                <label>Data de Admissão: </label>
+                <input name="data_admissao" id="data_admissao" type="date" required />
 
-                        const exibir = () => {
-                            var query = location.search.slice(1);
-                            var partes = query.split('&');
-                            var indice = {};
-                            partes.forEach(function (parte) {
-                                var chaveValor = parte.split('=');
-                                var chave = chaveValor[0];
-                                var valor = chaveValor[1];
-                                indice[chave] = valor;
+                <label>Situação</label>
+                <select name="is_active" id="is_active" required>
+                    <option value="ATIVO">ATIVO</option>
+                    <option value="INATIVO">INATIVO</option>
+                </select>
 
-                            });
-                            console.log(indice.id);
-                            $.ajax({
-                                url: `http://localhost/Inter/api/listagem/listarClientes/?id=${indice.id}`
-                            }).done((data) => {
+                <input name="submit" type="submit" class="btn-form" value="Editar Entregadores" />
+            </form>
+            <script>
+                $(document).ready(() => {
 
-                                for (const i in data) {
-                                    let y =
+                    const exibir = () => {
+                        var query = location.search.slice(1);
+                        var partes = query.split('&');
+                        var indice = {};
+                        partes.forEach(function (parte) {
+                            var chaveValor = parte.split('=');
+                            var chave = chaveValor[0];
+                            var valor = chaveValor[1];
+                            indice[chave] = valor;
 
-                                        `
-                                    <label>Nome Completo: </label>
-                                    <input name="nome" id="nome" type="text" maxlength="40" value="${data[i]['nome']}" required />
-
-                                    <label for="cpf">CPF: </label>
-                                    <input name="cpf" id="cpf" type="text" onKeyPress="MascaraGenerica(this, 'CPF');" maxlenght="18" value="${data[i]['cpf']}" required />
-
-                                    <label>Senha: </label>
-                                    <input name="senha" id="senha" type="text" maxlenght="18" value="${data[i]['senha']}" required />
-
-                                    <label>Data de Admissão: </label>
-                                    <input name="data_admissao" id="data_admissao" type="date" value="${data[i]['data_admissao']}" required />
-
-                                    <label>Situação</label>
-                                    <select name="status" id="status" required>
-                                        <option value="${data[i]['is_active']}" selected >${data[i]['is_active']}</option >
-                                        <option value="INATIVO">INATIVO</option>
-                                    </select >
-
-                                    <input name="submit" type="submit" class="btn-form" value="Cadastrar Cliente" onclick="window.location.href = 'entregadores.html'"/>
-                                    `
-                                    $('.editar').append(y)
-
-                                }
-                            });
-                        }
-
-                        exibir();
-                    })
-
+                        });
+                        $.ajax({
+                            url: `http://localhost/Inter/api/listagem/listarEntregadores/?id=${indice.id}`
+                        }).done((data) => {
+                            for (const i in data) {
+                                document.getElementById('nome').value = data[i].nome
+                            }
+                        });
+                        return indice
+                    }
+                    const id_usuario = exibir();
                     $('.btn-form').click((event) => {
                         var nome = document.getElementById('nome').value;
-                        var login = document.getElementById('cpf').value;
                         var cpf = document.getElementById('cpf').value;
                         var senha = document.getElementById('senha').value;
-
+                        var data_admissao = document.getElementById('data_admissao').value;
+                        var is_active = document.getElementById('is_active').value;
                         let dados = {
+                            id: `${id_usuario.id}`,
                             nome: `${nome}`,
-                            login: `${cpf}`,
                             cpf: `${cpf}`,
-                            senha: `${senha}`
+                            senha: `${senha}`,
+                            data_admissao: `${data_admissao}`,
+                            is_active: `${is_active}`
                         }
-                        $.post("http://localhost/Inter/api/cadastrar/cadastrarCliente/", dados, function (data, status) {
+                        $.post(`http://localhost/Inter/api/editar/editarCliente/`, dados, function (data, status) {
                         }).done((resultado) => {
                             console.log(resultado)
+                            window.location.href = 'clientes.html';
                         }).fail((resultado) => {
                             console.log(resultado)
                         })
                     })
-                </script>
-            </form>
-
+                })
+            </script>
         </div>
-
-        <div class="modal">
-
-            <div class="modal__inner">
-
-                <label class="modal__close" for="modal-1"></label>
-
-                <form method="post" action="">
-
-                    <label for="cpf">Nome Completo: </label>
-                    <input name="nome" id="nome" type="text" maxlength="40" required />
-
-                    <label for="cpf">CPF: </label>
-                    <input name="cpf" id="cpf" type="text" onKeyPress="MascaraGenerica(this, 'CPF');" maxlenght="18"
-                        required />
-
-                    <label for="contato">Contato: </label>
-                    <input name="contato" id="contato" type="text" onKeyPress="MascaraGenerica(this, 'TELEFONE');"
-                        required />
-
-                    <label for="cep">CEP: </label>
-                    <input name="cep" id="cep" type="text" onblur="pesquisacep(this.value);"
-                        onKeyPress="MascaraGenerica(this, 'CEP');" maxlenght="11" required />
-
-                    <label for="logradouro">Logradouro: </label>
-                    <input name="rua" id="rua" type="text" required />
-
-                    <label for="numero">Número</label>
-                    <input name="numero" id="numero" type="text" required />
-
-                    <label for="bairro">Bairro</label>
-                    <input name="bairro" id="bairro" type="text" required />
-
-                    <label for="cidade">Cidade</label>
-                    <input name="cidade" id="cidade" type="text" required />
-
-                    <label for="estado">Estado</label>
-                    <input name="uf" id="uf" type="text" required />
-
-                    <label for="estado">Situação</label>
-                    <select name="status" id="status" required>
-                        <option value="ATIVO" selected>ATIVO</option>
-                        <option value="INATIVO">INATIVO</option>
-                    </select>
-
-                    <input name="submit" type="submit" class="btn-form" value="Cadastrar Cliente" />
-
-                    <script>
-                        $('.btn-form').click((event) => {
-                            var nome = document.getElementById('nome').value;
-                            var telefone = document.getElementById('contato').value;
-                            var cpf = document.getElementById('cpf').value;
-                            var cep = document.getElementById('cep').value;
-                            var logradouro = document.getElementById('rua').value;
-                            var numero = document.getElementById('numero').value;
-                            var bairro = document.getElementById('bairro').value;
-                            var cidade = document.getElementById('cidade').value;
-                            var estado = document.getElementById('uf').value;
-                            var status = document.getElementById('status').value;
-                            let dados = {
-                                nome: `${nome}`,
-                                telefone: `${telefone}`,
-                                cpf: `${cpf}`,
-                                cep: `${cep}`,
-                                logradouro: `${logradouro}`,
-                                numero: `${numero}`,
-                                bairro: `${bairro}`,
-                                cidade: `${cidade}`,
-                                estado: `${estado}`,
-                                status: `${status}`
-                            }
-                            $.post("http://localhost/Inter/api/cadastrar/cadastrarCliente/", dados, function (data, status) {
-                            }).done((resultado) => {
-                                console.log(resultado)
-                            }).fail((resultado) => {
-                                console.log(resultado)
-                            })
-
-                            location.href(clientes.html);
-
-                        })
-                    </script>
-                </form>
-
-            </div>
-        </div>
-
+    </div>
 </body>
 
 </html>
