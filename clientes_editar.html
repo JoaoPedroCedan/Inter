@@ -89,41 +89,41 @@
                                     let y =
 
                                         `
-                                        <label for="cpf">Nome Completo: </label>
+                                    <label for="cpf">Nome Completo: </label>
                                     <input name="nome" id="nome" type="text" maxlength="40" value="${data[i]['nome']}" required />
 
                                     <label for="cpf">CPF: </label>
                                     <input name="cpf" id="cpf" type="text" onKeyPress="MascaraGenerica(this, 'CPF');" maxlenght="18" value="${data[i]['cpf']}" required />
 
-                                    <label for="contato">Contato: </label>
+                                    <label>Contato: </label>
                                     <input name="contato" id="contato" type="text" onKeyPress="MascaraGenerica(this, 'TELEFONE');" value="${data[i]['contato']}" required />
 
-                                    <label for="cep">CEP: </label>
+                                    <label>CEP: </label>
                                     <input name="cep" id="cep" type="text" onblur="pesquisacep(this.value);"
                                     onKeyPress="MascaraGenerica(this, 'CEP');" maxlenght="11" value="${data[i]['cep']}" required />
 
-                                    <label for="logradouro">Logradouro: </label>
+                                    <label>Logradouro: </label>
                                     <input name="rua" id="rua" type="text" value="${data[i]['logradouro']}" required />
 
-                                    <label for="numero">Número</label>
+                                    <label>Número</label>
                                     <input name="numero" id="numero" type="text" value="${data[i]['numero']}" required />
 
-                                    <label for="bairro">Bairro</label>
+                                    <label>Bairro</label>
                                     <input name="bairro" id="bairro" type="text" value="${data[i]['bairro']}" required />
 
-                                    <label for="cidade">Cidade</label>
+                                    <label>Cidade</label>
                                     <input name="cidade" id="cidade" type="text" value="${data[i]['cidade']}" required />
 
-                                    <label for="estado">Estado</label>
+                                    <label>Estado</label>
                                     <input name="uf" id="uf" type="text" value="${data[i]['estado']}" required />
 
-                                    <label for="estado">Situação</label>
+                                    <label>Situação</label>
                                     <select name="status" id="status" required>
                                         <option value="${data[i]['is_active']}" selected >${data[i]['is_active']}</option >
                                         <option value="INATIVO">INATIVO</option>
                                     </select >
 
-                                    <input name="submit" type="submit" class="btn-form" value="Cadastrar Cliente" />
+                                    <input name="submit" type="submit" class="btn-form" value="Cadastrar Cliente" onclick="window.location.href = 'clientes.html'"/>
                                     `
                                     $('.editar').append(y)
 
