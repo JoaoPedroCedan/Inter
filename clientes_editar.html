@@ -147,6 +147,7 @@
                     $.post(`http://localhost/Inter/api/editar/editarCliente/`, dados, function (data, status) {
                     }).done((resultado) => {
                         console.log(resultado)
+                        window.location.href = 'clientes.html';
                     }).fail((resultado) => {
                         console.log(resultado)
                     })
