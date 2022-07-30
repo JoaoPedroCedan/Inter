@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<!-- header html - início -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BestLane - Sobre nós</title>
+
+    <!-- font awesome cdn link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- jquery script cdn link -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- css file link -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+
+<!-- header html - fim -->
+
+<!-- corpo do documento - início -->
+
+<body>
+
+    <!-- cabeçalho sem autenticação - início-->
+
+    <header class="header">
+
+        <div id="menu-btn" class="fas fa-bars"></div>
+        <img src="" alt="">
+        <a href="#" class="logo">Bestlane</a>
+
+        <nav class="navbar">
+            <a href="index.html">Inicio</a>
+            <a href="especialista.html">Fale com um Especialista</a>
+        </nav>
+
+        <a href="login.html" class="btn"><strong>Acesse sua conta</strong></a>
+        <!--
+        <div class="icons">
+            <div class="fas fa-user" id="login-btn"></div>
+        </div>-->
+
+    </header>
+
+    <!-- cabeçalho sem autenticação fim-->
+
+    <!-- seção de apresentação - início  -->
+
+    <section class="home">
+        <div class="content">
+            <h3 class="sobre">Sobre nós</h3>
+        </div>
+
+    </section>
+    <div class="container2">
+        <div>
+            <h1 class="h1">Bestlane</h1>
+            <p class="p1">
+                Bestlane foi criada com o propósito de auxiliar pequenas e médias empresas com suas entregas.
+                Com isso, desenvolvemos um sistema simples e fácil de qualquer operador utilizar para cadastrar as entregas necessárias.
+                <br>
+                <br>
+                Nosso sistema contém o cadastro de clientes, operadores, entregas e entregadores, sendo possível desativar qualquer cadastro sem perder os dados de seus clientes.
+                <br>
+                <br>
+                Nosso principal foco tem como digitalizar o processo de controle e cadastro de entregas.
+                <br>
+                <br>
+                Venha fazer parte da<a href="especialista.html">Bestlane!</a>
+                </p>
+        </div>
+            <h1 class="cria">Criadores</h1>
+            <div class="container3">
+                <figure>
+                    <img class="img" src="img/anthony.jpeg">
+                    <figcaption>Anthony Melo</figcaption>
+                    <figcaption>UEMG - 2022</figcaption>
+                </figure>
+                <figure>
+                    <img class="img" src="img/gustavo.jpeg">
+                    <figcaption>Gustavo Garcia</figcaption>
+                    <figcaption>UEMG - 2022</figcaption>
+                </figure>
+                <figure>
+                    <img  class="img" src="img/joao.jpeg">
+                    <figcaption>João Pedro</figcaption>
+                    <figcaption>UEMG - 2022</figcaption>
+                </figure>            
+            </div>
+               
+            
+        
+    </div>
+
+    <!-- seção de apresentação - fim -->
+
+</body>
+
+<!-- corpo do documento - fim -->
+
+<!-- script responsável pela animação do navbar quando a tela diminui - início-->
+
+<script>
+    let navbar = document.querySelector('.header .navbar');
+
+    document.querySelector('#menu-btn').onclick = () => {
+        navbar.classList.toggle('active');
+    }
+
+    window.onscroll = () => {
+        navbar.classList.remove('active');
+    }
+</script>
+
+<!-- script responsável pela animação do navbar quando a tela diminui - fim-->
