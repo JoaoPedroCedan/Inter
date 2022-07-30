@@ -413,7 +413,7 @@ section {
   visibility: hidden;
 }
 
-.modal input {
+input {
   width: 100%;
   outline: none;
   text-transform: uppercase;
@@ -426,14 +426,14 @@ section {
   font-size: 1.6rem;
 }
 
-.modal label {
+label {
   outline: none;
   padding: 5px 10px;
   margin-bottom: 20px;
   font-size: 1.5rem;
 }
 
-.modal select {
+select {
   width: 100%;
   padding: 1.2rem 1.4rem;
   font-size: 1.6rem;
@@ -544,7 +544,8 @@ table {
   width: 100%;
   border-spacing: 10px;
   border-collapse: collapse;
-  word-wrap:break-word;
+  word-wrap: break-word;
+
 }
 
 thead {
@@ -574,15 +575,13 @@ tbody tr td {
   max-width: 50px;
   color: #282828;
   text-align: start;
+  text-transform: uppercase;
 }
 
-thead tr th.acao {
-  width: 100px !important;
-  text-align: center;
-}
-
-tbody tr td.acao {
-  text-align: center;
+tbody tr td a {
+  color: #111;
+  cursor: pointer;
+  background: none;
 }
 
 /*Configurações responsáveis pelo CSS da tabela do Painel de Controle- fim*/

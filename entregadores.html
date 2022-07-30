@@ -38,7 +38,7 @@
             <a href="clientes.html">Clientes</a>
             <a href="operadores.html">Operadores</a>
             <a href="entregadores.html">Entregadores</a>
-          </nav>
+        </nav>
 
         <div class="icons">
             <div class="fas fa-sign-in-alt" id="login-btn"></div>
@@ -71,13 +71,14 @@
                         <th>Nome Completo</th>
                         <th>CPF</th>
                         <th>Data de Admissão</th>
-                        <th>Editar</th>
-                        <th>Excluir</th>
+                        <th style="text-align: center;">Editar</th>
+                        <th style="text-align: center;">Excluir</th>
                     </tr>
                 </thead>
 
                 <tbody class="entregadores">
                     <script>
+
                         $(document).ready(() => {
                             const exibir = () => {
                                 $.ajax({
@@ -91,8 +92,8 @@
                     <td data-label='Nome Completo: '>${data[i]['nome']}</td>
                     <td data-label='CPF: '>${data[i]['cpf']}</td>
                     <td data-label='Data de Amissão: '>${data[i]['data_admissao']}</td>
-                    <td><i class="fa fa-edit"></i></td>
-                    <td><i class="fa fa-trash"></i></td>
+                    <td style="text-align: center;"><a href="entregadores_editar.html?id=${data[i]['id']}" class="fa fa-eye"></a></td>
+                    <td style="text-align: center;"><i class="fa fa-edit"></i></td>
                     </tr>
                     `
                                         $('.entregadores').append(y)
@@ -133,7 +134,7 @@
                 <label for="senha">Senha: </label>
                 <input name="senha" id="senha" type="password" maxlength="60" required />
 
-                <input type="submit" value="registrar operador" id="entregadores" class="btn-form" name="submit">
+                <input type="submit" value="registrar entregadores" id="entregadores" class="btn-form" name="submit">
 
                 <script>
                     $('.btn-form').click((event) => {
