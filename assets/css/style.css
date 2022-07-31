@@ -358,7 +358,7 @@ section {
   justify-content: flex-start;
 }
 
-.painel .icons i:hover {
+.painel .icons label:hover {
   color: #00ff88;
 }
 
