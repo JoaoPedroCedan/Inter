@@ -3,7 +3,6 @@
 
 <!-- header html - início -->
 
-
 <head>
 
     <meta charset="UTF-8">
@@ -31,14 +30,13 @@
 
 <body>
 
-    <!-- cabeçalho sem autenticação - início-->
+    <!-- cabeçalho - início -->
 
     <header class="header">
 
         <div id="menu-btn" class="fas fa-bars"></div>
         <img src="" alt="">
         <a href="#" class="logo">bestlane</a>
-
 
         <nav class="navbar">
             <a href="entregas.html">Entregas</a>
@@ -53,23 +51,38 @@
 
     </header>
 
+    <!-- cabeçalho - fim -->
+
     <div class="banner">
 
         <div class="conteudo">
             <br><br><br>
-            <h3>Painel de Entregadores</h3>
+            <h3>Painel de Operadores</h3>
             <br><br><br>
         </div>
 
     </div>
 
+
+
     <div class="painel">
 
         <div class="icons">
-            <label class="fa fa-plus-circle fa-3x" for="modal-1"></label>
+            <i class="fa fa-plus-circle fa-3x" for="modal-1"></i>
         </div>
+        <div class="icons">
+            <i class="fa fa-file-pdf fa-3x" onclick='javascript:demoFromHTML();'></i>
+        </div>
+        <div class="icons">
+            <i class="fa fa-plus-circle fa-3x" for="modal-1"></i>
+        </div>
+        <div class="icons">
+            <i class="fa fa-file-pdf fa-3x" onclick='javascript:demoFromHTML();'></i>
+        </div>
+    </div>
 
-        <div class="container">
+    <div class="painel">
+        <div class="container" id="container">
 
             <table>
 
@@ -77,31 +90,30 @@
                     <tr>
                         <th>Nome Completo</th>
                         <th>CPF</th>
-                        <th>Data de Admissão</th>
-                        <th>Status</th>
-                        <th style="text-align: center;">Editar/Visualizar</th>
+                        <th style="text-align: center;">Editar</th>
+                        <th style="text-align: center;">Excluir</th>
                     </tr>
                 </thead>
 
-                <tbody class="entregadores">
+                <tbody class="operadores">
                     <script>
                         $(document).ready(() => {
                             const exibir = () => {
                                 $.ajax({
-                                    url: 'http://localhost/Inter/api/listagem/listarEntregadores/?default'
+                                    url: 'http://localhost/Inter/api/listagem/listarOperador/?default'
                                 }).done((data) => {
                                     for (const i in data) {
+
                                         let y =
                                             `
-                                            <tr>
-                                            <td data-label='Nome Completo: '>${data[i]['nome']}</td>
-                                            <td data-label='CPF: '>${data[i]['cpf']}</td>
-                                            <td data-label='Data de Amissão: '>${data[i]['data_admissao']}</td>
-                                            <td data-label='Status: '>${data[i]['is_active']}</td>
-                                            <td style="text-align: center;"><a href="entregadores_editar.html?id=${data[i]['id']}" class="fa fa-eye"></a></td>
-                                            </tr>
-                                            `
-                                        $('.entregadores').append(y)
+                    <tr>
+                    <td data-label='Nome Completo: '>${data[i]['nome']}</td>
+                    <td data-label='CPF: '>${data[i]['cpf']}</td>
+                    <td style="text-align: center;"><i class="fa fa-edit"></i></td>
+                    <td style="text-align: center;"><i class="fa fa-trash"></i></td>
+                    </tr>
+                    `
+                                        $('.operadores').append(y)
                                     };
                                 });
                             }
@@ -139,22 +151,19 @@
                 <label for="senha">Senha: </label>
                 <input name="senha" id="senha" type="password" maxlength="60" required />
 
-                <input type="submit" value="registrar entregadores" id="entregadores" class="btn-form" name="submit">
+                <input type="submit" value="registrar operador" id="operadores" class="btn-form" name="submit">
 
                 <script>
                     $('.btn-form').click((event) => {
                         var nome = document.getElementById('nome').value;
-                        var login = document.getElementById('cpf').value;
                         var cpf = document.getElementById('cpf').value;
                         var senha = document.getElementById('senha').value;
-
                         let dados = {
                             nome: `${nome}`,
-                            login: `${cpf}`,
                             cpf: `${cpf}`,
                             senha: `${senha}`
                         }
-                        $.post("http://localhost/Inter/api/cadastrar/cadastrarEntregador/", dados, function (data, status) {
+                        $.post("http://localhost/Inter/api/cadastrar/cadastrarOperador/", dados, function (data, status) {
                         }).done((resultado) => {
                             console.log(resultado)
                         }).fail((resultado) => {
@@ -175,7 +184,7 @@
 
 </html>
 
-<!-- script responsável pela animação do navbar quando a tela diminui - início-->
+<!-- animação do navbar responsivo - início-->
 
 <script>
     let navbar = document.querySelector('.header .navbar');
@@ -184,14 +193,59 @@
         navbar.classList.toggle('active');
     }
 
-    document.querySelector("#entregadores").addEventListener("click", function () {
+    document.querySelector("#operadores").addEventListener("click", function () {
         location.reload();
     });
 
     window.onscroll = () => {
         navbar.classList.remove('active');
     }
-
 </script>
 
-<!-- script responsável pela animação do navbar quando a tela diminui - fim-->
+<!-- animação do navbar responsivo - fim-->
+
+<!-- relatório pdf - início-->
+
+<script>
+    function demoFromHTML() {
+        var pdf = new jsPDF('p', 'pt', 'letter');
+        // source can be HTML-formatted string, or a reference
+        // to an actual DOM element from which the text will be scraped.
+        source = $('#container')[0];
+
+        // we support special element handlers. Register them with jQuery-style 
+        // ID selector for either ID or node name. ("#iAmID", "div", "span" etc.)
+        // There is no support for any other type of selectors 
+        // (class, of compound) at this time.
+        specialElementHandlers = {
+            // element with id of "bypass" - jQuery style selector
+            '#bypassme': function (element, renderer) {
+                // true = "handled elsewhere, bypass text extraction"
+                return true
+            }
+        };
+        margins = {
+            top: 80,
+            bottom: 60,
+            left: 10,
+            width: 700
+        };
+        // all coords and widths are in jsPDF instance's declared units
+        // 'inches' in this case
+        pdf.fromHTML(
+            source, // HTML string or DOM elem ref.
+            margins.left, // x coord
+            margins.top, { // y coord
+            'width': margins.width, // max width of content on PDF
+            'elementHandlers': specialElementHandlers
+        },
+
+            function (dispose) {
+                // dispose: object with X, Y of the last line add to the PDF 
+                //          this allow the insertion of new lines after html
+                pdf.save('Test.pdf');
+            }, margins);
+    }
+</script>
+
+<!-- relatório pdf - início - fim-->
