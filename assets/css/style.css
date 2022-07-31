@@ -127,8 +127,9 @@ section {
   font-weight: 400;
   font-size: 1.7rem;
   color: #aaa;
-  display: inline-block;
   margin: 0 1rem;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .header .navbar a:hover {
@@ -150,6 +151,7 @@ section {
   color: #eeeeee;
   cursor: pointer;
   text-align: center;
+  text-decoration: none;
 }
 
 .header .icons div:hover {
@@ -161,6 +163,7 @@ section {
   font-size: 2.3rem;
   color: #eeeeee;
   font-weight: bolder;
+  text-decoration: none;
 }
 
 #menu-btn {
@@ -314,7 +317,7 @@ section {
 /*Configurações responsáveis pelo CSS do Login - fim*/
 /*Configurações responsáveis pelo CSS do Painel de Controle- início*/
 .banner {
-  background: linear-gradient(rgba(17, 17, 17, 0.7), rgba(17, 17, 17, 0.7)), url(../images/banner-operadores.jpg) no-repeat;
+  background: linear-gradient(rgba(17, 17, 17, 0.7), rgba(17, 17, 17, 0.7)), url(../imgs/banner-operadores.jpg) no-repeat;
   background-size: cover;
   background-position: center;
   padding: 3rem 2rem;
@@ -334,8 +337,6 @@ section {
   margin-top: -5rem;
   background-color: #fff;
   border-radius: 1rem;
-  -webkit-box-shadow: 0 0.5rem 1rem rgba(17, 17, 17, 0.3);
-  box-shadow: 0 0.5rem 1rem rgba(17, 17, 17, 0.3);
   padding: 3rem 2rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -349,6 +350,16 @@ section {
   align-items: center;
   justify-content: center;
 
+}
+
+.painel .icons {
+  display: inline-flex;
+  cursor: pointer;
+  justify-content: flex-start;
+}
+
+.painel .icons i:hover {
+  color: #00ff88;
 }
 
 .painel .container {
@@ -545,7 +556,6 @@ table {
   border-spacing: 10px;
   border-collapse: collapse;
   word-wrap: break-word;
-
 }
 
 thead {
@@ -570,9 +580,7 @@ tbody tr {
 }
 
 tbody tr td {
-  vertical-align: text-top;
   padding: 6px;
-  max-width: 50px;
   color: #282828;
   text-align: start;
   text-transform: uppercase;
@@ -643,54 +651,6 @@ tbody tr td a {
     font-size: 1.7rem !important;
   }
 
-  table {
-    border: 0;
-  }
-
-  table caption {
-    font-size: 1.3em;
-  }
-
-  thead {
-    border: none;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
-  }
-
-  table tr {
-    border-bottom: 3px solid #ddd;
-    display: block;
-    margin-bottom: .625em;
-    color: #201b2c;
-  }
-
-  table td {
-    border-bottom: 1px solid #ddd;
-    display: block;
-    font-size: .8em;
-    text-align: left;
-  }
-
-  table td::before {
-    /*
-      * aria-label has no advantage, it won't be read inside a table
-      content: attr(aria-label);
-      */
-    content: attr(data-label);
-    float: left;
-    font-weight: bold;
-    text-transform: uppercase;
-  }
-
-  table td:last-child {
-    border-bottom: 0;
-  }
-
   .main-login {
     flex-direction: column;
   }
@@ -714,6 +674,55 @@ tbody tr td a {
   }
 }
 
+@media screen and (max-width: 600px) {
+  table {
+    border: 0;
+  }
+
+  table caption {
+    font-size: 1.3em;
+  }
+
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+
+  table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: .625em;
+  }
+
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: .8em;
+    text-align: left;
+  }
+
+  table td::before {
+    /*
+      * aria-label has no advantage, it won't be read inside a table
+      content: attr(aria-label);
+      */
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  table td:last-child {
+    border-bottom: 0;
+  }
+}
+
 @media (max-width: 450px) {
   html {
     font-size: 50%;
@@ -725,22 +734,22 @@ tbody tr td a {
   }
 }
 
-.sobre{
+.sobre {
   display: flex;
   align-items: center;
   justify-content: baseline;
   padding-top: 50px;
-  
+
 }
 
-.container2{
+.container2 {
   background-color: #201b2c;
   width: 900px;
   height: 690px;
   color: white;
 }
 
-.container3{
+.container3 {
   background-color: #201b2c;
   width: 900px;
   height: 300px;
@@ -748,7 +757,7 @@ tbody tr td a {
   display: flex;
 }
 
-.h1{
+.h1 {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -756,7 +765,7 @@ tbody tr td a {
   font-size: 60px;
 }
 
-.p1{
+.p1 {
   font-size: large;
   display: flex;
   flex-wrap: wrap;
@@ -767,7 +776,7 @@ tbody tr td a {
   margin-top: -50px;
 }
 
-.cria{
+.cria {
   margin-top: 15px;
   margin-bottom: 10px;
   font-size: 30px;
@@ -776,18 +785,18 @@ tbody tr td a {
   justify-content: center;
 }
 
-.img{
+.img {
   height: 150px;
   width: 150px;
   border-radius: 100px;
   display: flex;
 }
 
-figure{
+figure {
   font-size: 20px;
 }
 
-.container3{
+.container3 {
   background-color: #201b2c;
   width: 900px;
   height: 500px;
@@ -814,7 +823,7 @@ figure{
   color: #111;
 }
 
-.container4{
+.container4 {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -825,35 +834,36 @@ figure{
 }
 
 
-.title{
+.title {
   margin-top: 120px;
   color: white;
-  font-family: Raleway,sans-serif;
+  font-family: Raleway, sans-serif;
   text-transform: uppercase;
   letter-spacing: 2px;
 }
 
-.section1{
+.section1 {
   background-color: #00ff88;
   height: 140px;
 }
 
-.section2{
+.section2 {
   background-color: #201b2c;
   height: 600px;
 }
-.img1{
+
+.img1 {
   width: 80px;
 }
 
-.img2{
+.img2 {
   display: flex;
   justify-content: space-between;
   align-items: center;
   align-content: center;
 }
 
-.title2{
+.title2 {
   color: white;
   font-family: raleway, sans-serif;
   display: flex;
@@ -862,7 +872,7 @@ figure{
   font-size: 2rem;
 }
 
-.title3{
+.title3 {
   color: white;
   font-family: raleway, sans-serif;
   display: flex;
@@ -872,19 +882,19 @@ figure{
   margin-top: 30px;
 }
 
-.img3{
+.img3 {
   margin-top: 30px;
   display: flex;
   justify-content: center;
 }
 
-.section3{
+.section3 {
   background-color: #00ff88;
   height: 120px;
 
 }
 
-.title4{
+.title4 {
   color: black;
   font-family: raleway, sans-serif;
   display: flex;
@@ -894,14 +904,14 @@ figure{
   margin-top: -10px;
 }
 
-.order{
+.order {
   color: white;
   margin-top: 50px;
   display: flex;
   order: 1;
 }
 
-.bottom{
-  color:#201b2c;
+.bottom {
+  color: #201b2c;
   height: 50px;
 }
