@@ -10,6 +10,7 @@ require_once '../../conectiondb.php';
 $id = $_POST['id'];
 $nome = $_POST['nome'];
 $telefone = $_POST['telefone'];
+$cpf = $_POST['cpf'];
 $cep = $_POST['cep'];
 $logradouro = $_POST['logradouro'];
 $numero = $_POST['numero'];
@@ -18,7 +19,7 @@ $cidade = $_POST['cidade'];;
 $estado = $_POST['estado'];
 $status = $_POST['status'];
 
-$update = $conn->prepare("UPDATE cliente SET nome = '$nome' where id = '$id'");
+$update = $conn->prepare("UPDATE cliente SET nome = '$nome', telefone ='$telefone', cpf ='$cpf', bairro ='$bairro', cep='$cep',logradouro='$logradouro',numero='$numero', cidade='$cidade', estado='$estado', is_active='$status' WHERE id = '$id'");
 $update->execute();
 echo json_encode('executado com sucesso')
 ?>

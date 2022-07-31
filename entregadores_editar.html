@@ -64,13 +64,13 @@
 
                 <label for="cpf">CPF: </label>
                 <input name="cpf" id="cpf" type="text" onKeyPress="MascaraGenerica(this, 'CPF');" maxlenght="18"
-                    required />
+                    readonly />
 
                 <label>Senha</label>
                 <input name="senha" id="senha" type="text" required />
 
                 <label>Data de Admissão: </label>
-                <input name="data_admissao" id="data_admissao" type="date" required />
+                <input name="data_admissao" id="data_admissao" type="text" readonly />
 
                 <label>Situação</label>
                 <select name="is_active" id="is_active" required>
@@ -99,6 +99,9 @@
                         }).done((data) => {
                             for (const i in data) {
                                 document.getElementById('nome').value = data[i].nome
+                                document.getElementById('cpf').value = data[i].cpf
+                                document.getElementById('senha').value = data[i].senha
+                                document.getElementById('data_admissao').value = data[i].data_admissao
                             }
                         });
                         return indice
@@ -118,10 +121,10 @@
                             data_admissao: `${data_admissao}`,
                             is_active: `${is_active}`
                         }
-                        $.post(`http://localhost/Inter/api/editar/editarCliente/`, dados, function (data, status) {
+                        $.post(`http://localhost/Inter/api/editar/editarEntregador/`, dados, function (data, status) {
                         }).done((resultado) => {
                             console.log(resultado)
-                            window.location.href = 'clientes.html';
+                            window.location.href = 'entregadores.html';
                         }).fail((resultado) => {
                             console.log(resultado)
                         })

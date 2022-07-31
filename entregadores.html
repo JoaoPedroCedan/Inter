@@ -71,31 +71,29 @@
                         <th>Nome Completo</th>
                         <th>CPF</th>
                         <th>Data de Admissão</th>
-                        <th style="text-align: center;">Editar</th>
-                        <th style="text-align: center;">Excluir</th>
+                        <th>Status</th>
+                        <th style="text-align: center;">Editar/Visualizar</th>
                     </tr>
                 </thead>
 
                 <tbody class="entregadores">
                     <script>
-
                         $(document).ready(() => {
                             const exibir = () => {
                                 $.ajax({
                                     url: 'http://localhost/Inter/api/listagem/listarEntregadores/?default'
                                 }).done((data) => {
                                     for (const i in data) {
-
                                         let y =
                                             `
-                    <tr>
-                    <td data-label='Nome Completo: '>${data[i]['nome']}</td>
-                    <td data-label='CPF: '>${data[i]['cpf']}</td>
-                    <td data-label='Data de Amissão: '>${data[i]['data_admissao']}</td>
-                    <td style="text-align: center;"><a href="entregadores_editar.html?id=${data[i]['id']}" class="fa fa-eye"></a></td>
-                    <td style="text-align: center;"><i class="fa fa-edit"></i></td>
-                    </tr>
-                    `
+                                            <tr>
+                                            <td data-label='Nome Completo: '>${data[i]['nome']}</td>
+                                            <td data-label='CPF: '>${data[i]['cpf']}</td>
+                                            <td data-label='Data de Amissão: '>${data[i]['data_admissao']}</td>
+                                            <td data-label='Status: '>${data[i]['is_active']}</td>
+                                            <td style="text-align: center;"><a href="entregadores_editar.html?id=${data[i]['id']}" class="fa fa-eye"></a></td>
+                                            </tr>
+                                            `
                                         $('.entregadores').append(y)
                                     };
                                 });

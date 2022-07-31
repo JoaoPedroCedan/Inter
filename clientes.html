@@ -73,8 +73,8 @@
             <th>Nome Completo</th>
             <th>CPF</th>
             <th>Contato</th>
-            <th style="text-align: center;">Exibir</th>
-            <th style="text-align: center;">Editar</th>
+            <th>Status</th>
+            <th style="text-align: center;">Editar/Visualizar</th>
           </tr>
         </thead>
         <tbody class="clientes">
@@ -93,8 +93,8 @@
                     <td data-label='Nome Completo: '>${data[i]['nome']}</td>
                     <td data-label='CPF: '>${data[i]['cpf']}</td>
                     <td data-label='Contato: '>${data[i]['telefone']}</td>
+                    <td data-label='Status'>${data[i]['is_active']}</td>
                     <td style="text-align: center;"><a href="clientes_editar.html?id=${data[i]['id']}" class="fa fa-eye"></a></td>
-                    <td style="text-align: center;"><i class="fa fa-edit"></i></td>
                     </tr>
                     `
                     $('.clientes').append(y)
