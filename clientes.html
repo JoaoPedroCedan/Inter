@@ -65,18 +65,16 @@
 
     <div class="icons">
       <label class="fa fa-plus-circle fa-3x" for="modal-1"></label>
-    </div>
-    <div class="icons">
       <label class="fa fa-file-pdf fa-3x" onclick='javascript:demoFromHTML();'></label>
     </div>
+
     <div class="icons">
       <input id="pesquisar" type="text" placeholder="Pesquisar">
     </div>
 
-
   </div>
 
-  <div class="painel">
+  <div class="painel-tabela">
 
     <div class="container" id="container">
 
@@ -128,12 +126,11 @@
 
   <div class="painel">
 
-    <div class="icons" style="right: 0rem; position:relative;">
+    <div class="icons">
       <button id="anterior" disabled>&lsaquo; Anterior</button>
       <label id="numeracao"></label>
       <button id="proximo" disabled>Próximo &rsaquo;</button>
     </div>
-
 
   </div>
 
@@ -308,7 +305,7 @@
       $.ajax({
         url: 'http://localhost/Inter/api/listagem/listarClientes/?default'
       }).done((data) => {
-        var tamanhoPagina = 3;
+        var tamanhoPagina = 10;
         var pagina = 0;
 
         function paginar() {
