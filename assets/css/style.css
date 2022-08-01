@@ -355,10 +355,10 @@ section {
 }
 
 .painel .icons input {
-  border-radius: 10px;
-  background: #201b2c;
-  color: #f0ffde;
-  font-size: 12px;
+  width: 100%;
+  border-radius: 1rem;
+  border: 0.2rem solid #201b2c;
+  font-size: 1.6rem;
 }
 
 .painel .icons button {
@@ -366,7 +366,7 @@ section {
   display: inline-block;
   padding: 1rem 3rem;
   font-size: 1.2rem;
-  border-radius: 10px;
+  border-radius: 1rem;
   cursor: pointer;
   background: #201b2c;
   color: #f0ffde;
