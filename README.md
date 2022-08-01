@@ -4,7 +4,11 @@
 
 #consertar
 
-no painel de controle, na ação de fechar o modal, a animação dele está muito ruim.
+1 - no painel de controle, na ação de fechar o modal, a animação dele está muito ruim.
+
+#gafes
+
+1 - O pesquisar só funciona dentro de uma página. Ele não pesquisa tudo.
 
 #ideias
 

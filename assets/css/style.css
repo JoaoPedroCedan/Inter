@@ -345,9 +345,6 @@ section {
   align-items: flex-end;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-
 }
 
 .painel .icons label:hover {
@@ -363,7 +360,6 @@ section {
 
 .painel .icons button {
   margin-top: 1rem;
-  display: inline-block;
   padding: 1rem 3rem;
   font-size: 1.2rem;
   border-radius: 1rem;
