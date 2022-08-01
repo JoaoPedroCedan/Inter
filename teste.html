@@ -29,223 +29,63 @@
 </head>
 
 <body>
-
-    <!-- cabeçalho - início -->
-
-    <header class="header">
-
-        <div id="menu-btn" class="fas fa-bars"></div>
-        <img src="" alt="">
-        <a href="#" class="logo">bestlane</a>
-
-        <nav class="navbar">
-            <a href="entregas.html">Entregas</a>
-            <a href="clientes.html">Clientes</a>
-            <a href="operadores.html">Operadores</a>
-            <a href="entregadores.html">Entregadores</a>
-        </nav>
-
-        <div class="icons">
-            <div class="fas fa-sign-in-alt" id="login-btn"></div>
-        </div>
-
-    </header>
-
-    <!-- cabeçalho - fim -->
-
-    <div class="banner">
-
-        <div class="conteudo">
-            <br><br><br>
-            <h3>Painel de Operadores</h3>
-            <br><br><br>
-        </div>
-
-    </div>
-
-
-
-    <div class="painel">
-
-        <div class="icons">
-            <label class="fa fa-plus-circle fa-3x" for="modal-1"></label>
-        </div>
-        <div class="icons">
-            <i class="fa fa-file-pdf fa-3x" onclick='javascript:demoFromHTML();'></i>
-        </div>
-        <div class="icons">
-            <i class="fa fa-plus-circle fa-3x" for="modal-1"></i>
-        </div>
-        <div class="icons">
-            <i class="fa fa-file-pdf fa-3x" onclick='javascript:demoFromHTML();'></i>
-        </div>
-    </div>
-
-    <div class="painel">
-        <div class="container" id="container">
-
+    <body>
+        <center>
+            <h1>GeeksforGeeks</h1>
+            <h3>
+              perform a real time search and filter 
+              on a HTML table
+            </h3>
+            <b>Search the table for Course, Fees or Type: 
+              <input id="gfg" type="text" 
+                     placeholder="Search here">
+            </b>
+            <br>
+            <br>
             <table>
-
-                <thead>
+                <tr>
+                    <th>Course</th>
+                    <th>Duration</th>
+                    <th>Type</th>
+                </tr>
+                <tbody id="geeks">
                     <tr>
-                        <th>Nome Completo</th>
-                        <th>CPF</th>
-                        <th style="text-align: center;">Editar</th>
-                        <th style="text-align: center;">Excluir</th>
+                        <td>C++ STL</td>
+                        <td>1499</td>
+                        <td>Online Classes
+                        </td>
                     </tr>
-                </thead>
-
-                <tbody class="operadores">
-                    <script>
-                        $(document).ready(() => {
-                            const exibir = () => {
-                                $.ajax({
-                                    url: 'http://localhost/Inter/api/listagem/listarOperador/?default'
-                                }).done((data) => {
-                                    for (const i in data) {
-
-                                        let y =
-                                            `
                     <tr>
-                    <td data-label='Nome Completo: '>${data[i]['nome']}</td>
-                    <td data-label='CPF: '>${data[i]['cpf']}</td>
-                    <td style="text-align: center;"><i class="fa fa-edit"></i></td>
-                    <td style="text-align: center;"><i class="fa fa-trash"></i></td>
+                        <td>DSA Foundation</td>
+                        <td>7999</td>
+                        <td>Regular Classes</td>
                     </tr>
-                    `
-                                        $('.operadores').append(y)
-                                    };
-                                });
-                            }
-
-                            exibir();
-                        })
-                    </script>
+                    <tr>
+                        <td>Geeks Classes</td>
+                        <td>10799</td>
+                        <td>Weekend Classes</td>
+                    </tr>
+                    <tr>
+                        <td>Placement 100</td>
+                        <td>9999</td>
+                        <td>Online Classes</td>
+                    </tr>
                 </tbody>
-
             </table>
-        </div>
-    </div>
-
-    <!-- modal de cadastro - início-->
-
-    <input class="modal-state" id="modal-1" type="checkbox" />
-
-    <div class="modal">
-
-        <label class="modal__bg" for="modal-1"></label>
-
-        <div class="modal__inner">
-
-            <label class="modal__close" for="modal-1"></label>
-
-            <form method="post" action="">
-
-                <label for="nome">Nome Completo: </label>
-                <input name="nome" id="nome" type="text" maxlength="40" required />
-
-                <label for="cpf">CPF: </label>
-                <input name="cpf" id="cpf" type="text" onKeyPress="MascaraGenerica(this, 'CPF');" maxlenght="14"
-                    required />
-
-                <label for="senha">Senha: </label>
-                <input name="senha" id="senha" type="password" maxlength="60" required />
-
-                <input type="submit" value="registrar operador" id="operadores" class="btn-form" name="submit">
-
-                <script>
-                    $('.btn-form').click((event) => {
-                        var nome = document.getElementById('nome').value;
-                        var cpf = document.getElementById('cpf').value;
-                        var senha = document.getElementById('senha').value;
-                        let dados = {
-                            nome: `${nome}`,
-                            cpf: `${cpf}`,
-                            senha: `${senha}`
-                        }
-                        $.post("http://localhost/Inter/api/cadastrar/cadastrarOperador/", dados, function (data, status) {
-                        }).done((resultado) => {
-                            console.log(resultado)
-                        }).fail((resultado) => {
-                            console.log(resultado)
-                        })
-                    })
-
-                </script>
-
-            </form>
-
-        </div>
-    </div>
-
-    <!-- modal de cadastro - fim-->
-
-</body>
-
-</html>
-
-<!-- animação do navbar responsivo - início-->
-
-<script>
-    let navbar = document.querySelector('.header .navbar');
-
-    document.querySelector('#menu-btn').onclick = () => {
-        navbar.classList.toggle('active');
-    }
-
-    document.querySelector("#operadores").addEventListener("click", function () {
-        location.reload();
-    });
-
-    window.onscroll = () => {
-        navbar.classList.remove('active');
-    }
-</script>
-
-<!-- animação do navbar responsivo - fim-->
-
-<!-- relatório pdf - início-->
-
-<script>
-    function demoFromHTML() {
-        var pdf = new jsPDF('p', 'pt', 'letter');
-        // source can be HTML-formatted string, or a reference
-        // to an actual DOM element from which the text will be scraped.
-        source = $('#container')[0];
-
-        // we support special element handlers. Register them with jQuery-style 
-        // ID selector for either ID or node name. ("#iAmID", "div", "span" etc.)
-        // There is no support for any other type of selectors 
-        // (class, of compound) at this time.
-        specialElementHandlers = {
-            // element with id of "bypass" - jQuery style selector
-            '#bypassme': function (element, renderer) {
-                // true = "handled elsewhere, bypass text extraction"
-                return true
-            }
-        };
-        margins = {
-            top: 80,
-            bottom: 60,
-            left: 10,
-            width: 700
-        };
-        // all coords and widths are in jsPDF instance's declared units
-        // 'inches' in this case
-        pdf.fromHTML(
-            source, // HTML string or DOM elem ref.
-            margins.left, // x coord
-            margins.top, { // y coord
-            'width': margins.width, // max width of content on PDF
-            'elementHandlers': specialElementHandlers
-        },
-
-            function (dispose) {
-                // dispose: object with X, Y of the last line add to the PDF 
-                //          this allow the insertion of new lines after html
-                pdf.save('Test.pdf');
-            }, margins);
-    }
-</script>
-
-<!-- relatório pdf - início - fim-->
+      
+            <script>
+                $(document).ready(function() {
+                    $("#gfg").on("keyup", function() {
+                        var value = $(this).val().toLowerCase();
+                        $("#geeks tr").filter(function() {
+                            $(this).toggle($(this).text()
+                            .toLowerCase().indexOf(value) > -1)
+                        });
+                    });
+                });
+            </script>
+      </center>
+      
+    </body>
+      
+    </html>

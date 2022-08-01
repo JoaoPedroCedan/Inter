@@ -333,11 +333,10 @@ section {
 
 .painel {
   width: 90%;
-  margin: 1rem auto;
   margin-top: -5rem;
   background-color: #fff;
   border-radius: 1rem;
-  padding: 3rem 2rem;
+  padding: 3rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -346,20 +345,31 @@ section {
   align-items: flex-end;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  gap: 1.5rem;
   align-items: center;
   justify-content: center;
 
 }
 
-.painel .icons {
-  display: inline-flex;
+.painel .icons label:hover {
   cursor: pointer;
-  justify-content: flex-start;
 }
 
-.painel .icons label:hover {
-  color: #00ff88;
+.painel .icons input {
+  border-radius: 10px;
+  background: #201b2c;
+  color: #f0ffde;
+  font-size: 12px;
+}
+
+.painel .icons button {
+  margin-top: 1rem;
+  display: inline-block;
+  padding: 1rem 3rem;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  cursor: pointer;
+  background: #201b2c;
+  color: #f0ffde;
 }
 
 .painel .container {
@@ -387,20 +397,11 @@ section {
   margin: .7rem;
 }
 
-.painel span:hover {
-  background: #29d9d5;
-}
-
 .painel .conteudo {
   -webkit-box-flex: 1;
   -ms-flex: 1 1 42rem;
   flex: 1 1 42rem;
   margin-bottom: 5rem;
-}
-
-.painel .conteudo span {
-  color: #29d9d5;
-  font-size: 2rem;
 }
 
 .painel .conteudo p {
