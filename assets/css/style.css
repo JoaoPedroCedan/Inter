@@ -897,3 +897,39 @@ figure {
   color: #201b2c;
   height: 50px;
 }
+
+.dashboard1{
+  background-color: #201b2c;
+  width: 400px;
+  height: 150px;
+  border-radius: 20px;
+}
+
+
+.pd1{
+  color: white;
+  text-transform: uppercase;
+  margin-top: -1rem;
+ 
+}
+
+.pd2{
+  color: #00ff88;
+  font-size: 50px;
+  align-items: center;
+  justify-content: center;
+}
+
+.home{
+  display: flex;
+  justify-content: space-around;
+  
+}
+
+.dp{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 50px;
+}
+
