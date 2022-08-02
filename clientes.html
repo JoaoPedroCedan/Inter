@@ -3,7 +3,6 @@
 
 <!-- header html - início -->
 
-
 <head>
 
   <meta charset="UTF-8">
@@ -26,7 +25,7 @@
 
   <!-- jquery cdn link-->
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  
+
 </head>
 
 <body>
@@ -37,8 +36,7 @@
 
     <div id="menu-btn" class="fas fa-bars"></div>
     <img src="" alt="">
-    <a href="#" class="logo">BESTLANE</a>
-
+    <a href="#" class="logo">bestlane</a>
 
     <nav class="navbar">
       <a href="entregas.html">Entregas</a>
@@ -67,9 +65,18 @@
 
     <div class="icons">
       <label class="fa fa-plus-circle fa-3x" for="modal-1"></label>
+      <label class="fa fa-file-pdf fa-3x" onclick='javascript:demoFromHTML();'></label>
     </div>
 
-    <div class="container">
+    <div class="icons">
+      <input id="pesquisar" type="text" placeholder="Pesquisar">
+    </div>
+
+  </div>
+
+  <div class="painel-tabela">
+
+    <div class="container" id="container">
 
       <table>
 
@@ -79,10 +86,10 @@
             <th>CPF</th>
             <th>Contato</th>
             <th>Status</th>
-            <th style="text-align: center;">Editar/Visualizar</th>
+            <th style="text-align: center;">Visualizar</th>
           </tr>
         </thead>
-        <tbody class="clientes">
+        <tbody id="clientes">
           <script>
             $(document).ready(() => {
               const exibir = () => {
@@ -95,15 +102,16 @@
                     let y =
                       `
                     <tr>
-                    <td data-label='Nome Completo: '>${data[i]['nome']}</td>
-                    <td data-label='CPF: '>${data[i]['cpf']}</td>
-                    <td data-label='Contato: '>${data[i]['telefone']}</td>
-                    <td data-label='Status'>${data[i]['is_active']}</td>
+                    <td data-label='Nome Completo:'> ${data[i]['nome']}</td>
+                    <td data-label='CPF:'> ${data[i]['cpf']}</td>
+                    <td data-label='Contato:'> ${data[i]['telefone']}</td>
+                    <td data-label='Status:'> ${data[i]['is_active']}</td>
                     <td style="text-align: center;"><a href="clientes_editar.html?id=${data[i]['id']}" class="fa fa-eye"></a></td>
                     </tr>
                     `
                     $('.clientes').append(y)
                   };
+
                 });
               }
 
@@ -114,6 +122,16 @@
       </table>
 
     </div>
+  </div>
+
+  <div class="painel">
+
+    <div class="icons">
+      <button id="anterior" disabled>&lsaquo; Anterior</button>
+      <label id="numeracao"></label>
+      <button id="proximo" disabled>Próximo &rsaquo;</button>
+    </div>
+
   </div>
 
   <input class="modal-state" id="modal-1" type="checkbox" />
@@ -205,7 +223,7 @@
 
 </html>
 
-<!-- script responsável pela animação do navbar quando a tela diminui - início-->
+<!-- animação do navbar responsivo - início-->
 
 <script>
   let navbar = document.querySelector('.header .navbar');
@@ -219,4 +237,121 @@
   }
 </script>
 
-<!-- script responsável pela animação do navbar quando a tela diminui - fim-->
+<!-- animação do navbar responsivo - fim-->
+
+<!-- relatório pdf - início-->
+
+<script>
+  function demoFromHTML() {
+    var pdf = new jsPDF('p', 'pt', 'letter');
+    // source can be HTML-formatted string, or a reference
+    // to an actual DOM element from which the text will be scraped.
+    source = $('#container')[0];
+
+    // we support special element handlers. Register them with jQuery-style 
+    // ID selector for either ID or node name. ("#iAmID", "div", "span" etc.)
+    // There is no support for any other type of selectors 
+    // (class, of compound) at this time.
+    specialElementHandlers = {
+      // element with id of "bypass" - jQuery style selector
+      '#bypassme': function (element, renderer) {
+        // true = "handled elsewhere, bypass text extraction"
+        return true
+      }
+    };
+    margins = {
+      top: 80,
+      bottom: 60,
+      left: 10,
+      width: 700
+    };
+    // all coords and widths are in jsPDF instance's declared units
+    // 'inches' in this case
+    pdf.fromHTML(
+      source, // HTML string or DOM elem ref.
+      margins.left, // x coord
+      margins.top, { // y coord
+      'width': margins.width, // max width of content on PDF
+      'elementHandlers': specialElementHandlers
+    },
+
+      function (dispose) {
+        // dispose: object with X, Y of the last line add to the PDF 
+        //          this allow the insertion of new lines after html
+        pdf.save('clientes.pdf');
+      }, margins);
+  }
+</script>
+
+<!-- relatório pdf - fim-->
+
+<!-- pesquisa e paginação  - fim-->
+
+<script>
+
+  $(document).ready(function () {
+    $("#pesquisar").on("keyup", function () {
+      var value = $(this).val().toLowerCase();
+      $("#clientes tr").filter(function () {
+        $(this).toggle($(this).text()
+          .toLowerCase().indexOf(value) > -1)
+      });
+    });
+  });
+
+  // Por gentileza, não alterar nada nesse bloco de códigos. Desde já agradeço. Abraços.
+  $(document).ready(() => {
+    const paginas = () => {
+      $.ajax({
+        url: 'http://localhost/Inter/api/listagem/listarClientes/?default'
+      }).done((data) => {
+        var tamanhoPagina = 10;
+        var pagina = 0;
+
+        function paginar() {
+          $('table > tbody > tr').remove();
+          var tbody = $('table > tbody');
+          for (var i = pagina * tamanhoPagina; i < data.length && i < (pagina + 1) * tamanhoPagina; i++) {
+            tbody.append(
+              $('<tr>')
+                .append($('<td data-label="Nome Completo:">').append(data[i]['nome']))
+                .append($('<td data-label="CPF:">').append(data[i]['cpf']))
+                .append($('<td data-label="Contato:">').append(data[i]['telefone']))
+                .append($('<td data-label="Status:">').append(data[i]['is_active']))
+                .append($(`<td style="text-align: center;"><a href="clientes_editar.html?id=${data[i]['id']}" class="fa fa-eye"></a>'`))
+            )
+          }
+          $('#numeracao').text('Página ' + (pagina + 1) + ' de ' + Math.ceil(data.length / tamanhoPagina));
+        }
+
+        function ajustarBotoes() {
+          $('#proximo').prop('disabled', data.length <= tamanhoPagina || pagina >= Math.ceil(data.length / tamanhoPagina) - 1);
+          $('#anterior').prop('disabled', data.length <= tamanhoPagina || pagina == 0);
+        }
+
+        $(function () {
+          $('#proximo').click(function () {
+            if (pagina < data.length / tamanhoPagina - 1) {
+              pagina++;
+              paginar();
+              ajustarBotoes();
+            }
+          });
+          $('#anterior').click(function () {
+            if (pagina > 0) {
+              pagina--;
+              paginar();
+              ajustarBotoes();
+            }
+          });
+          paginar();
+          ajustarBotoes();
+        });
+      })
+    }
+    paginas();
+  });
+
+</script>
+
+<!-- pesquisa e paginação - fim-->
