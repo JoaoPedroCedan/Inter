@@ -65,7 +65,7 @@
 
     <div class="icons">
       <label class="fa fa-plus-circle fa-3x" for="modal-1"></label>
-      <label class="fa fa-file-pdf fa-3x" onclick='javascript:demoFromHTML();'></label>
+      <label class="fa fa-file-pdf fa-3x" onclick="javascript:window.print());"></label>
     </div>
 
     <div class="icons">
@@ -78,7 +78,7 @@
 
     <div class="container" id="container">
 
-      <table>
+      <table id="tabela-clientes">
 
         <thead>
           <tr>
@@ -289,15 +289,7 @@
 
 <script>
 
-  $(document).ready(function () {
-    $("#pesquisar").on("keyup", function () {
-      var value = $(this).val().toLowerCase();
-      $("#clientes tr").filter(function () {
-        $(this).toggle($(this).text()
-          .toLowerCase().indexOf(value) > -1)
-      });
-    });
-  });
+
 
   // Por gentileza, não alterar nada nesse bloco de códigos. Desde já agradeço. Abraços.
   $(document).ready(() => {
@@ -305,13 +297,24 @@
       $.ajax({
         url: 'http://localhost/Inter/api/listagem/listarClientes/?default'
       }).done((data) => {
-        var tamanhoPagina = 10;
+        var tamanhoPagina = 3;
         var pagina = 0;
 
         function paginar() {
           $('table > tbody > tr').remove();
           var tbody = $('table > tbody');
           for (var i = pagina * tamanhoPagina; i < data.length && i < (pagina + 1) * tamanhoPagina; i++) {
+
+            $(document).ready(function () {
+              $("#pesquisar").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#clientes tr").filter(function () {
+                  $(this).toggle($(this).text()
+                    .toLowerCase().indexOf(value) > -1)
+                });
+              });
+            });
+
             tbody.append(
               $('<tr>')
                 .append($('<td data-label="Nome Completo:">').append(data[i]['nome']))
@@ -355,3 +358,49 @@
 </script>
 
 <!-- pesquisa e paginação - fim-->
+
+<script>
+  function AdicionarFiltro(tabela, coluna) {
+    var cols = $("#" + tabela + " thead tr:first-child th").length;
+    if ($("#" + tabela + " thead tr").length == 1) {
+      var linhaFiltro = "<tr>";
+      for (var i = 0; i < cols; i++) {
+        linhaFiltro += "<th></th>";
+      }
+      linhaFiltro += "</tr>";
+
+      $("#" + tabela + " thead").append(linhaFiltro);
+    }
+
+    var colFiltrar = $("#" + tabela + " thead tr:nth-child(2) th:nth-child(" + coluna + ")");
+
+    $(colFiltrar).html("<select id='filtroColuna_" + coluna.toString() + "'  class='filtroColuna'> </select>");
+
+    var valores = new Array();
+
+    $("#" + tabela + " tbody tr").each(function () {
+      var txt = $(this).children("td:nth-child(" + coluna + ")").text();
+      if (valores.indexOf(txt) < 0) {
+        valores.push(txt);
+      }
+    });
+    $("#filtroColuna_" + coluna.toString()).append("<option>TODOS</option>")
+    for (elemento in valores) {
+      $("#filtroColuna_" + coluna.toString()).append("<option>" + valores[elemento] + "</option>");
+    }
+
+    $("#filtroColuna_" + coluna.toString()).change(function () {
+      var filtro = $(this).val();
+      $("#" + tabela + " tbody tr").show();
+      if (filtro != "TODOS") {
+        $("#" + tabela + " tbody tr").each(function () {
+          var txt = $(this).children("td:nth-child(" + coluna + ")").text();
+          if (txt != filtro) {
+            $(this).hide();
+          }
+        });
+      }
+    });
+    AdicionarFiltro("tabela-clientes", 3);
+  };
+</script>
