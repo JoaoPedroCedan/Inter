@@ -3,7 +3,6 @@
 
 <!-- header html - início -->
 
-
 <head>
 
     <meta charset="UTF-8">
@@ -15,11 +14,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
     <!-- css file link -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
 
     <!-- script file link -->
-    <script src="assets/js/mascara.js" defer></script>
-    <script src="assets/js/viacep.js" defer></script>
+    <script src="../ssets/js/mascara.js" defer></script>
+    <script src="../assets/js/viacep.js" defer></script>
 
     <!-- jspdf cdn link -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
@@ -56,7 +55,7 @@
 
         <div class="conteudo">
             <br><br><br>
-            <h3>Editando Cliente</h3>
+            <h3>Editar Dados de Clientes</h3>
             <br><br><br>
         </div>
 
@@ -65,13 +64,15 @@
     <div class="painel">
 
         <div class="icons">
-          <a href="clientes.html"><label class="fa fa-times-circle fa-3x" style="color:red"></label></a>
-        </div>   
-    
-      </div>
+            <a href="clientes.html"><label class="fa fa-times-circle fa-3x" style="color:red"></label></a>
+        </div>
+
+    </div>
 
     <div class="painel">
+
         <div class="container">
+
             <form class="editar" method="post" action="">
                 <label for="cpf">Nome Completo: </label>
                 <input name="nome" id="nome" type="text" maxlength="40" required />
@@ -111,6 +112,7 @@
 
                 <input name="submit" type="submit" class="btn-form" value="Editar Clientes" />
             </form>
+
             <script>
                 $(document).ready(() => {
 
@@ -177,8 +179,10 @@
                     })
                 })
             </script>
+
         </div>
     </div>
+
 </body>
 
 </html>
