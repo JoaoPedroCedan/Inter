@@ -32,4 +32,16 @@ if(isset($_GET['default'])){
     $result = $select->fetchAll(PDO::FETCH_ASSOC);
     echo json_encode($result);
 }
+
+if(isset($_GET['quantidade'])){
+    $select = $conn->prepare("SELECT COUNT(id) as quantidade_entregas, COUNT(status) as saiu_para_entrega FROM entregas where status = 'SAIU PARA ENTREGA'");
+    $select->execute();
+    $result1 = $select->fetchAll(PDO::FETCH_ASSOC);
+
+    $select2 = $conn->prepare("SELECT COUNT(status) as entregues from entregas where status = 'ENTREGUE'");
+    $select2->execute();
+    $result2 = $select2->fetchAll(PDO::FETCH_ASSOC);
+    echo json_encode($result1);
+    echo json_encode($result2);
+}
 ?>
