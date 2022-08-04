@@ -761,7 +761,6 @@ tbody tr td a {
 
 .p1 {
   font-size: large;
-  display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
@@ -771,7 +770,7 @@ tbody tr td a {
 }
 
 .cria {
-  margin-top: 15px;
+  margin-top: 50px;
   margin-bottom: 10px;
   font-size: 30px;
   color: #000;
