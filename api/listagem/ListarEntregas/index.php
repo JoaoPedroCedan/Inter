@@ -27,7 +27,7 @@ if(isset($_GET['nome_cliente'])){
 
 
 if(isset($_GET['default'])){
-    $select = $conn->prepare("SELECT entregas.id,entregas.quantidade,entregas.descricao,entregas.pedido,entregador.nome as 'nome_entregador',cliente.nome as 'nome_cliente',operador.nome as 'nome_operador',data_entrada,data_saida,status FROM entregas INNER JOIN cliente ON entregas.id_cliente = cliente.id INNER JOIN entregador on entregas.id_entregador = entregador.id INNER JOIN operador on entregas.id_operador = operador.id ORDER BY id ASC");
+    $select = $conn->prepare("SELECT entregas.id,entregas.quantidade,entregas.descricao,entregas.pedido,cliente.cep,cliente.numero,entregador.nome as 'nome_entregador',cliente.nome as 'nome_cliente',operador.nome as 'nome_operador',data_entrada,data_saida,status FROM entregas INNER JOIN cliente ON entregas.id_cliente = cliente.id INNER JOIN entregador on entregas.id_entregador = entregador.id INNER JOIN operador on entregas.id_operador = operador.id ORDER BY id ASC");
     $select->execute();
     $result = $select->fetchAll(PDO::FETCH_ASSOC);
     echo json_encode($result);

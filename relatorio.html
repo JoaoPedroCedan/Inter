@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<!-- header html - início -->
+
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bestlane</title>
+
+    <!-- font awesome cdn link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- css file link -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- script file link -->
+    <script src="assets/js/mascara.js" defer></script>
+    <script src="assets/js/viacep.js" defer></script>
+
+    <!-- jspdf cdn link -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
+
+    <!-- jquery cdn link-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    
+</head>
+
+<body>
+
+    <!-- cabeçalho sem autenticação - início-->
+
+    <header class="header">
+
+        <div id="menu-btn" class="fas fa-bars"></div>
+        <img src="" alt="">
+        <a href="home.html" class="logo">BESTLANE</a>
+
+        <nav class="navbar">
+            <a href="entregas.html">Entregas</a>
+            <a href="clientes.html">Clientes</a>
+            <a href="operadores.html">Operadores</a>
+            <a href="entregadores.html">Entregadores</a>
+        </nav>
+
+        <div class="icons">
+            <div class="fas fa-sign-in-alt" id="login-btn"></div>
+        </div>
+
+    </header>
+
+    <div class="banner">
+
+        <div class="conteudo">
+            <br><br><br>
+            <h3>Painel de Relatório</h3>
+            <br><br><br>
+            <h1>Data inicial 01/08/2022</h1>
+            <h1>Data Final 31/08/2022</h1>
+            <br><br><br>
+        </div>
+
+    </div>
+
+    <div class="painel1">
+        <form method="post" action="">
+
+        <label>Data Inicial</label>
+        <input name="data_inicial" id="data_inicial" type="date" maxlength="40" required />
+
+        <label>Data Final</label>
+        <input id="data_final" type="date" maxlenght="18" required />
+
+        <!-- <label>Clientes</label>
+        <select id="status_cliente">
+            <option value="todos">TODOS</option>
+            <option value="ATIVO">ATIVO</option>
+            <option value="INATIVO">INATIVO</option>
+        </select>
+        <label>Status da Entrega</label>
+        <select id="status_entrega">
+            <option value="todos">TODOS</option>
+            <option value="ENTREGUE">ENTREGUE</option>
+            <option value="SAIU PARA ENTREGA">SAIU PARA ENTREGA</option>
+            <option value="NÃO ENCONTRADO">NÃO ENCONTRADO</option>
+        </select> 
+        !-->
+        <input name="submit" type="submit" class="btn-form" value="Gerar Relatório" />
+        </form>
+    </div>
+    <div class="painel container invisible">
+        <table>
+            <thead>
+                <tr>
+                    <th class="text-color">Número de Pedido</th>
+                    <th class="text-color">Descrição</th>
+                    <th class="text-color" >Nota Fiscal</th>
+                    <th class="text-color">Cliente</th>
+                    <th class="text-color">Entregador</th>
+                    <th class="text-color">Status</th>
+                    <th class="text-color">Data de Saída</th>
+                </tr>
+            </thead>
+            <tbody class="clientes">
+
+            </tbody>
+        </table>
+    </div>
+    <script>
+        $('.btn-form').click((event) => {
+            event.preventDefault();
+            var dt_inicio = document.getElementById('data_inicial').value;
+            var dt_final = document.getElementById('data_final').value;
+            //var clientes = document.getElementById('status_cliente').value;
+            //var entrega = document.getElementById('status_entrega').value;
+            let dados = {
+                data_inicial: `${dt_inicio}`,
+                data_final: `${dt_final}`,
+                //cliente: `${clientes}`,
+                //entrega: `${entrega}`,
+            }
+            $.get("http://localhost/Inter/api/cadastrar/cadastrarRelatorio", dados, function (data, status) {
+            }).done((data) => {
+                $('.painel1').addClass('invisible')
+                $('.container').removeClass('invisible')
+                for (const i in data){
+                    let y =
+                    `
+                    <tr>
+                    <td data-label='Número do Pedido: '>${data[i]['id']}</td>
+                    <td data-label='Descrição: '>${data[i]['descricao']}</td>
+                    <td data-label='Nota Fiscal: '>${data[i]['pedido']}</td>
+                    <td data-label='Cliente: '>${data[i]['nome_cliente']}</td>
+                    <td data-label='Entregador: '>${data[i]['nome_entregador']}</td>
+                    <td data-label='Status: '>${data[i]['status']}</td>
+                    <td data-label='Status: '>${data[i]['data_saida']}</td>
+                    </tr>
+                `
+                $('.clientes').append(y)
+                }
+            }).fail((resultado) => {
+                console.log(resultado)
+            })
+        })
+    </script>
+</body>
+
+</html>
+
+<!-- script responsável pela animação do navbar quando a tela diminui - início-->
+
+<script>
+    let navbar = document.querySelector('.header .navbar');
+
+    document.querySelector('#menu-btn').onclick = () => {
+        navbar.classList.toggle('active');
+    }
+
+    window.onscroll = () => {
+        navbar.classList.remove('active');
+    }
+</script>
+
+<!-- script responsável pela animação do navbar quando a tela diminui - fim-->

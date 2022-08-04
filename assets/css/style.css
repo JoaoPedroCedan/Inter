@@ -339,6 +339,18 @@ section {
   padding: 3rem;
   display: flex;
 }
+.painel1 {
+  width: 90%;
+  margin-top: -5rem;
+  background-color: #fff;
+  border-radius: 1rem;
+  padding: 3rem;
+  display: flex;
+}
+
+.invisible {
+  visibility: hidden;
+}
 
 .painel .icons label:hover {
   cursor: pointer;
@@ -933,3 +945,6 @@ figure {
   font-size: 50px;
 }
 
+.text-color{
+  color: black;
+}

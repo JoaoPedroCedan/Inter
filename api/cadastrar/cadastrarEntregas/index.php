@@ -14,8 +14,9 @@ $nome_cliente = $_POST['nome_cliente'];
 $nome_entregador = $_POST['nome_entregador'];
 $nome_operador = $_POST['nome_operador'];
 $status = $_POST['status'];
+$data_saida = $_POST['data_saida'];
 
-$insert = $conn->prepare("INSERT INTO entregas (quantidade,descricao,pedido,id_cliente,id_entregador,id_operador,status) values ('$quantidade','$descricao','$pedido','$nome_cliente','$nome_entregador','$nome_operador','$status')");
+$insert = $conn->prepare("INSERT INTO entregas (quantidade,descricao,pedido,id_cliente,id_entregador,id_operador,status,data_saida) values ('$quantidade','$descricao','$pedido','$nome_cliente','$nome_entregador','$nome_operador','$status','$data_saida')");
 if($insert->execute()){
     echo json_encode('efetuado com sucesso') ;  
 }
