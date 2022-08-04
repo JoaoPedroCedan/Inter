@@ -181,7 +181,7 @@ section {
   align-items: center;
   flex-wrap: wrap;
   gap: 1.5rem;
-  padding-top: 7rem;
+  padding-top: 0rem;
 }
 
 .home .image {
@@ -843,6 +843,7 @@ tbody tr td a {
 }
 
 .sobre {
+  
   display: flex;
   align-items: center;
   justify-content: baseline;
@@ -887,7 +888,7 @@ tbody tr td a {
   margin-top: 50px;
   margin-bottom: 10px;
   font-size: 30px;
-  color: #000;
+  color: white;
   display: flex;
   justify-content: center;
 }
@@ -901,6 +902,15 @@ tbody tr td a {
 
 figure {
   font-size: 20px;
+}
+
+.dev{
+  border: 4px solid white;
+    background-color: #201b2c;
+    width: 900px;
+    height: 300px;
+    color: white;
+    display: flex;
 }
 
 .container3 {
@@ -1048,7 +1058,7 @@ figure {
 .home {
   display: flex;
   justify-content: space-around;
-
+  color: white;
 }
 
 .dp {
