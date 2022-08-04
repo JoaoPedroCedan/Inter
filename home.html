@@ -1,13 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bestlane</title>
 
+    <!-- font awesome cdn link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- css file link -->
     <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- script file link -->
+    <script src="assets/js/mascara.js" defer></script>
+    <script src="assets/js/viacep.js" defer></script>
+
+    <!-- jspdf cdn link -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
+
+    <!-- jquery cdn link-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
 </head>
+
 <body>
 
     <header class="header">
@@ -15,64 +32,96 @@
         <div id="menu-btn" class="fas fa-bars"></div>
         <img src="" alt="">
         <a href="home.html" class="logo">BESTLANE</a>
-    
+
         <nav class="navbar">
-          <a href="entregas.html">Entregas</a>
-          <a href="clientes.html">Clientes</a>
-          <a href="operadores.html">Operadores</a>
-          <a href="entregadores.html">Entregadores</a>
+            <a href="entregas.html">Entregas</a>
+            <a href="clientes.html">Clientes</a>
+            <a href="operadores.html">Operadores</a>
+            <a href="entregadores.html">Entregadores</a>
         </nav>
-    
+
         <div class="icons">
-          <div class="fas fa-sign-in-alt" id="login-btn"></div>
+            <div class="fas fa-sign-in-alt" id="login-btn"></div>
         </div>
-    
-      </header>
 
-      <section>
+    </header>
 
-      </section>
+    <section>
+
+    </section>
 
 
     <section>
         <h2 class="dp">Dashboard pedidos</h2>
-        
+
     </section>
-<section class="home">
+    <section class="home">
 
-    <section class="dashboard1">
-        <div>
-            <h1  class="pd1">Total de pedidos</h2>
-        </div>
+        <section class="dashboard1">
+            <div>
+                <h1 class="pd1">Total de pedidos</h2>
+            </div>
 
-        <div>
-            <h1 class="pd2">900</h2>
-        </div>
+            <div id="pedidos">
+                <script>
+                    $(document).ready(() => {
+                        const exibir = () => {
+                            $.ajax({
+                                url: 'http://localhost/Inter/api/listagem/listarEntregas/?default'
+                            }).done((data) => {
+                                let iteracao = 0;
+                                for (const i in data) {
+                                    iteracao += 1;
+
+                                };
+                                let y = `<h1 class="pd2">${iteracao}</h2>`
+                                $('#pedidos').append(y)
+                            });
+                        }
+                        exibir();
+                    })
+                </script>
+            </div>
+        </section>
+
+        <section class="dashboard1">
+            <div>
+                <h1 class="pd1">Pedidos pendentes</h2>
+            </div>
+
+            <div>
+                <h1 id="pedidos_pendentes" class="pd2"></h1>
+            </div>
+        </section>
+
+        <section class="dashboard1">
+            <div>
+                <h1 class="pd1">Pedidos Entregues</h2>
+            </div>
+
+            <div>
+                <h1 class="pd2">120</h1>
+            </div>
+        </section>
+
     </section>
+    <script>
 
-    <section class="dashboard1">
-        <div>
-            <h1 class="pd1">Pedidos pendentes</h2>
-        </div>
-
-        <div>
-            <h1 id="pedidos_pendentes" class="pd2"></h1>
-        </div>
-    </section>
-
-    <section class="dashboard1">
-        <div>
-            <h1 class="pd1">Pedidos Entregues</h2>
-        </div>
-
-        <div>
-            <h1 class="pd2">120</h1>
-        </div>
-    </section>
-
-</section>
-<script>
-
-</script>
+    </script>
 </body>
+
 </html>
+
+<!-- script responsável pela animação do navbar quando a tela diminui - início-->
+
+<script>
+    let navbar = document.querySelector('.header .navbar');
+
+    document.querySelector('#menu-btn').onclick = () => {
+        navbar.classList.toggle('active');
+    }
+
+    window.onscroll = () => {
+        navbar.classList.remove('active');
+    }
+</script>
