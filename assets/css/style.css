@@ -43,7 +43,7 @@ html::-webkit-scrollbar-thumb {
 
 /* configurações do corpo do html - starts*/
 body {
-  background: #eeeeee;
+  background: #201b2c;
   overflow-x: hidden;
   box-sizing: border-box;
 }
@@ -589,6 +589,108 @@ tbody tr td a {
 /*Configurações responsáveis pelo CSS da tabela do Painel de Controle- fim*/
 
 /*Configurações responsáveis pelo CSS do Painel de Controle- fim*/
+
+/*Configurações do Rodapé - início*/
+
+
+.footer .box-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(25rem, 1fr))[auto-fit];
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  gap: 1.5rem;
+}
+
+.footer .box-container .box {
+  padding: 1rem 0;
+  border: none;
+}
+
+.footer .box-container .box .logo {
+  padding-bottom: 1rem;
+}
+
+.footer .box-container .box h3 {
+  font-size: 2.2rem;
+  color: #eeeeee;
+  padding: 1rem 0;
+}
+
+.footer .box-container .box p {
+  font-size: 1.4rem;
+  color: #eeeeee;
+  padding: 1rem 0;
+  line-height: 2;
+}
+
+.footer .box-container .box p i {
+  padding-right: .5rem;
+  color: #00ff88;
+}
+
+.footer .box-container .box .share {
+  padding-top: 1rem;
+}
+
+.footer .box-container .box .share a {
+  height: 4.5rem;
+  width: 4.5rem;
+  line-height: 4rem;
+  font-size: 2rem;
+  border-radius: 50%;
+  font-size: 1.7rem;
+  border: 0.2rem solid #00ff88;
+  color: #00ff88;
+  margin-right: .5rem;
+  text-align: center;
+}
+
+.footer .box-container .box .share a:hover {
+  background: #00ff88;
+  color: #eeeeee;
+}
+
+.footer .box-container .box .links {
+  font-size: 1.4rem;
+  color: #eeeeee;
+  padding: 1rem 0;
+  display: block;
+}
+
+.footer .box-container .box .links:hover {
+  color: #00ff88;
+}
+
+.footer .box-container .box .links:hover i {
+  padding-right: 2rem;
+}
+
+.footer .box-container .box .links i {
+  padding-right: .5rem;
+  color: #00ff88;
+}
+
+.creditos {
+  background: #201b2c;
+  text-align: center;
+  font-size: 2rem;
+  padding: 2rem 1rem;
+  color: #eeeeee;
+}
+
+.creditos span {
+  color: #00ff88;
+}
+
+.creditos i {
+  color: #00ff88;
+}
+
+.creditos a {
+  color: #00ff88;
+}
+
+/*Configurações do Rodapé - fim*/
 
 @media (max-width: 991px) {
   html {
