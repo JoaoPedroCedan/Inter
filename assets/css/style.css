@@ -339,6 +339,7 @@ section {
   padding: 3rem;
   display: flex;
 }
+
 .painel1 {
   width: 90%;
   margin-top: -5rem;
@@ -593,6 +594,7 @@ tbody tr td a {
 /*Configurações do Rodapé - início*/
 
 
+
 .footer .box-container {
   display: -ms-grid;
   display: grid;
@@ -602,7 +604,6 @@ tbody tr td a {
 }
 
 .footer .box-container .box {
-  padding: 1rem 0;
   border: none;
 }
 
@@ -613,12 +614,11 @@ tbody tr td a {
 .footer .box-container .box h3 {
   font-size: 2.2rem;
   color: #eeeeee;
-  padding: 1rem 0;
 }
 
 .footer .box-container .box p {
   font-size: 1.4rem;
-  color: #eeeeee;
+  color: #aaaaaa;
   padding: 1rem 0;
   line-height: 2;
 }
@@ -652,7 +652,7 @@ tbody tr td a {
 
 .footer .box-container .box .links {
   font-size: 1.4rem;
-  color: #eeeeee;
+  color: #aaaaaa;
   padding: 1rem 0;
   display: block;
 }
@@ -670,12 +670,24 @@ tbody tr td a {
   color: #00ff88;
 }
 
+.footer .box-container .box form .email {
+  width: 100%;
+  border-radius: 5rem;
+  border: 0.2rem solid #00ff88;
+  background: none;
+  font-size: 1.5rem;
+  text-transform: none;
+  color: #aaaaaa;
+  margin-bottom: 1rem;
+  padding: 1.2rem 1.4rem;
+}
+
 .creditos {
   background: #201b2c;
   text-align: center;
   font-size: 2rem;
   padding: 2rem 1rem;
-  color: #eeeeee;
+  color: #aaaaaa;
 }
 
 .creditos span {
@@ -1011,7 +1023,7 @@ figure {
   height: 50px;
 }
 
-.dashboard1{
+.dashboard1 {
   background-color: #201b2c;
   width: 400px;
   height: 150px;
@@ -1019,33 +1031,33 @@ figure {
 }
 
 
-.pd1{
+.pd1 {
   color: white;
   text-transform: uppercase;
   margin-top: -1rem;
- 
+
 }
 
-.pd2{
+.pd2 {
   color: #00ff88;
   font-size: 50px;
   align-items: center;
   justify-content: center;
 }
 
-.home{
+.home {
   display: flex;
   justify-content: space-around;
-  
+
 }
 
-.dp{
+.dp {
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 50px;
 }
 
-.text-color{
+.text-color {
   color: black;
 }
