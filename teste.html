@@ -1,83 +1,59 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>List Promgramming Languages</title>
-  </head>
-  <body>
-    <input id="keyword" type="text" />
-    <button id="search">
-      Buscar
-    </button>
-    <ul id="list">
-      <li>C</li>
-      <li>Java</li>
-      <li>Objective-C</li>
-      <li>C++</li>
-      <li>C#</li>
-      <li>Basic</li>
-      <li>PHP</li>
-      <li>Python</li>
-      <li>JavaScript</li>
-      <li>Transact-SQL</li>
-      <li>Visual Basic .NET</li>
-      <li>Perl</li>
-      <li>Ruby</li>
-      <li>Visual Basic</li>
-      <li>Delphi/Objective Pascal</li>
-      <li>F#</li>
-      <li>Pascal</li>
-      <li>Swift</li>
-      <li>MATLAB</li>
-      <li>PL/SQL</li>
-    </ul>
-    <h3>Filtro</h3>
-    <div id="filteredList">
-    </div>
-    <script type="text/javascript">
-      function filterByKeyword(filterKeyword) {
-        // Seleciona todos os elementos filhos da lista
-        var list = document.querySelector('#list').childNodes
-        // Cria uma nova lista que será usada depois
-        var newFilteredUl = document.createElement('ul')
+<!DOCTYPE HTML>
+<html lang="pt-br">
 
-        try {
-           // Percorre todos os itens da lista
-          for (var i = 0, length = list.length; i < length; i++) { 
-             // Verifica o tipo do elemento e se ele não está vazio
-            if (list[i].nodeType != 1 && null != list[i].nextSibling) {
-              // Se o valor passado for igual ao valor do texto que está dentro do elemento
-              if (list[i].nextSibling.innerText == filterKeyword) {
-               // Cria um novo item para lista
-                var newLi = document
-                  .createElement('li')
-                // Cria um elemento do tipo TextNode
-                var newLiText = document
-                  .createTextNode(filterKeyword)
-                // Insere o novo texto no novo elemento LI
-                newLi.appendChild(newLiText)
-              }
-            }
-          }
-        // Insere o elemento recém criado a lista criada no começo da funcão
-        newFilteredUl.appendChild(newLi)
-        } catch (e) { 
-          console.error(e)
-        }
-        return newFilteredUl
-      }
+<head>
+  <meta charset="UTF-8" />
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+  <style>
+    * {
+      font-family: "Century Gothic", Arial;
+      font-size: 20px
+    }
 
-      var button = document.querySelector('#search')
-      // Ao clicar no botão de buscar
-      button.onclick = function() {
-        var keyword = document.querySelector('#keyword').value
+    input[type="text"] {
+      width: 100%;
+      border: solid 1px
+    }
 
-        var newList = filterByKeyword(keyword)
-        // Insere a nova lista dentro da div
-        document.querySelector('#filteredList').appendChild(newList)
-      }
-    </script>
-  </body>
+    ul {
+      padding: 0;
+      ;
+      margin: 0
+    }
+
+    ul li {
+      list-style: none;
+      border: dashed 1px;
+      padding: 5px
+    }
+  </style>
+</head>
+
+<body>
+  Filtrar lista:<br />
+  <input type="text" id="txtBusca" placeholder="Digite aqui um valor para filtrar..." />
+  <ul id="ulItens">
+    <li>Feijão</li>
+    <li>Arroz</li>
+    <li>Farinha</li>
+    <li>Açúcar</li>
+    <li>Macarrão</li>
+  </ul>
+</body>
 
 </html>
+
+<script type="text/javascript">
+  $(function () {
+
+    $("#txtBusca").keyup(function () {
+      var texto = $(this).val();
+
+      $("#ulItens li").css("display", "block");
+      $("#ulItens li").each(function () {
+        if ($(this).text().toUpperCase().indexOf(texto.toUpperCase()) < 0)
+          $(this).css("display", "none");
+      });
+    });
+  });
+</script>
