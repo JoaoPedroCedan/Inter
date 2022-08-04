@@ -26,7 +26,7 @@
 
     <!-- jquery cdn link-->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    
+
 </head>
 
 <body>
@@ -69,19 +69,26 @@
             <label class="fa fa-plus-circle fa-3x" for="modal-1"></label>
         </div>
 
+        <div class="icons">
+            <input id="pesquisar" type="text" placeholder="Pesquisar">
+        </div>
+
+    </div>
+
+    <div class="painel-tabela">
+
         <div class="container">
 
             <table>
 
                 <thead>
                     <tr>
-                        <th>Número de Pedido</th>
+                        <th>Pedido</th>
                         <th>Descrição</th>
-                        <th>Nota Fiscal</th>
+                        <th>NF</th>
                         <th>Cliente</th>
                         <th>Status</th>
                         <th style="text-align: center;">Exibir</th>
-                        <th style="text-align: center;">Editar</th>
                         <th style="text-align: center;">Excluir</th>
                     </tr>
                 </thead>
@@ -102,8 +109,7 @@
                     <td data-label='Nota Fiscal: '>${data[i]['pedido']}</td>
                     <td data-label='Cliente: '>${data[i]['nome_cliente']}</td>
                     <td data-label='Status: '>${data[i]['status']}</td>
-                    <td style="text-align: center;"><i class="fa fa-eye"></i></td>
-                    <td style="text-align: center;"><i class="fa fa-edit"></i></td>
+                    <td style="text-align: center;"><a href="entregas_exibir.html?id=${data[i]['id']}" class="fa fa-eye"></a></td>
                     <td style="text-align: center;"><i class="fa fa-trash"></i></td>
                     </tr>
                     `
