@@ -34,14 +34,29 @@ if(isset($_GET['default'])){
 }
 
 if(isset($_GET['quantidade'])){
-    $select = $conn->prepare("SELECT COUNT(id) as quantidade_entregas, COUNT(status) as saiu_para_entrega FROM entregas where status = 'SAIU PARA ENTREGA'");
+    $select = $conn->prepare("SELECT status FROM entregas where status = 'SAIU PARA ENTREGA'");
     $select->execute();
-    $result1 = $select->fetchAll(PDO::FETCH_ASSOC);
+    $result1 = $select->rowCount();
 
-    $select2 = $conn->prepare("SELECT COUNT(status) as entregues from entregas where status = 'ENTREGUE'");
+
+    $select2 = $conn->prepare("SELECT status from entregas where status = 'ENTREGUE'");
     $select2->execute();
-    $result2 = $select2->fetchAll(PDO::FETCH_ASSOC);
-    echo json_encode($result1);
-    echo json_encode($result2);
+    $result2 = $select2->rowCount();
+
+
+    $select3 = $conn->prepare("SELECT status from entregas ");
+    $select3->execute();
+    $result3 = $select3->rowCount();
+
+    $array = Array(
+        "0"=>Array (
+            "saiu_para_entrega"=>"$result1",
+            "entregues"=>"$result2",
+            "todos"=>"$result3"
+        )
+    );
+    echo json_encode($array);
+
+
 }
 ?>

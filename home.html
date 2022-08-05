@@ -67,14 +67,15 @@
                     $(document).ready(() => {
                         const exibir = () => {
                             $.ajax({
-                                url: 'http://localhost/Inter/api/listagem/listarEntregas/?default'
+                                url: 'http://localhost/Inter/api/listagem/listarEntregas/?quantidade'
                             }).done((data) => {
+                                console.log(data[0]['saiu_para_entrega'])
                                 let iteracao = 0;
                                 for (const i in data) {
                                     iteracao += 1;
 
                                 };
-                                let y = `<h1 class="pd2">${iteracao}</h2>`
+                                let y = `<h1 class="pd2">${data[0]["todos"]}</h1>`
                                 $('#pedidos').append(y)
                             });
                         }
@@ -89,8 +90,26 @@
                 <h1 class="pd1">Pedidos pendentes</h2>
             </div>
 
-            <div>
-                <h1 id="pedidos_pendentes" class="pd2"></h1>
+            <div id="pedidos_pendentes">
+                <script>
+                    $(document).ready(() => {
+                        const exibir = () => {
+                            $.ajax({
+                                url: 'http://localhost/Inter/api/listagem/listarEntregas/?quantidade'
+                            }).done((data) => {
+                                console.log(data[0]['entregues'])
+                                let iteracao = 0;
+                                for (const i in data) {
+                                    iteracao += 1;
+
+                                };
+                                let y = `<h1 class="pd2">${data[0]["saiu_para_entrega"]}</h1>`
+                                $('#pedidos_pendentes').append(y)
+                            });
+                        }
+                        exibir();
+                    })
+                </script>
             </div>
         </section>
 
@@ -99,8 +118,26 @@
                 <h1 class="pd1">Pedidos Entregues</h2>
             </div>
 
-            <div>
-                <h1 class="pd2">120</h1>
+            <div id="pedidos_entregues">
+                <script>
+                    $(document).ready(() => {
+                        const exibir = () => {
+                            $.ajax({
+                                url: 'http://localhost/Inter/api/listagem/listarEntregas/?quantidade'
+                            }).done((data) => {
+                                console.log(data[0]['entregues'])
+                                let iteracao = 0;
+                                for (const i in data) {
+                                    iteracao += 1;
+
+                                };
+                                let y = `<h1 class="pd2">${data[0]["entregues"]}</h1>`
+                                $('#pedidos_entregues').append(y)
+                            });
+                        }
+                        exibir();
+                    })
+                </script>
             </div>
         </section>
 
