@@ -26,7 +26,7 @@
 
     <!-- jquery cdn link-->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    
+
 </head>
 
 <body>
@@ -62,16 +62,16 @@
 
     </div>
 
-    <div class="painel1">
+    <div class="painel">
         <form method="post" action="">
 
-        <label>Data Inicial</label>
-        <input name="data_inicial" id="data_inicial" type="date" maxlength="40" required />
+            <label>Data Inicial</label>
+            <input name="data_inicial" id="data_inicial" type="date" maxlength="40" required />
 
-        <label>Data Final</label>
-        <input id="data_final" type="date" maxlenght="18" required />
+            <label>Data Final</label>
+            <input id="data_final" type="date" maxlenght="18" required />
 
-        <!-- <label>Clientes</label>
+            <!-- <label>Clientes</label>
         <select id="status_cliente">
             <option value="todos">TODOS</option>
             <option value="ATIVO">ATIVO</option>
@@ -85,7 +85,7 @@
             <option value="NÃO ENCONTRADO">NÃO ENCONTRADO</option>
         </select> 
         !-->
-        <input name="submit" type="submit" class="btn-form" value="Gerar Relatório" />
+            <input name="submit" type="submit" class="btn-form" value="Gerar Relatório" />
         </form>
     </div>
     <div class="painel container invisible">
@@ -94,7 +94,7 @@
                 <tr>
                     <th class="text-color">Número de Pedido</th>
                     <th class="text-color">Descrição</th>
-                    <th class="text-color" >Nota Fiscal</th>
+                    <th class="text-color">Nota Fiscal</th>
                     <th class="text-color">Cliente</th>
                     <th class="text-color">Entregador</th>
                     <th class="text-color">Status</th>
@@ -123,11 +123,11 @@
             }
             $.get("http://localhost/Inter/api/cadastrar/cadastrarRelatorio", dados, function (data, status) {
             }).done((data) => {
-                $('.painel1').addClass('invisible')
+                $('.painel').addClass('invisible')
                 $('.container').removeClass('invisible')
-                for (const i in data){
+                for (const i in data) {
                     let y =
-                    `
+                        `
                     <tr>
                     <td data-label='Número do Pedido: '>${data[i]['id']}</td>
                     <td data-label='Descrição: '>${data[i]['descricao']}</td>
@@ -138,7 +138,7 @@
                     <td data-label='Status: '>${data[i]['data_saida']}</td>
                     </tr>
                 `
-                $('.clientes').append(y)
+                    $('.clientes').append(y)
                 }
             }).fail((resultado) => {
                 console.log(resultado)
@@ -161,6 +161,14 @@
     window.onscroll = () => {
         navbar.classList.remove('active');
     }
+
+
+    $(document).ready(function () {
+        $(".form").submit(function (e) {
+            e.preventDefault();
+        });
+    });
+
 
 </script>
 
