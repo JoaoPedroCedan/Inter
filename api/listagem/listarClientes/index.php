@@ -78,4 +78,3 @@ if(isset($_GET['ordering'])){
     $result = $select->fetchAll(PDO::FETCH_ASSOC);
     echo json_encode($result);
 }
-?>
