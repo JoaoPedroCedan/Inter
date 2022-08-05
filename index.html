@@ -1,3 +1,8 @@
+<!--
+inicio: 06/07/2022
+fim: 
+Projeto Interdisciplinar
+-->
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -8,7 +13,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bestlane</title>
+    <title>BestLane</title>
+
     <!-- favicon -->
     <link rel="shortcut icon" type="img/favicon2.ico" href="img/favicon2.ico">
 
@@ -26,6 +32,9 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 
 </head>
+<!-- header html - fim -->
+
+<!-- corpo do documento - início -->
 
 <body>
 
@@ -35,18 +44,12 @@
 
         <div id="menu-btn" class="fas fa-bars"></div>
         <img src="" alt="">
-        <a href="index.html" class="logo">Bestlane</a>
-
+        <a href="#inicio" class="logo">Bestlane</a>
         <nav class="navbar">
-            <a href="entregas.html">Entregas</a>
-            <a href="clientes.html">Clientes</a>
-            <a href="operadores.html">Operadores</a>
-            <a href="entregadores.html">Entregadores</a>
+            <a href="#sobre">Sobre nós</a>
+            <a href="#best">Fale com um Especialista</a>
         </nav>
-
-        <div class="icons">
-            <div class="fas fa-sign-in-alt" id="login-btn"></div>
-        </div>
+        <a href="login.html" class="btn"><strong>Acesse sua conta</strong></a>
 
     </header>
     <!-- cabeçalho sem autenticação fim-->
@@ -181,12 +184,16 @@
 </body>
 <!-- corpo do documento - fim -->
 
+</html>
+
 <!-- script responsável pela animação do navbar quando a tela diminui - início-->
 <script>
     let navbar = document.querySelector('.header .navbar');
+
     document.querySelector('#menu-btn').onclick = () => {
         navbar.classList.toggle('active');
     }
+
     window.onscroll = () => {
         navbar.classList.remove('active');
     }
