@@ -3,12 +3,9 @@ inicio: 06/07/2022
 fim: 
 Projeto Interdisciplinar
 -->
-
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <!-- header html - início -->
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,42 +15,26 @@ Projeto Interdisciplinar
     <link rel="shortcut icon" type="img/favicon2.ico" href="img/favicon2.ico">
     <!-- font awesome cdn link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
     <!-- jquery script cdn link -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
     <!-- css file link -->
     <link rel="stylesheet" href="assets/css/style.css">
-
 </head>
-
 <!-- header html - fim -->
 
 <!-- corpo do documento - início -->
-
 <body>
-
     <!-- cabeçalho sem autenticação - início-->
-
     <header class="header">
-
         <div id="menu-btn" class="fas fa-bars"></div>
         <img src="" alt="">
         <a href="#inicio" class="logo">Bestlane</a>
-
-        <nav class="navbar">
-            <a href="#sobre">Sobre nós</a>
-            <a href="#best">Fale com um Especialista</a>
-        </nav>
-
+            <nav class="navbar">
+                <a href="#sobre">Sobre nós</a>
+                <a href="#best">Fale com um Especialista</a>
+            </nav>
         <a href="login.html" class="btn"><strong>Acesse sua conta</strong></a>
-        <!--
-        <div class="icons">
-            <div class="fas fa-user" id="login-btn"></div>
-        </div>-->
-
     </header>
-
     <!-- cabeçalho sem autenticação fim-->
 
     <!-- seção de apresentação - início  -->
@@ -61,9 +42,9 @@ Projeto Interdisciplinar
         <div class="title">
             <h3>SEJA BEM VINDO A BESTLANE!</h3>
         </div>
-        <div>
-            <img src="img/BL.png">
-        </div>
+            <div class="pulse">
+                 <img src="img/BL.png">
+            </div>
     </section>
 
     <section class="section1">
@@ -90,14 +71,11 @@ Projeto Interdisciplinar
     <section class="section3">
         <h1 class="title4">O sistema ideal para sua empresa!</h1>
     </section>
-
     <!--Inicio Sobre-->
-
     <section id="sobre" class="home">
         <div class="content">
             <h3 class="sobre">Sobre nós</h3>
         </div>
-
     </section>
         <div class="container2">
             <div>
@@ -113,14 +91,13 @@ Projeto Interdisciplinar
                 <br>
                 <br>
                 Venha fazer parte da <a href="#best" class="best" >Bestlane!</a>
-                    </p>
+                </p>
         </div>
         <!--FIM SOBRE-->
 
         <!--INICIO DEV-->
-
-            <h1  class="cria">Desenvolvedores</h1>
-            <div class="dev">
+            <h1 class="cria">Desenvolvedores</h1>
+            <div class="dev" >
                 <figure>
                     <img class="img" src="img/anthony.jpeg">
                     <figcaption>Anthony Melo</figcaption>
@@ -151,43 +128,30 @@ Projeto Interdisciplinar
     <!-- seção de apresentação - fim -->
 
     <!-- rodapé section - início  -->
-
         <section class="footer">
-
             <div class="box-container">
-
                 <div class="box">
-
                     <a href="#" class="logo">
                         <h3>Bestlane</h3>
                     </a>
-
                     <p>Estamos presentes nas maiores Redes Sociais. Não deixe de nos seguir!</p>
-
                     <div class="share">
                         <a href="#" class="fab fa-facebook-f"></a>
                         <a href="#" class="fab fa-tiktok"></a>
                         <a href="#" class="fab fa-instagram"></a>
                         <a href="#" class="fab fa-linkedin"></a>
                     </div>
-
                 </div>
-
                 <div class="box">
-
                     <h3>Contato</h3>
                     <p> <i class="fas fa-map"></i> Avenida Juscelino Kubitscheck, nº 1050, Jardim Brasil - Frutal, Minas
                         Gerais </p>
                     <p> <i class="fas fa-phone"></i> +55 34 3423-6868 </p>
                     <p> <i class="fas fa-envelope"></i> contato@bestlane.com.br </p>
                     <p> <i class="fas fa-clock"></i> Estamos abertos das 08:00 às 22:00 horas</p>
-
                 </div>
-
             </div>
-
         </section>
-
         <div class="creditos">Feito com <i class="fas fa-heart"></i> por <a href="#" target="blank"><span> Route
                     Group </span></a> &copy; <span id="date"></span>;
             <script>
@@ -195,26 +159,19 @@ Projeto Interdisciplinar
                 year = date.getFullYear();
                 document.getElementById("date").innerHTML = year;
             </script>
-
         </div>
     <!-- rodapé section - fim -->
-
 </body>
-
 <!-- corpo do documento - fim -->
 
 <!-- script responsável pela animação do navbar quando a tela diminui - início-->
-
 <script>
     let navbar = document.querySelector('.header .navbar');
-
     document.querySelector('#menu-btn').onclick = () => {
         navbar.classList.toggle('active');
     }
-
     window.onscroll = () => {
         navbar.classList.remove('active');
     }
 </script>
-
 <!-- script responsável pela animação do navbar quando a tela diminui - fim-->
