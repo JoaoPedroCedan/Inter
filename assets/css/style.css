@@ -843,12 +843,11 @@ tbody tr td a {
 }
 
 .sobre {
-  
   display: flex;
   align-items: center;
   justify-content: baseline;
-  padding-top: 50px;
-
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 
 .container2 {
@@ -870,11 +869,21 @@ tbody tr td a {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 20px;
   font-size: 60px;
 }
 
 .p1 {
+  border: 4px solid white;
+  font-size: large;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 5em 5em 5em;
+  font-size: 20px;
+  margin-top: -50px;
+}
+
+.p2 {
   font-size: large;
   flex-wrap: wrap;
   align-items: center;
@@ -885,7 +894,8 @@ tbody tr td a {
 }
 
 .cria {
-  margin-top: 50px;
+  margin-top: 40px;
+  padding-bottom: 40px;
   margin-bottom: 10px;
   font-size: 30px;
   color: white;
@@ -905,7 +915,7 @@ figure {
 }
 
 .dev{
-  border: 4px solid white;
+    border: 4px solid white;
     background-color: #201b2c;
     width: 900px;
     height: 300px;
@@ -1034,6 +1044,7 @@ figure {
 }
 
 .dashboard1 {
+  border: 4px solid #00ff88;
   background-color: #201b2c;
   width: 400px;
   height: 150px;
