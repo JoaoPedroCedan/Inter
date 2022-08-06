@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<!-- head html -->
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bestlane</title>
+    <!-- favicon -->
+    <link rel="shortcut icon" type="img/favicon2.ico" href="../assets/imgs/favicon2.ico">
+
+    <!-- font awesome cdn link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- css file link -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+    <!-- script file link -->
+    <script src="../assets/js/sidebar.js" defer></script>
+
+    <!-- jquery cdn link-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+</head>
+
+<!-- head html -->
+
+<body>
+
+    <section class="home">
+
+        <!-- sidebar -->
+        <div class="sidebar">
+
+            <div class="logo-details">
+                <div class="logo_name">Bestlane</div>
+                <i class="fas fa-bars" id="btn"></i>
+            </div>
+
+            <ul class="nav-list">
+
+                <li>
+                    <a href="home.html">
+                        <i class="fas fa-chart-pie"></i>
+                        <span class="links_name">Dashboard</span>
+                    </a>
+                    <span class="tooltip">Dashboard</span>
+                </li>
+
+                <li>
+                    <a href="clientes.html">
+                        <i class="fas fa-address-card"></i>
+                        <span class="links_name">Clientes</span>
+                    </a>
+                    <span class="tooltip">Clientes</span>
+                </li>
+                <li>
+                    <a href="entregadores.html">
+                        <i class="far fa-address-card"></i>
+                        <span class="links_name">Entregadores</span>
+                    </a>
+                    <span class="tooltip">Entregadores</span>
+                </li>
+
+                <li>
+                    <a href="entregas.html">
+                        <i class="fas fa-dolly-flatbed"></i>
+                        <span class="links_name">Entregas</span>
+                    </a>
+                    <span class="tooltip">Entregas</span>
+                </li>
+
+                <li>
+                    <a href="relatorio.html">
+                        <i class="fas fa-file-download"></i>
+                        <span class="links_name">Relatórios</span>
+                    </a>
+                    <span class="tooltip">Relatórios</span>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class="fa fa-cog"></i>
+                        <span class="links_name">Configurações</span>
+                    </a>
+                    <span class="tooltip">Configurações</span>
+                </li>
+
+                <li class="profile">
+                    <div class="profile-details">
+                        <i class="fas fa-user-alt"></i>
+                        <div class="name_job">
+                            <div class="name">Usuário</div>
+                            <div class="job">Operador</div>
+                        </div>
+                    </div>
+                    <a href="../index.html">
+                        <i class="fas fa-sign-out-alt" id="log_out"></i>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+        <!-- sidebar -->
+
+        <section>
+            <h2 class="dp">Dashboard pedidos</h2>
+
+
+            <section class="dashboard1">
+                <div>
+                    <h1 class="pd1">Total de pedidos</h2>
+                </div>
+
+                <div id="pedidos">
+                    <script>
+                        $(document).ready(() => {
+                            const exibir = () => {
+                                $.ajax({
+                                    url: 'http://localhost/Inter/api/listagem/listarEntregas/?quantidade'
+                                }).done((data) => {
+                                    console.log(data[0]['saiu_para_entrega'])
+                                    let iteracao = 0;
+                                    for (const i in data) {
+                                        iteracao += 1;
+
+                                    };
+                                    let y = `<h1 class="pd2">${data[0]["todos"]}</h1>`
+                                    $('#pedidos').append(y)
+                                });
+                            }
+                            exibir();
+                        })
+                    </script>
+                </div>
+            </section>
+
+            <section class="dashboard1">
+                <div>
+                    <h1 class="pd1">Pedidos pendentes</h2>
+                </div>
+
+                <div id="pedidos_pendentes">
+                    <script>
+                        $(document).ready(() => {
+                            const exibir = () => {
+                                $.ajax({
+                                    url: 'http://localhost/Inter/api/listagem/listarEntregas/?quantidade'
+                                }).done((data) => {
+                                    console.log(data[0]['entregues'])
+                                    let iteracao = 0;
+                                    for (const i in data) {
+                                        iteracao += 1;
+
+                                    };
+                                    let y = `<h1 class="pd2">${data[0]["saiu_para_entrega"]}</h1>`
+                                    $('#pedidos_pendentes').append(y)
+                                });
+                            }
+                            exibir();
+                        })
+                    </script>
+                </div>
+            </section>
+
+            <section class="dashboard1">
+                <div>
+                    <h1 class="pd1">Pedidos Entregues</h2>
+                </div>
+
+                <div id="pedidos_entregues">
+                    <script>
+                        $(document).ready(() => {
+                            const exibir = () => {
+                                $.ajax({
+                                    url: 'http://localhost/Inter/api/listagem/listarEntregas/?quantidade'
+                                }).done((data) => {
+                                    console.log(data[0]['entregues'])
+                                    let iteracao = 0;
+                                    for (const i in data) {
+                                        iteracao += 1;
+
+                                    };
+                                    let y = `<h1 class="pd2">${data[0]["entregues"]}</h1>`
+                                    $('#pedidos_entregues').append(y)
+                                });
+                            }
+                            exibir();
+                        })
+                    </script>
+                </div>
+            </section>
+        </section>
+    </section>
+    <script>
+
+    </script>
+</body>
+
+</html>
+
+<!-- script responsável pela animação do navbar quando a tela diminui - início-->
+
+<script>
+    let navbar = document.querySelector('.header .navbar');
+    window.onscroll = () => {
+        navbar.classList.remove('active');
+    }
+
+</script>

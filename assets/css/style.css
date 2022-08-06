@@ -13,12 +13,14 @@ Tons de Preto: #282828*/
   box-sizing: border-box;
   outline: none;
   border: none;
+  margin: 0;
+  padding: 0;
   text-decoration: none;
   -webkit-transition: all .1s linear;
   transition: all .1s linear;
 }
 
-/*Configurações da Barra de Rolagem - starts*/
+/*Configurações da Barra de Rolagem*/
 html {
   font-size: 62.5%;
   overflow-x: hidden;
@@ -39,9 +41,9 @@ html::-webkit-scrollbar-thumb {
   border-radius: 5rem;
 }
 
-/*Configurações da Barra de Rolagem - ends*/
+/*Configurações da Barra de Rolagem*/
 
-/* configurações do corpo do html - starts*/
+/*Configurações do corpo do html*/
 body {
   background: #201b2c;
   overflow-x: hidden;
@@ -67,7 +69,8 @@ section {
   color: #eeeeee;
 }
 
-/*Configurações dos Botões - starts*/
+/*Configurações do corpo do html*/
+/*Configurações dos Botões*/
 .btn {
   margin-top: 1rem;
   display: inline-block;
@@ -102,8 +105,8 @@ section {
   color: #201b2c;
 }
 
-/*Configurações dos Botões - ends*/
-/*Configurações do Cabeçalho - starts*/
+/*Configurações dos Botões*/
+/*Configurações do Cabeçalho*/
 .header {
   position: fixed;
   top: 0;
@@ -173,11 +176,272 @@ section {
   display: none;
 }
 
-/*Configurações do Cabeçalho - ends*/
+/*Configurações do Cabeçalho*/
+
+
+/* Configuração Sidebar, menu lateral área logada*/
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 78px;
+  background: #11101D;
+  padding: 6px 14px;
+  z-index: 99;
+  transition: all 0.5s ease;
+}
+
+.sidebar.open {
+  width: 250px;
+}
+
+.sidebar .logo-details {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.sidebar .logo-details .icon {
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+.sidebar .logo-details .logo_name {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+.sidebar.open .logo-details .icon,
+.sidebar.open .logo-details .logo_name {
+  opacity: 1;
+}
+
+.sidebar .logo-details #btn {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  font-size: 22px;
+  transition: all 0.4s ease;
+  font-size: 23px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.sidebar.open .logo-details #btn {
+  text-align: right;
+}
+
+.sidebar i {
+  color: #fff;
+  height: 60px;
+  min-width: 50px;
+  font-size: 28px;
+  text-align: center;
+  line-height: 60px;
+}
+
+.sidebar .nav-list {
+  margin-top: 20px;
+  height: 100%;
+}
+
+.sidebar li {
+  position: relative;
+  margin: 8px 0;
+  list-style: none;
+}
+
+.sidebar li .tooltip {
+  position: absolute;
+  top: -20px;
+  left: calc(100% + 15px);
+  z-index: 3;
+  background: #fff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: 400;
+  opacity: 0;
+  white-space: nowrap;
+  pointer-events: none;
+  transition: 0s;
+}
+
+.sidebar li:hover .tooltip {
+  opacity: 1;
+  pointer-events: auto;
+  transition: all 0.4s ease;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.sidebar.open li .tooltip {
+  display: none;
+}
+
+.sidebar input {
+  font-size: 15px;
+  color: #FFF;
+  font-weight: 400;
+  outline: none;
+  height: 50px;
+  width: 100%;
+  width: 50px;
+  border: none;
+  border-radius: 12px;
+  transition: all 0.5s ease;
+  background: #1d1b31;
+}
+
+.sidebar.open input {
+  padding: 0 20px 0 50px;
+  width: 100%;
+}
+
+.sidebar .bx-search {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  font-size: 22px;
+  background: #1d1b31;
+  color: #FFF;
+}
+
+.sidebar.open .bx-search:hover {
+  background: #1d1b31;
+  color: #FFF;
+}
+
+.sidebar .bx-search:hover {
+  background: #FFF;
+  color: #11101d;
+}
+
+.sidebar li a {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  border-radius: 12px;
+  align-items: center;
+  text-decoration: none;
+  transition: all 0.4s ease;
+  background: #11101D;
+}
+
+.sidebar li a:hover {
+  background: #FFF;
+}
+
+.sidebar li a .links_name {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 400;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.4s;
+}
+
+.sidebar.open li a .links_name {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.sidebar li a:hover .links_name,
+.sidebar li a:hover i {
+  transition: all 0.5s ease;
+  color: #11101D;
+}
+
+.sidebar li i {
+  height: 50px;
+  line-height: 50px;
+  font-size: 18px;
+  border-radius: 12px;
+}
+
+.sidebar li.profile {
+  position: fixed;
+  height: 60px;
+  width: 78px;
+  left: 0;
+  bottom: -8px;
+  padding: 10px 14px;
+  background: #1d1b31;
+  transition: all 0.5s ease;
+  overflow: hidden;
+}
+
+.sidebar.open li.profile {
+  width: 250px;
+}
+
+.sidebar li .profile-details {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.sidebar li img {
+  height: 45px;
+  width: 45px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-right: 10px;
+}
+
+.sidebar li.profile .name,
+.sidebar li.profile .job {
+  font-size: 15px;
+  font-weight: 400;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.sidebar li.profile .job {
+  font-size: 12px;
+}
+
+.sidebar .profile #log_out {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  background: #1d1b31;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 0px;
+  transition: all 0.5s ease;
+}
+
+.sidebar.open .profile #log_out {
+  width: 50px;
+  background: none;
+}
+
+@media (max-width: 420px) {
+  .sidebar li .tooltip {
+    display: none;
+  }
+}
+
+/* Configuração Sidebar, menu lateral área logada*/
 
 /*Configurações seção de apresentação - starts*/
 .home {
+
   display: flex;
+  justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
   gap: 1.5rem;
@@ -340,13 +604,27 @@ section {
   display: flex;
 }
 
-.painel1 {
-  width: 90%;
+.painel-datas {
+  width: 60%;
   margin-top: -5rem;
   background-color: #fff;
   border-radius: 1rem;
   padding: 3rem;
   display: flex;
+}
+
+.painel-datas .container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(25rem, 1fr))[auto-fit];
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  gap: 1.5rem;
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 42rem;
+  flex: 1 1 42rem;
+  width: 90%;
+  background-color: #fff;
+  text-align: left;
 }
 
 .invisible {
@@ -379,7 +657,7 @@ section {
   margin-top: -5rem;
   background-color: #fff;
   border-radius: 1rem;
-  padding: 3rem;
+  padding: 5rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -401,7 +679,6 @@ section {
   flex: 1 1 42rem;
   width: 90%;
   background-color: #fff;
-  padding: 1.2rem 1.4rem;
   text-align: left;
 }
 
@@ -572,6 +849,7 @@ tr {
 
 tbody tr {
   margin-bottom: 50px;
+  transition: transform 0.15s;
 }
 
 tbody tr td {
@@ -579,6 +857,12 @@ tbody tr td {
   color: #282828;
   text-align: start;
   text-transform: uppercase;
+
+}
+
+tbody tr:hover,
+tbody tr:focus {
+  transform: translateX(.75rem);
 }
 
 tbody tr td a {
@@ -783,6 +1067,14 @@ tbody tr td a {
 }
 
 @media screen and (max-width: 600px) {
+  .painel .icons {
+    padding: 3rem;
+  }
+
+  .painel-tabela {
+    padding: 10rem;
+  }
+
   table {
     border: 0;
   }
@@ -914,13 +1206,13 @@ figure {
   font-size: 20px;
 }
 
-.dev{
-    border: 4px solid white;
-    background-color: #201b2c;
-    width: 900px;
-    height: 300px;
-    color: white;
-    display: flex;
+.dev {
+  border: 4px solid white;
+  background-color: #201b2c;
+  width: 900px;
+  height: 300px;
+  color: white;
+  display: flex;
 }
 
 .container3 {
@@ -1066,12 +1358,6 @@ figure {
   justify-content: center;
 }
 
-.home {
-  display: flex;
-  justify-content: space-around;
-  color: white;
-}
-
 .dp {
   display: flex;
   align-items: center;
@@ -1084,7 +1370,7 @@ figure {
   color: black;
 }
 
-.best{
+.best {
   color: #00ff88;
 }
 
@@ -1103,6 +1389,7 @@ figure {
     -webkit-transform: scale(1);
     -webkit-filter: brightness(100%);
   }
+
   100% {
     -webkit-transform: scale(1.1);
     -webkit-filter: brightness(200%);
@@ -1114,6 +1401,7 @@ figure {
     transform: scale(1);
     filter: brightness(100%);
   }
+
   100% {
     transform: scale(1.1);
     filter: brightness(200%);

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<!-- head html -->
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bestlane</title>
+    <!-- favicon -->
+    <link rel="shortcut icon" type="img/favicon2.ico" href="../assets/imgs/favicon2.ico">
+
+    <!-- font awesome cdn link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- css file link -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+    <!-- script file link -->
+    <script src="../assets/js/mascara.js" defer></script>
+    <script src="../assets/js/viacep.js" defer></script>
+    <script src="../assets/js/sidebar.js" defer></script>
+
+    <!-- jquery cdn link-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+</head>
+
+<!-- head html -->
+
+<body>
+
+    <div class="banner">
+
+        <div class="conteudo">
+            <h3>Relatórios</h3>
+            <br><br><br>
+        </div>
+
+
+        <section class="home">
+
+            <div class="painel-datas container invisible">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="text-color">Número de Pedido</th>
+                            <th class="text-color">Descrição</th>
+                            <th class="text-color">Nota Fiscal</th>
+                            <th class="text-color">Cliente</th>
+                            <th class="text-color">Entregador</th>
+                            <th class="text-color">Status</th>
+                            <th class="text-color">Data de Saída</th>
+                        </tr>
+                    </thead>
+                    <tbody class="relatorio">
+                        <div class="icons">
+                            <label class="fa fa-plus-circle fa-3x" onclick="window.print()"></label>
+                        </div>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="painel-datas">
+
+                <div class="icons">
+                    <a href="home.html"><label class="fas fa-arrow-alt-circle-left fa-3x"
+                            style="color:#201b2c"></label></a>
+                </div>
+
+            </div>
+
+            <div class="painel-datas">
+                <div class="container">
+                    <form method="post" action="">
+
+                        <label>Data Inicial</label>
+                        <input name="data_inicial" id="data_inicial" type="date" required />
+
+                        <label>Data Final</label>
+                        <input id="data_final" type="date" required />
+
+                        <input name="submit" type="submit" class="btn-form" value="Gerar Relatório" />
+                    </form>
+                </div>
+
+            </div>
+
+        </section>
+    </div>
+    <script>
+        $('.btn-form').click((event) => {
+            event.preventDefault();
+            var dt_inicio = document.getElementById('data_inicial').value;
+            var dt_final = document.getElementById('data_final').value;
+
+            let dados = {
+                data_inicial: `${dt_inicio}`,
+                data_final: `${dt_final}`
+            }
+
+            $.get("http://localhost/Inter/api/cadastrar/cadastrarRelatorio", dados, function (data, status) {
+            }).done((data) => {
+                $('.painel').addClass('invisible')
+                $('.container').removeClass('invisible')
+                for (const i in data) {
+                    let y =
+                        `
+                    <tr>
+                    <td data-label='Número do Pedido: '>${data[i]['id']}</td>
+                    <td data-label='Descrição: '>${data[i]['descricao']}</td>
+                    <td data-label='Nota Fiscal: '>${data[i]['pedido']}</td>
+                    <td data-label='Cliente: '>${data[i]['nome_cliente']}</td>
+                    <td data-label='Entregador: '>${data[i]['nome_entregador']}</td>
+                    <td data-label='Status: '>${data[i]['status']}</td>
+                    <td data-label='Status: '>${data[i]['data_saida']}</td>
+                    </tr>
+                `
+                    $('.relatorio').append(y)
+                }
+            }).fail((resultado) => {
+                console.log(resultado)
+            })
+        })
+    </script>
+
+</body>
+
+</html>
+
+<!-- script responsável pela animação do navbar quando a tela diminui - início-->
+
+<script>
+    let navbar = document.querySelector('.header .navbar');
+
+    document.querySelector('#menu-btn').onclick = () => {
+        navbar.classList.toggle('active');
+    }
+
+    window.onscroll = () => {
+        navbar.classList.remove('active');
+    }
+
+
+    $(document).ready(function () {
+        $(".form").submit(function (e) {
+            e.preventDefault();
+        });
+    });
+
+
+</script>
+
+<!-- script responsável pela animação do navbar quando a tela diminui - fim-->

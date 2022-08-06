@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<!-- head html -->
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bestlane</title>
+    <!-- favicon -->
+    <link rel="shortcut icon" type="img/favicon2.ico" href="../assets/imgs/favicon2.ico">
+
+    <!-- font awesome cdn link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- css file link -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+    <!-- script file link -->
+    <script src="../assets/js/mascara.js" defer></script>
+    <script src="../assets/js/viacep.js" defer></script>
+    <script src="../assets/js/sidebar.js" defer></script>
+
+    <!-- jquery cdn link-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+</head>
+
+<!-- head html -->
+<!-- sidebar -->
+
+<body>
+
+    <div class="banner">
+
+        <div class="conteudo">
+            <h3>Editar Operadores</h3>
+            <br><br><br>
+        </div>
+
+    </div>
+
+    <section class="home">
+
+        <!-- sidebar -->
+        <div class="sidebar">
+
+            <div class="logo-details">
+                <div class="logo_name">Bestlane</div>
+                <i class="fas fa-bars" id="btn"></i>
+            </div>
+
+            <ul class="nav-list">
+
+                <li>
+                    <a href="home.html">
+                        <i class="fas fa-chart-pie"></i>
+                        <span class="links_name">Dashboard</span>
+                    </a>
+                    <span class="tooltip">Dashboard</span>
+                </li>
+
+                <li>
+                    <a href="clientes.html">
+                        <i class="fas fa-address-card"></i>
+                        <span class="links_name">Clientes</span>
+                    </a>
+                    <span class="tooltip">Clientes</span>
+                </li>
+                <li>
+                    <a href="entregadores.html">
+                        <i class="far fa-address-card"></i>
+                        <span class="links_name">Entregadores</span>
+                    </a>
+                    <span class="tooltip">Entregadores</span>
+                </li>
+
+                <li>
+                    <a href="entregas.html">
+                        <i class="fas fa-dolly-flatbed"></i>
+                        <span class="links_name">Entregas</span>
+                    </a>
+                    <span class="tooltip">Entregas</span>
+                </li>
+
+                <li>
+                    <a href="relatorio.html">
+                        <i class="fas fa-file-download"></i>
+                        <span class="links_name">Relatórios</span>
+                    </a>
+                    <span class="tooltip">Relatórios</span>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class="fa fa-cog"></i>
+                        <span class="links_name">Configurações</span>
+                    </a>
+                    <span class="tooltip">Configurações</span>
+                </li>
+
+                <li class="profile">
+                    <div class="profile-details">
+                        <i class="fas fa-user-alt"></i>
+                        <div class="name_job">
+                            <div class="name">Usuário</div>
+                            <div class="job">Operador</div>
+                        </div>
+                    </div>
+                    <a href="../index.html">
+                        <i class="fas fa-sign-out-alt" id="log_out"></i>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+        <!-- sidebar -->
+
+        <div class="painel">
+
+            <div class="icons">
+                <a href="entregadores.html"><label class="fas fa-arrow-alt-circle-left fa-3x"
+                        style="color:#201b2c"></label></a>
+            </div>
+
+        </div>
+
+        <div class="painel">
+            <div class="container">
+                <form class="editar" method="post" action="">
+                    <label for="cpf">Nome Completo: </label>
+                    <input name="nome" id="nome" type="text" maxlength="40" required />
+
+                    <label for="cpf">Login: </label>
+                    <input name="login" id="login" type="text" maxlength="40" required />
+
+                    <label for="cpf">CPF: </label>
+                    <input name="cpf" id="cpf" type="text" onKeyPress="MascaraGenerica(this, 'CPF');" maxlenght="18"
+                        readonly />
+
+                    <label>Senha: </label>
+                    <input name="senha" id="senha" type="text" required />
+
+                    <label>Data de Cadastro: </label>
+                    <input name="data_admissao" id="data_admissao" type="text" readonly />
+
+                    <label>Situação</label>
+                    <select name="is_active" id="is_active" required>
+                        <option value="ATIVO">ATIVO</option>
+                        <option value="INATIVO">INATIVO</option>
+                    </select>
+
+                    <input name="submit" type="submit" class="btn-form" value="Editar Operador" />
+                </form>
+                <script>
+                    $(document).ready(() => {
+
+                        const exibir = () => {
+                            var query = location.search.slice(1);
+                            var partes = query.split('&');
+                            var indice = {};
+                            partes.forEach(function (parte) {
+                                var chaveValor = parte.split('=');
+                                var chave = chaveValor[0];
+                                var valor = chaveValor[1];
+                                indice[chave] = valor;
+
+                            });
+                            $.ajax({
+                                url: `http://localhost/Inter/api/listagem/listarOperador/?id=${indice.id}`
+                            }).done((data) => {
+                                for (const i in data) {
+                                    document.getElementById('nome').value = data[i].nome
+                                    document.getElementById('cpf').value = data[i].cpf
+                                    document.getElementById('login').value = data[i].login
+                                    document.getElementById('senha').value = data[i].senha
+                                    document.getElementById('data_admissao').value = data[i].data_cadastro
+                                }
+                            });
+                            return indice
+                        }
+                        const id_usuario = exibir();
+                        $('.btn-form').click((event) => {
+                            var nome = document.getElementById('nome').value;
+                            var cpf = document.getElementById('cpf').value;
+                            var login = document.getElementById('login').value;
+                            var senha = document.getElementById('senha').value;
+                            var data_admissao = document.getElementById('data_admissao').value;
+                            var is_active = document.getElementById('is_active').value;
+                            let dados = {
+                                id: `${id_usuario.id}`,
+                                nome: `${nome}`,
+                                login: `${login}`,
+                                cpf: `${cpf}`,
+                                senha: `${senha}`,
+                                data_cadastro: `${data_admissao}`,
+                                is_active: `${is_active}`
+                            }
+                            $.post(`http://localhost/Inter/api/editar/editarOperador/`, dados, function (data, status) {
+                            }).done((resultado) => {
+                                console.log(resultado)
+                                window.location.href = 'operadores.html';
+                            }).fail((resultado) => {
+                                console.log(resultado)
+                            })
+                        })
+                    })
+                </script>
+            </div>
+        </div>
+</body>
+
+</html>
+
+<!-- script responsável pela animação do navbar quando a tela diminui - início-->
+
+<script>
+    let navbar = document.querySelector('.header .navbar');
+
+    document.querySelector('#menu-btn').onclick = () => {
+        navbar.classList.toggle('active');
+    }
+
+    window.onscroll = () => {
+        navbar.classList.remove('active');
+    }
+</script>
+
+<!-- script responsável pela animação do navbar quando a tela diminui - fim-->

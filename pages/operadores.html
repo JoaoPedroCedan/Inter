@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<!-- head html -->
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bestlane</title>
+  <!-- favicon -->
+  <link rel="shortcut icon" type="img/favicon2.ico" href="../assets/imgs/favicon2.ico">
+
+  <!-- font awesome cdn link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <!-- css file link -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+  <!-- script file link -->
+  <script src="../assets/js/mascara.js" defer></script>
+  <script src="../assets/js/viacep.js" defer></script>
+  <script src="../assets/js/sidebar.js" defer></script>
+
+  <!-- jquery cdn link-->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+</head>
+
+<!-- head html -->
+<!-- sidebar -->
+
+<body>
+
+  <div class="banner">
+
+    <div class="conteudo">
+      <h3>Painel de Operadores</h3>
+      <br><br><br>
+    </div>
+
+  </div>
+
+  <section class="home">
+
+    <!-- sidebar -->
+    <div class="sidebar">
+
+      <div class="logo-details">
+        <div class="logo_name">Bestlane</div>
+        <i class="fas fa-bars" id="btn"></i>
+      </div>
+
+      <ul class="nav-list">
+
+        <li>
+          <a href="home.html">
+            <i class="fas fa-chart-pie"></i>
+            <span class="links_name">Dashboard</span>
+          </a>
+          <span class="tooltip">Dashboard</span>
+        </li>
+
+        <li>
+          <a href="clientes.html">
+            <i class="fas fa-address-card"></i>
+            <span class="links_name">Clientes</span>
+          </a>
+          <span class="tooltip">Clientes</span>
+        </li>
+        <li>
+          <a href="entregadores.html">
+            <i class="far fa-address-card"></i>
+            <span class="links_name">Entregadores</span>
+          </a>
+          <span class="tooltip">Entregadores</span>
+        </li>
+
+        <li>
+          <a href="entregas.html">
+            <i class="fas fa-dolly-flatbed"></i>
+            <span class="links_name">Entregas</span>
+          </a>
+          <span class="tooltip">Entregas</span>
+        </li>
+
+        <li>
+          <a href="relatorio.html">
+            <i class="fas fa-file-download"></i>
+            <span class="links_name">Relatórios</span>
+          </a>
+          <span class="tooltip">Relatórios</span>
+        </li>
+
+        <li>
+          <a href="#">
+            <i class="fa fa-cog"></i>
+            <span class="links_name">Configurações</span>
+          </a>
+          <span class="tooltip">Configurações</span>
+        </li>
+
+        <li class="profile">
+          <div class="profile-details">
+            <i class="fas fa-user-alt"></i>
+            <div class="name_job">
+              <div class="name">Usuário</div>
+              <div class="job">Operador</div>
+            </div>
+          </div>
+          <a href="../index.html">
+            <i class="fas fa-sign-out-alt" id="log_out"></i>
+          </a>
+        </li>
+
+      </ul>
+    </div>
+    <!-- sidebar -->
+
+    <div class="painel">
+
+      <div class="icons">
+        <label class="fas fa-user-plus fa-3x" for="modal-1"></label>
+      </div>
+
+      <div class="icons">
+        <input id="pesquisar" type="text" placeholder="Pesquisar">
+      </div>
+
+    </div>
+
+    <div class="painel-tabela">
+
+      <div class="container">
+
+        <table>
+
+          <thead>
+            <tr>
+              <th>Nome Completo</th>
+              <th>CPF</th>
+              <th>Status</th>
+              <th style="text-align: center;">Editar e Visualizar</th>
+            </tr>
+          </thead>
+
+          <tbody class="operadores">
+            <script>
+              $(document).ready(() => {
+                const exibir = () => {
+                  $.ajax({
+                    url: 'http://localhost/Inter/api/listagem/listarOperador/?default'
+                  }).done((data) => {
+                    for (const i in data) {
+
+                      let y =
+                        `
+                    <tr>
+                    <td data-label='Nome Completo: '>${data[i]['nome']}</td>
+                    <td data-label='CPF: '>${data[i]['cpf']}</td>
+                    <td data-label='Status: '>${data[i]['is_active']}</td>
+                    <td style="text-align: center;"><a href="operador_editar.html?id=${data[i]['id']}" class="fa fa-eye"></a></td>
+                    </tr>
+                    `
+                      $('.operadores').append(y)
+                    };
+                  });
+                }
+
+                exibir();
+              })
+            </script>
+          </tbody>
+
+        </table>
+      </div>
+    </div>
+
+    <!-- modal de cadastro - início-->
+
+    <input class="modal-state" id="modal-1" type="checkbox" />
+
+    <div class="modal">
+
+      <label class="modal__bg" for="modal-1"></label>
+
+      <div class="modal__inner">
+
+        <label class="modal__close" for="modal-1"></label>
+
+        <form method="post" action="">
+
+          <label for="nome">Nome Completo: </label>
+          <input name="nome" id="nome" type="text" maxlength="40" required />
+
+          <label for="cpf">CPF: </label>
+          <input name="cpf" id="cpf" type="text" onKeyPress="MascaraGenerica(this, 'CPF');" maxlenght="14" required />
+
+          <label for="senha">Senha: </label>
+          <input name="senha" id="senha" type="password" maxlength="60" required />
+
+          <input type="submit" value="registrar operador" id="operadores" class="btn-form" name="submit">
+
+          <script>
+            $('.btn-form').click((event) => {
+              var nome = document.getElementById('nome').value;
+              var cpf = document.getElementById('cpf').value;
+              var senha = document.getElementById('senha').value;
+              let dados = {
+                nome: `${nome}`,
+                cpf: `${cpf}`,
+                senha: `${senha}`
+              }
+              $.post("http://localhost/Inter/api/cadastrar/cadastrarOperador/", dados, function (data, status) {
+              }).done((resultado) => {
+                console.log(resultado)
+              }).fail((resultado) => {
+                console.log(resultado)
+              })
+            })
+
+          </script>
+
+        </form>
+
+      </div>
+    </div>
+
+    <!-- modal de cadastro - fim-->
+  </section>
+</body>
+
+</html>
+
+<!-- script responsável pela animação do navbar quando a tela diminui - início-->
+
+<script>
+  let navbar = document.querySelector('.header .navbar');
+
+  document.querySelector("#operadores").addEventListener("click", function () {
+    location.reload();
+  });
+
+  window.onscroll = () => {
+    navbar.classList.remove('active');
+  }
+
+</script>
+
+<!-- script responsável pela animação do navbar quando a tela diminui - fim-->
