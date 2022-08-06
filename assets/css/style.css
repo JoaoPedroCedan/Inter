@@ -595,6 +595,83 @@ section {
   margin-top: 1rem;
 }
 
+/**/
+
+.servicos .box-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(32rem, 1fr))[auto-fit];
+  grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
+  gap: 1.5rem;
+}
+
+.servicos .box-container .box {
+  background: #eeeeee;
+  border-radius: 1rem;
+  padding: 3rem;
+  text-align: center;
+  border: 0.2rem solid #282828;
+}
+
+.servicos .box-container .box:hover {
+  border: 0.2rem solid #00ff88;
+}
+
+.servicos .box-container .box i {
+  font-size: 4rem;
+  color: #00ff88;
+  margin-bottom: 2rem;
+}
+
+.servicos .box-container .box h3 {
+  font-size: 2rem;
+  color: #fff;
+}
+
+.servicos .box-container .box p {
+  padding: 1rem 0;
+  font-size: 1.4rem;
+  color: #aaa;
+  line-height: 2;
+}
+
+/**/
+
+
+.painel-relatorio {
+  width: 40%;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+  margin-top: -5rem;
+  background-color: #fff;
+  border-radius: 1rem;
+  padding: 3rem 3rem;
+  display: flex;
+}
+
+
+.painel-relatorio input {
+  width: 90%;
+  border: 0.2rem solid #201b2c;
+  font-size: 1.6rem;
+}
+
+.painel-relatorio .icons .btn-form {
+  background-color: #201b2c;
+  color: #fff;
+  cursor: pointer;
+}
+
+.painel-relatorio .icons .btn-form:hover {
+  background: #00ff88;
+  color: #201b2c;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
 .painel {
   width: 90%;
   margin-top: -5rem;
@@ -604,31 +681,8 @@ section {
   display: flex;
 }
 
-.painel-datas {
-  width: 60%;
-  margin-top: -5rem;
-  background-color: #fff;
-  border-radius: 1rem;
-  padding: 3rem;
-  display: flex;
-}
-
-.painel-datas .container {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (minmax(25rem, 1fr))[auto-fit];
-  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
-  gap: 1.5rem;
-  -webkit-box-flex: 1;
-  -ms-flex: 1 1 42rem;
-  flex: 1 1 42rem;
-  width: 90%;
-  background-color: #fff;
-  text-align: left;
-}
-
-.invisible {
-  visibility: hidden;
+.painel .icons i:hover {
+  cursor: pointer;
 }
 
 .painel .icons label:hover {
@@ -830,19 +884,26 @@ table {
   word-wrap: break-word;
 }
 
+h3 {
+  color: var(--text-color-1);
+  font-size: 2rem;
+  text-align: center;
+  padding: 2rem 2rem;
+}
+
 thead {
   background-color: #201b2c;
 }
 
 thead tr th {
   padding: 5px;
+  color: #eeeeee;
   text-align: start;
   margin-bottom: 50px;
 }
 
 tr {
   font-size: 1.7rem;
-  color: #eeeeee;
   text-align: start;
   border-bottom: 1px solid rgb(238, 235, 235) !important;
 }

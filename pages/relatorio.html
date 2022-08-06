@@ -30,66 +30,80 @@
 
 <!-- head html -->
 
+<style type="text/css" media="print">
+    @import url("/inc/web.print.css");
+</style>
+
+<!-- sidebar -->
+
 <body>
 
     <div class="banner">
 
         <div class="conteudo">
-            <h3>Relatórios</h3>
-            <br><br><br>
+            <h3>Relatório de Entregas</h3>
+            <br>
         </div>
 
+    </div>
 
-        <section class="home">
+    <section class="home">
 
-            <div class="painel-datas container invisible">
+        <div class="painel container invisible">
+
+            <div class="container">
+
+                <div class="icons">
+                    <h3><i class="fa fa-file-pdf fa-2x" onclick="window.print()"></i></h3>
+                </div>
+
                 <table>
+                    <h3 class="periodo"></h3>
                     <thead>
                         <tr>
-                            <th class="text-color">Número de Pedido</th>
+                            <th class="text-color">Pedido</th>
                             <th class="text-color">Descrição</th>
-                            <th class="text-color">Nota Fiscal</th>
+                            <th class="text-color">NF</th>
                             <th class="text-color">Cliente</th>
                             <th class="text-color">Entregador</th>
                             <th class="text-color">Status</th>
                             <th class="text-color">Data de Saída</th>
                         </tr>
                     </thead>
-                    <tbody class="relatorio">
-                        <div class="icons">
-                            <label class="fa fa-plus-circle fa-3x" onclick="window.print()"></label>
-                        </div>
+
+                    <tbody class="clientes">
+
                     </tbody>
+
                 </table>
             </div>
+        </div>
 
-            <div class="painel-datas">
+        <div class="painel-relatorio">
 
-                <div class="icons">
+            <div class="icons">
+                <div>
                     <a href="home.html"><label class="fas fa-arrow-alt-circle-left fa-3x"
                             style="color:#201b2c"></label></a>
                 </div>
-
-            </div>
-
-            <div class="painel-datas">
-                <div class="container">
-                    <form method="post" action="">
-
-                        <label>Data Inicial</label>
-                        <input name="data_inicial" id="data_inicial" type="date" required />
-
-                        <label>Data Final</label>
-                        <input id="data_final" type="date" required />
-
-                        <input name="submit" type="submit" class="btn-form" value="Gerar Relatório" />
-                    </form>
+                <div>
+                    <label>Data Inicial</label>
+                    <input id="data_inicial" type="date" required />
+                </div>
+                <div>
+                    <label>Data Final</label>
+                    <input id="data_final" type="date" required />
+                </div>
+                <div>
+                    <input name="submit" type="submit" class="btn-form" value="Gerar Relatório" />
                 </div>
 
             </div>
 
-        </section>
-    </div>
+        </div>
+
+    </section>
+
     <script>
         $('.btn-form').click((event) => {
             event.preventDefault();
@@ -98,34 +112,41 @@
 
             let dados = {
                 data_inicial: `${dt_inicio}`,
-                data_final: `${dt_final}`
-            }
+                data_final: `${dt_final}`,
 
+            }
             $.get("http://localhost/Inter/api/cadastrar/cadastrarRelatorio", dados, function (data, status) {
             }).done((data) => {
-                $('.painel').addClass('invisible')
+                $('.painel-relatorio').addClass('invisible')
                 $('.container').removeClass('invisible')
                 for (const i in data) {
                     let y =
                         `
                     <tr>
-                    <td data-label='Número do Pedido: '>${data[i]['id']}</td>
+                    <td data-label='Pedido: '>${data[i]['id']}</td>
                     <td data-label='Descrição: '>${data[i]['descricao']}</td>
-                    <td data-label='Nota Fiscal: '>${data[i]['pedido']}</td>
+                    <td data-label='NF: '>${data[i]['pedido']}</td>
                     <td data-label='Cliente: '>${data[i]['nome_cliente']}</td>
                     <td data-label='Entregador: '>${data[i]['nome_entregador']}</td>
                     <td data-label='Status: '>${data[i]['status']}</td>
                     <td data-label='Status: '>${data[i]['data_saida']}</td>
                     </tr>
                 `
-                    $('.relatorio').append(y)
+                    $('.clientes').append(y)
                 }
+                let x =
+
+                    `
+                    Período: ${dt_inicio} até ${dt_final}
+                 `
+
+                $('.periodo').append(x)
+
             }).fail((resultado) => {
                 console.log(resultado)
             })
         })
     </script>
-
 </body>
 
 </html>
@@ -135,21 +156,9 @@
 <script>
     let navbar = document.querySelector('.header .navbar');
 
-    document.querySelector('#menu-btn').onclick = () => {
-        navbar.classList.toggle('active');
-    }
-
     window.onscroll = () => {
         navbar.classList.remove('active');
     }
-
-
-    $(document).ready(function () {
-        $(".form").submit(function (e) {
-            e.preventDefault();
-        });
-    });
-
 
 </script>
 
