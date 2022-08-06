@@ -106,101 +106,21 @@
         </div>
         <!-- sidebar -->
 
-        
-<!-- servicos section starts  -->
-<section class="servicos">
 
-    <div class="cabecalho">
-        <h1>Experiências</h1>
-        <span>nossos serviços</span>
-    </div>
+        <!-- servicos section starts  -->
+        <section class="servicos">
 
-    <div class="box-container">
+            <div class="cabecalho">
+                <h1>Dashboard</h1>
+                <span>nossos serviços</span>
+            </div>
 
-        <div class="box" data-aos="zoom-in-up" data-aos-delay="50">
-            <i class="fas fa-utensils"></i>
-            <h3>Restaurantes</h3>
-        </div>
+            <div class="box-container">
 
-        <div class="box" data-aos="zoom-in-up" data-aos-delay="50">
-            <i class="fas fa-hotel"></i>
-            <h3>Hospedagens</h3>
-        </div>
+                <div class="box" id="pedidos">
+                    <i class="fas fa-boxes"></i>
+                    <h3>Total de Pedidos</h3>
 
-        <div class="box" data-aos="zoom-in-up" data-aos-delay="50">
-            <i class="fas fa-campground"></i>
-            <h3>Camping</h3>
-        </div>
-
-        <div class="box" data-aos="zoom-in-up" data-aos-delay="50">
-            <i class="fas fa-hot-tub"></i>
-            <h3>2 Saunas Masculinas e Femininas</h3>
-        </div>
-
-        <div class="box" data-aos="zoom-in-up" data-aos-delay="50">
-            <i class="fas fa-fish"></i>
-            <h3>Lago de Pesca Esportiva</h3>
-        </div>
-
-        <div class="box" data-aos="zoom-in-up" data-aos-delay="50">
-            <i class="fas fa-biking"></i>
-            <h3>Trilhas de Bike</h3>
-        </div>
-
-        <div class="box" data-aos="zoom-in-up" data-aos-delay="50">
-            <i class="fas fa-swimmer"></i>
-            <h3>3 piscinas</h3>
-        </div>
-
-        <div class="box" data-aos="zoom-in-up" data-aos-delay="50">
-            <i class="fas fa-futbol"></i>
-            <h3>4 Campos de Futebol</h3>
-        </div>
-
-        <div class="box" data-aos="zoom-in-up" data-aos-delay="50">
-            <i class="fas fa-basketball-ball"></i>
-            <h3>2 Quadras de Basquete</h3>
-        </div>
-
-        <div class="box" data-aos="zoom-in-up" data-aos-delay="50">
-            <i class="fas fa-dumbbell"></i>
-            <h3>Academia</h3>
-        </div>
-
-        <div class="box" data-aos="zoom-in-up" data-aos-delay="50">
-            <i class="fas fa-volleyball-ball"></i>
-            <h3>3 Quadras de Voleibol</h3>
-        </div>
-
-        <div class="box" data-aos="zoom-in-up" data-aos-delay="50">
-            <i class="fas fa-bullseye"></i>
-            <h3>Tiro ao Alvo (Padrão Olímpico)</h3>
-        </div>
-
-        <div class="box" data-aos="zoom-in-up" data-aos-delay="50">
-            <i class="fas fa-glass-cheers"></i>
-            <h3>2 salões de Eventos</h3>
-        </div>
-
-        <div class="box" data-aos="zoom-in-up" data-aos-delay="50">
-            <i class="fas fa-table-tennis"></i>
-            <h3>1 Quadra de Tênis</h3>
-        </div>
-
-    </div>
-
-</section>
-
-        <section>
-            <h2 class="dp">Dashboard pedidos</h2>
-
-
-            <section class="dashboard1">
-                <div>
-                    <h1 class="pd1">Total de pedidos</h2>
-                </div>
-
-                <div id="pedidos">
                     <script>
                         $(document).ready(() => {
                             const exibir = () => {
@@ -220,43 +140,14 @@
                             exibir();
                         })
                     </script>
-                </div>
-            </section>
 
-            <section class="dashboard1">
-                <div>
-                    <h1 class="pd1">Pedidos pendentes</h2>
                 </div>
 
-                <div id="pedidos_pendentes">
-                    <script>
-                        $(document).ready(() => {
-                            const exibir = () => {
-                                $.ajax({
-                                    url: 'http://localhost/Inter/api/listagem/listarEntregas/?quantidade'
-                                }).done((data) => {
-                                    console.log(data[0]['entregues'])
-                                    let iteracao = 0;
-                                    for (const i in data) {
-                                        iteracao += 1;
+                <div class="box" id="pedidos_entregues">
 
-                                    };
-                                    let y = `<h1 class="pd2">${data[0]["saiu_para_entrega"]}</h1>`
-                                    $('#pedidos_pendentes').append(y)
-                                });
-                            }
-                            exibir();
-                        })
-                    </script>
-                </div>
-            </section>
+                    <i class="	fas fa-clipboard-check"></i>
+                    <h3>Entregues</h3>
 
-            <section class="dashboard1">
-                <div>
-                    <h1 class="pd1">Pedidos Entregues</h2>
-                </div>
-
-                <div id="pedidos_entregues">
                     <script>
                         $(document).ready(() => {
                             const exibir = () => {
@@ -277,22 +168,38 @@
                         })
                     </script>
                 </div>
-            </section>
-        </section>
-    </section>
-    <script>
 
-    </script>
+
+                <div class="box" id="pedidos_pendentes">
+                    <i class="fas fa-truck"></i>
+                    <h3>Pendentes</h3>
+
+                    <script>
+                        $(document).ready(() => {
+                            const exibir = () => {
+                                $.ajax({
+                                    url: 'http://localhost/Inter/api/listagem/listarEntregas/?quantidade'
+                                }).done((data) => {
+                                    console.log(data[0]['entregues'])
+                                    let iteracao = 0;
+                                    for (const i in data) {
+                                        iteracao += 1;
+
+                                    };
+                                    let y = `<h1 class="pd2">${data[0]["saiu_para_entrega"]}</h1>`
+                                    $('#pedidos_pendentes').append(y)
+                                });
+                            }
+                            exibir();
+                        })
+                    </script>
+                </div>
+
+            </div>
+
+        </section>
+
+    </section>
 </body>
 
 </html>
-
-<!-- script responsável pela animação do navbar quando a tela diminui - início-->
-
-<script>
-    let navbar = document.querySelector('.header .navbar');
-    window.onscroll = () => {
-        navbar.classList.remove('active');
-    }
-
-</script>

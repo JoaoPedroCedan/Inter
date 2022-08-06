@@ -287,45 +287,6 @@ section {
   display: none;
 }
 
-.sidebar input {
-  font-size: 15px;
-  color: #FFF;
-  font-weight: 400;
-  outline: none;
-  height: 50px;
-  width: 100%;
-  width: 50px;
-  border: none;
-  border-radius: 12px;
-  transition: all 0.5s ease;
-  background: #1d1b31;
-}
-
-.sidebar.open input {
-  padding: 0 20px 0 50px;
-  width: 100%;
-}
-
-.sidebar .bx-search {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  font-size: 22px;
-  background: #1d1b31;
-  color: #FFF;
-}
-
-.sidebar.open .bx-search:hover {
-  background: #1d1b31;
-  color: #FFF;
-}
-
-.sidebar .bx-search:hover {
-  background: #FFF;
-  color: #11101d;
-}
-
 .sidebar li a {
   display: flex;
   height: 100%;
@@ -359,7 +320,7 @@ section {
 .sidebar li a:hover .links_name,
 .sidebar li a:hover i {
   transition: all 0.5s ease;
-  color: #11101D;
+  color: #00ff88;
 }
 
 .sidebar li i {
@@ -376,7 +337,7 @@ section {
   left: 0;
   bottom: -8px;
   padding: 10px 14px;
-  background: #1d1b31;
+  background: #11101D;
   transition: all 0.5s ease;
   overflow: hidden;
 }
@@ -416,7 +377,7 @@ section {
   top: 50%;
   right: 0;
   transform: translateY(-50%);
-  background: #1d1b31;
+  background: #11101D;
   width: 100%;
   height: 60px;
   line-height: 60px;
@@ -599,18 +560,19 @@ section {
 
 .servicos .box-container {
   display: -ms-grid;
-  display: grid;
+  display: flex;
+  width: 70vw;
   -ms-grid-columns: (minmax(32rem, 1fr))[auto-fit];
   grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
   gap: 1.5rem;
 }
 
 .servicos .box-container .box {
-  background: #eeeeee;
+  background: #11101D;
   border-radius: 1rem;
   padding: 3rem;
   text-align: center;
-  border: 0.2rem solid #282828;
+  border: 0.2rem solid #11101D;
 }
 
 .servicos .box-container .box:hover {
@@ -625,13 +587,13 @@ section {
 
 .servicos .box-container .box h3 {
   font-size: 2rem;
-  color: #fff;
+  color: #eeeeee;
 }
 
 .servicos .box-container .box p {
   padding: 1rem 0;
   font-size: 1.4rem;
-  color: #aaa;
+  color: #eeeeee;
   line-height: 2;
 }
 
@@ -1091,6 +1053,9 @@ tbody tr td a {
     margin: 2rem;
     font-size: 2rem;
     display: block;
+  }
+  .servicos .box-container {
+    display: grid;
   }
 }
 
