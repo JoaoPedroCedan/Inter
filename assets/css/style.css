@@ -772,7 +772,6 @@ section {
   display: flex;
 }
 
-
 .painel-relatorio input {
   width: 90%;
   border: 0.2rem solid #201b2c;
@@ -1314,6 +1313,11 @@ tbody tr td a {
 }
 
 @media screen and (max-width: 600px) {
+  
+  .painel {
+    padding: 7.5rem;
+  }
+
   .painel .icons {
     padding: 3rem;
   }
