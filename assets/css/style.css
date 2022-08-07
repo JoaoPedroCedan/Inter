@@ -1080,7 +1080,7 @@ tbody tr td a {
   border-radius: .5rem;
   background-color: #11101D;
   font-size: 1.8rem;
-  color:var(--white);
+  color:#eeeeee;
   padding:1.4rem;
   text-transform: none;
 }
