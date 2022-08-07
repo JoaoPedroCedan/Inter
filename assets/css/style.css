@@ -1112,6 +1112,8 @@ tbody tr td a {
 
 .footer .box-container {
   display: -ms-grid;
+  width: 100%;
+  background-color: #11101D;
   display: grid;
   -ms-grid-columns: (minmax(25rem, 1fr))[auto-fit];
   grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
@@ -1185,17 +1187,6 @@ tbody tr td a {
   color: #00E77F;
 }
 
-.footer .box-container .box form .email {
-  width: 100%;
-  border-radius: 5rem;
-  border: 0.2rem solid #00E77F;
-  background: none;
-  font-size: 1.5rem;
-  text-transform: none;
-  color: #aaaaaa;
-  margin-bottom: 1rem;
-  padding: 1.2rem 1.4rem;
-}
 
 .creditos {
   background: #201b2c;
