@@ -1,7 +1,7 @@
 /*Paleta de Cores pré-definidas (até o momento)
 Tons de Branco: #f0ffde #eeeeee
 Tons de Roxo: #201b2c
-Tons de Verde: #00ff88
+Tons de Verde: #00E77F
 Tons de Preto: #282828 e #11101D*/
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap");
@@ -37,7 +37,7 @@ html::-webkit-scrollbar-track {
 }
 
 html::-webkit-scrollbar-thumb {
-  background: #00ff88;
+  background: #00E77F;
   border-radius: 5rem;
 }
 
@@ -61,7 +61,7 @@ section {
 }
 
 .cabecalho span {
-  color: #00ff88;
+  color: #00E77F;
   font-size: 2rem;
 }
 
@@ -76,15 +76,15 @@ section {
   display: inline-block;
   padding: 1rem 3rem;
   font-size: 1.7rem;
-  color: #00ff88;
-  border: 0.2rem solid #00ff88;
+  color: #00E77F;
+  border: 0.2rem solid #00E77F;
   border-radius: 5rem;
   cursor: pointer;
   background: none;
 }
 
 .btn:hover {
-  background: #00ff88;
+  background: #00E77F;
   color: #111;
 }
 
@@ -101,7 +101,7 @@ section {
 }
 
 .btn-form:hover {
-  background: #00ff88;
+  background: #00E77F;
   color: #201b2c;
 }
 
@@ -137,7 +137,7 @@ section {
 }
 
 .header .navbar a:hover {
-  color: #00ff88;
+  color: #00E77F;
 }
 
 .header .btn {
@@ -159,7 +159,7 @@ section {
 }
 
 .header .icons div:hover {
-  color: #00ff88;
+  color: #00E77F;
   background: var(--orange);
 }
 
@@ -333,7 +333,7 @@ section {
 .sidebar li a:hover .links_name,
 .sidebar li a:hover i {
   transition: all 0.5s ease;
-  color: #00ff88;
+  color: #00E77F;
 }
 
 .sidebar li i {
@@ -560,7 +560,7 @@ section {
 
 .left-login>h1 {
   font-size: 3vw;
-  color: #00ff88;
+  color: #00E77F;
 }
 
 .left-login-image {
@@ -588,7 +588,7 @@ section {
 }
 
 .card-login>h1 {
-  color: #00ff88;
+  color: #00E77F;
   font-weight: 800;
   margin: 0;
   text-transform: uppercase;
@@ -635,7 +635,7 @@ section {
   font-weight: 800;
   letter-spacing: 3px;
   color: #2b134b;
-  background: #00ff88;
+  background: #00E77F;
   cursor: pointer;
 
 }
@@ -731,18 +731,23 @@ section {
 }
 
 .servicos .box-container .box:hover {
-  border: 0.2rem solid #00ff88;
+  border: 0.2rem solid #00E77F;
 }
 
 .servicos .box-container .box i {
   font-size: 4rem;
-  color: #00ff88;
+  color: #00E77F;
   margin-bottom: 2rem;
 }
 
 .servicos .box-container .box h3 {
   font-size: 2rem;
   color: #eeeeee;
+}
+
+.servicos .box-container .box h1 {
+  font-size: 4rem;
+  color: #00E77F;
 }
 
 .servicos .box-container .box p {
@@ -781,7 +786,7 @@ section {
 }
 
 .painel-relatorio .icons .btn-form:hover {
-  background: #00ff88;
+  background: #00E77F;
   color: #201b2c;
 }
 
@@ -1136,7 +1141,7 @@ tbody tr td a {
 
 .footer .box-container .box p i {
   padding-right: .5rem;
-  color: #00ff88;
+  color: #00E77F;
 }
 
 .footer .box-container .box .share {
@@ -1150,14 +1155,14 @@ tbody tr td a {
   font-size: 2rem;
   border-radius: 50%;
   font-size: 1.7rem;
-  border: 0.2rem solid #00ff88;
-  color: #00ff88;
+  border: 0.2rem solid #00E77F;
+  color: #00E77F;
   margin-right: .5rem;
   text-align: center;
 }
 
 .footer .box-container .box .share a:hover {
-  background: #00ff88;
+  background: #00E77F;
   color: #eeeeee;
 }
 
@@ -1169,7 +1174,7 @@ tbody tr td a {
 }
 
 .footer .box-container .box .links:hover {
-  color: #00ff88;
+  color: #00E77F;
 }
 
 .footer .box-container .box .links:hover i {
@@ -1178,13 +1183,13 @@ tbody tr td a {
 
 .footer .box-container .box .links i {
   padding-right: .5rem;
-  color: #00ff88;
+  color: #00E77F;
 }
 
 .footer .box-container .box form .email {
   width: 100%;
   border-radius: 5rem;
-  border: 0.2rem solid #00ff88;
+  border: 0.2rem solid #00E77F;
   background: none;
   font-size: 1.5rem;
   text-transform: none;
@@ -1202,15 +1207,15 @@ tbody tr td a {
 }
 
 .creditos span {
-  color: #00ff88;
+  color: #00E77F;
 }
 
 .creditos i {
-  color: #00ff88;
+  color: #00E77F;
 }
 
 .creditos a {
-  color: #00ff88;
+  color: #00E77F;
 }
 
 /*Configurações do Rodapé - fim*/
