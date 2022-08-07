@@ -437,21 +437,21 @@ section {
 
 .sobre .row .conteudo h3 {
   text-align: justify;
-  padding: 1rem;
+  padding: .5rem;
   color: #fff;
   font-size: 5rem;
 }
 
 .sobre .row .conteudo span {
   text-align: justify;
-  padding: 1rem;
+  padding: .5rem;
   color: #00E77F;
-  font-size: 3rem;
+  font-size: 2.5rem;
 }
 
 .sobre .row .conteudo p {
   text-align: justify;
-  padding: 1rem;
+  padding: .5rem;
   font-size: 2.5rem;
   color: #aaa;
 
