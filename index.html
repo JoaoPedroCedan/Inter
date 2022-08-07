@@ -1,6 +1,6 @@
 <!--
 inicio: 06/07/2022
-fim: 
+fim: 06/08/2022 ???
 Projeto Interdisciplinar
 -->
 <!DOCTYPE html>
@@ -10,27 +10,23 @@ Projeto Interdisciplinar
 
 <head>
 
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BestLane</title>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bestlane</title>
 
-    <!-- favicon -->
-    <link rel="shortcut icon" type="img/favicon2.ico" href="img/favicon2.ico">
+   <!-- favicon -->
+   <link rel="shortcut icon" type="img/favicon2.ico" href="img/favicon2.ico">
 
-    <!-- font awesome cdn link -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+   <!-- font awesome cdn link -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-    <!-- css file link -->
-    <link rel="stylesheet" href="assets/css/style.css">
+   <!-- swiper css link  -->
+   <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
 
-    <!-- script file link -->
-    <script src="assets/js/mascara.js" defer></script>
-    <script src="assets/js/viacep.js" defer></script>
+   <!-- css file link -->
 
-    <!-- jquery cdn link-->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-
+   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <!-- header html - fim -->
 
@@ -38,164 +34,218 @@ Projeto Interdisciplinar
 
 <body>
 
-    <!-- cabeçalho sem autenticação - início-->
+   <!-- cabeçalho sem autenticação - início-->
+   <header class="header">
 
-    <header class="header">
+      <div id="menu-btn" class="fas fa-bars"></div>
+      <img src="" alt="">
+      <a href="#inicio" class="logo">Bestlane</a>
+      <nav class="navbar">
+         <a href="#">Sobre nós</a>
+         <a href="#">Fale com um Especialista</a>
+      </nav>
+      <a href="login.html" class="btn"><strong>Acesse sua conta</strong></a>
 
-        <div id="menu-btn" class="fas fa-bars"></div>
-        <img src="" alt="">
-        <a href="#inicio" class="logo">Bestlane</a>
-        <nav class="navbar">
-            <a href="#sobre">Sobre nós</a>
-            <a href="#best">Fale com um Especialista</a>
-        </nav>
-        <a href="login.html" class="btn"><strong>Acesse sua conta</strong></a>
+   </header>
+   <!-- cabeçalho sem autenticação fim-->
 
-    </header>
-    <!-- cabeçalho sem autenticação fim-->
+   <!-- sobre section inicio  -->
+   <section class="sobre" id="sobre">
 
-    <!-- seção de apresentação - início  -->
-    <section id="inicio" class="container4">
-        <div class="title">
-            <h3>SEJA BEM VINDO A BESTLANE!</h3>
-        </div>
-        <div class="pulse">
-            <img src="img/BL.png">
-        </div>
-    </section>
+      <div class="row">
 
-    <section class="section1">
-        <div class="img2">
-            <img class="img1" src="img/delivery.png">
-            <img class="img1" src="img/box.png">
-            <img class="img1" src="img/entregue.png">
-        </div>
-    </section>
+         <div class="image">
+            <img src="assets/imgs/apresentacao.svg" alt="">
+         </div>
 
-    <section class="section2">
-        <h1 class="title2">BestLane foi criada com a ideia de tirar o seu controle de entrega do manual, para o digital!
-        </h1>
-        <img class="img3" src="img/express.png">
-        <h1 class="title3">SOLUÇÕES</h1>
-        <div class="order">
-            <h1>Fácil de usar</h1>
-            <h1>Prático</h1>
-            <h1>Simples</h1>
-            <h1>Completo</h1>
-        </div>
-    </section>
-
-    <section class="section3">
-        <h1 class="title4">O sistema ideal para sua empresa!</h1>
-    </section>
-    <!--Inicio Sobre-->
-    <section id="sobre" class="home">
-        <div class="content">
-            <h3 class="sobre">Sobre nós</h3>
-        </div>
-    </section>
-    <div class="container2">
-        <div>
-            <p class="p1">
-                Bestlane foi criada com o propósito de auxiliar pequenas e médias empresas com suas entregas.
-                Com isso, desenvolvemos um sistema simples e fácil de qualquer operador utilizar para cadastrar as
-                entregas necessárias.
-                <br>
-                <br>
-                Nosso sistema contém o cadastro de clientes, operadores, entregas e entregadores, sendo possível
-                desativar qualquer cadastro sem perder os dados de seus clientes.
-                <br>
-                <br>
-                Nosso principal foco é auxiliar a digitalizar o processo de controle e cadastro de entregas.
-                <br>
-                <br>
-                Venha fazer parte da <a href="#best" class="best">Bestlane!</a>
+         <div class="conteudo" data-aos="fade-left" data-aos-delay="600">
+            <h3>Bestlane Logística</h3>
+            <span>Ajudamos você a facilitar a entrega.</span>
+            <p>Atendemos <strong>todas</strong> empresas do mercado oferecendo o melhor custo benefício! Nossas soluções
+               integram processos para gerar conexões de valor e
+               transformar negócios.
             </p>
-        </div>
-        <!--FIM SOBRE-->
+         </div>
 
-        <!--INICIO DEV-->
-        <h1 class="cria">Desenvolvedores</h1>
-        <div class="dev">
-            <figure>
-                <img class="img" src="img/anthony.jpeg">
-                <figcaption>Anthony Melo</figcaption>
-                <figcaption>UEMG - 2022</figcaption>
-            </figure>
-            <figure>
-                <img class="img" src="img/gustavo.jpeg">
-                <figcaption>Gustavo Garcia</figcaption>
-                <figcaption>UEMG - 2022</figcaption>
-            </figure>
-            <figure>
-                <img class="img" src="img/joao.jpeg">
-                <figcaption>João Pedro</figcaption>
-                <figcaption>UEMG - 2022</figcaption>
-            </figure>
-        </div>
-        <!--FIM DEV-->
+      </div>
 
-        <!--INICIO CONTATO-->
-        <div id="best" class="container3">
-            <div>
-                <h1 class="h1">Contato</h1>
-                <p class="p2">Quer fazer parte da Bestlane?</p>
-                <a href="https://wa.me/5534996949075?text=Ol%C3%A1%21+Desejo+fazer+parte+do+projeto." target="_blank"
-                    class="btn2"><strong>Clique aqui</strong></a>
+   </section>
+   <!-- sobre section fim -->
+
+   <!-- servicos section inicio  -->
+   <section class="servicos" id="servicos">
+
+      <h1 class="destaque">Nossas <span>Soluções</span></h1>
+
+      <div class="swiper course-slider">
+
+         <div class="swiper-wrapper">
+
+            <div class="swiper-slide slide">
+               <img src="assets/imgs/servicos-1.svg" alt="">
+               <h3>Controle de Clientes</h3>
+               <p>Todos os dados dos seus clientes para cadastro e consulta.</p>
             </div>
-        </div>
-        <!--FIM CONTATO-->
-        <!-- seção de apresentação - fim -->
 
-        <!-- rodapé section - início  -->
-        <section class="footer">
-            <div class="box-container">
-                <div class="box">
-                    <a href="#" class="logo">
-                        <h3>Bestlane</h3>
-                    </a>
-                    <p>Estamos presentes nas maiores Redes Sociais. Não deixe de nos seguir!</p>
-                    <div class="share">
-                        <a href="#" class="fab fa-facebook-f"></a>
-                        <a href="#" class="fab fa-tiktok"></a>
-                        <a href="#" class="fab fa-instagram"></a>
-                        <a href="#" class="fab fa-linkedin"></a>
-                    </div>
-                </div>
-                <div class="box">
-                    <h3>Contato</h3>
-                    <p> <i class="fas fa-map"></i> Avenida Juscelino Kubitscheck, nº 1050, Jardim Brasil - Frutal, Minas
-                        Gerais </p>
-                    <p> <i class="fas fa-phone"></i> +55 34 3423-6868 </p>
-                    <p> <i class="fas fa-envelope"></i> contato@bestlane.com.br </p>
-                    <p> <i class="fas fa-clock"></i> Estamos abertos das 08:00 às 22:00 horas</p>
-                </div>
+            <div class="swiper-slide slide">
+               <img src="assets/imgs/servicos-2.svg" alt="">
+               <h3>Controle de Entregas</h3>
+               <p>Painel para gerencimento das entregas à concluir e concluídas.</p>
             </div>
-        </section>
-        <div class="creditos">Feito com <i class="fas fa-heart"></i> por <a href="#" target="blank"><span> Route
-                    Group </span></a> &copy; <span id="date"></span>;
-            <script>
-                date = new Date();
-                year = date.getFullYear();
-                document.getElementById("date").innerHTML = year;
-            </script>
-        </div>
-        <!-- rodapé section - fim -->
+
+            <div class="swiper-slide slide">
+               <img src="assets/imgs/servicos-3.svg" alt="">
+               <h3>Relatórios Completos</h3>
+               <p>Relatórios completos das entregas com filtros personalizados.</p>
+            </div>
+
+            <div class="swiper-slide slide">
+               <img src="assets/imgs/servicos-4.svg" alt="">
+               <h3>Dashboard</h3>
+               <p>Apresentações em números e gráficos para melhor visualização.</p>
+            </div>
+
+         </div>
+
+         <div class="swiper-pagination"></div>
+
+      </div>
+
+   </section>
+
+   <!-- servicos section fim -->
+   <!-- desenvolvedores section inicio  -->
+
+   <section class="desenvolvedores" id="desenvolvedores">
+
+      <h1 class="destaque"><span>Idealizadores</span> do Projeto</h1>
+
+      <div class="swiper desenvolvedores-slider">
+
+         <div class="swiper-wrapper">
+
+            <div class="swiper-slide slide">
+               <img src="assets/imgs/desenvolvedor-1.jpeg" alt="">
+               <div class="share">
+                  <a href="#" class="fab fa-instagram"></a>
+                  <a href="#" class="fab fa-linkedin"></a>
+                  <a href="#" class="fab fa-github"></a>
+               </div>
+               <h3>Anthony Henrique</h3>
+            </div>
+
+            <div class="swiper-slide slide">
+               <img src="assets/imgs/desenvolvedor-2.jpeg" alt="">
+               <div class="share">
+                  <a href="#" class="fab fa-instagram"></a>
+                  <a href="#" class="fab fa-linkedin"></a>
+                  <a href="#" class="fab fa-github"></a>
+               </div>
+               <h3>Gustavo Garcia</h3>
+            </div>
+
+            <div class="swiper-slide slide">
+               <img src="assets/imgs/desenvolvedor-3.jpeg" alt="">
+               <div class="share">
+                  <a href="#" class="fab fa-instagram"></a>
+                  <a href="#" class="fab fa-linkedin"></a>
+                  <a href="#" class="fab fa-github"></a>
+               </div>
+               <h3>João Pedro</h3>
+            </div>
+
+         </div>
+
+         <div class="swiper-pagination"></div>
+
+      </div>
+
+   </section>
+
+   <!-- desenvolvedores section fim -->
+
+   <!-- contato section inicio  -->
+
+   <section class="contato" id="contato">
+
+      <h1 class="destaque"><span>contato</span> us</h1>
+
+      <div class="row">
+
+         <div class="image">
+            <img src="assets/imgs/contact.svg" alt="">
+         </div>
+
+         <form action="https://wa.me/5534996949075?text=Meu+nome+e+GET(name)+Ol%C3%A1%21+Desejo+fazer+parte+do+projeto." method="post">
+            <span>Seu nome</span>
+            <input type="text" placeholder="Nome completo" maxlength="50" class="box" name="nome" required >
+            <span>Seu melhor e-mail</span>
+            <input type="email" placeholder="email@dominio.com" maxlength="50" class="box" required >
+            <input type="submit" value="Enviar mensagem" class="btn">
+         </form>
+
+      </div>
+
+   </section>
+
+   <!-- contato section fim -->
+
+   <!-- rodapé section - início  -->
+   <section class="footer">
+      <div class="box-container">
+         <div class="box">
+            <a href="#" class="logo">
+               <h3>Bestlane</h3>
+            </a>
+            <p>Estamos presentes nas maiores Redes Sociais. Não deixe de nos seguir!</p>
+            <div class="share">
+               <a href="#" class="fab fa-facebook-f"></a>
+               <a href="#" class="fab fa-tiktok"></a>
+               <a href="#" class="fab fa-instagram"></a>
+               <a href="#" class="fab fa-linkedin"></a>
+            </div>
+         </div>
+         <div class="box">
+            <h3>Contato</h3>
+            <p> <i class="fas fa-map"></i> Avenida Juscelino Kubitscheck, nº 1050, Jardim Brasil - Frutal, Minas
+               Gerais </p>
+            <p> <i class="fas fa-phone"></i> +55 34 3423-6868 </p>
+            <p> <i class="fas fa-envelope"></i> contato@bestlane.com.br </p>
+            <p> <i class="fas fa-clock"></i> Estamos abertos das 08:00 às 22:00 horas</p>
+         </div>
+      </div>
+   </section>
+   <div class="creditos">Feito com <i class="fas fa-heart"></i> por <a href="#" target="blank"><span> Route
+            Group </span></a> &copy; <span id="date"></span>;
+      <script>
+         date = new Date();
+         year = date.getFullYear();
+         document.getElementById("date").innerHTML = year;
+      </script>
+   </div>
+   <!-- rodapé section - fim -->
+
 </body>
-<!-- corpo do documento - fim -->
 
 </html>
 
+<!-- swiper js link  -->
+<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+
+<!-- custom js file link  -->
+<script src="assets/js/index.js"></script>
+
+
 <!-- script responsável pela animação do navbar quando a tela diminui - início-->
 <script>
-    let navbar = document.querySelector('.header .navbar');
+   let navbar = document.querySelector('.header .navbar');
 
-    document.querySelector('#menu-btn').onclick = () => {
-        navbar.classList.toggle('active');
-    }
+   document.querySelector('#menu-btn').onclick = () => {
+      navbar.classList.toggle('active');
+   }
 
-    window.onscroll = () => {
-        navbar.classList.remove('active');
-    }
+   window.onscroll = () => {
+      navbar.classList.remove('active');
+   }
 </script>
 <!-- script responsável pela animação do navbar quando a tela diminui - fim-->

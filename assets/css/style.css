@@ -2,7 +2,7 @@
 Tons de Branco: #f0ffde #eeeeee
 Tons de Roxo: #201b2c
 Tons de Verde: #00ff88
-Tons de Preto: #282828*/
+Tons de Preto: #282828 e #11101D*/
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap");
 
@@ -20,7 +20,7 @@ Tons de Preto: #282828*/
   transition: all .1s linear;
 }
 
-/*Configurações da Barra de Rolagem*/
+/*Configurações da Barra de Rolagem - inicio*/
 html {
   font-size: 62.5%;
   overflow-x: hidden;
@@ -41,15 +41,16 @@ html::-webkit-scrollbar-thumb {
   border-radius: 5rem;
 }
 
-/*Configurações da Barra de Rolagem*/
+/*Configurações da Barra de Rolagem - fim*/
 
-/*Configurações do corpo do html*/
+/*Configurações do corpo do html - inicio*/
 body {
   background: #201b2c;
   overflow-x: hidden;
   box-sizing: border-box;
 }
 
+/*Configurações do corpo do html - fim*/
 section {
   padding: 5rem 9%;
 }
@@ -69,8 +70,7 @@ section {
   color: #eeeeee;
 }
 
-/*Configurações do corpo do html*/
-/*Configurações dos Botões*/
+/*Configurações dos Botões - inicio*/
 .btn {
   margin-top: 1rem;
   display: inline-block;
@@ -105,15 +105,16 @@ section {
   color: #201b2c;
 }
 
-/*Configurações dos Botões*/
-/*Configurações do Cabeçalho*/
+/*Configurações dos Botões - fim*/
+
+/*Configurações do Cabeçalho - inicio*/
 .header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
-  background: #201b2c;
+  background: #11101D;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -162,6 +163,18 @@ section {
   background: var(--orange);
 }
 
+.destaque {
+  margin-bottom: 2.5rem;
+  text-align: center;
+  font-size: 4rem;
+  color: #eeeeee;
+
+}
+
+.destaque span {
+  color: #00E77F;
+}
+
 .logo {
   font-size: 2.3rem;
   color: #eeeeee;
@@ -176,7 +189,7 @@ section {
   display: none;
 }
 
-/*Configurações do Cabeçalho*/
+/*Configurações do Cabeçalho - fim*/
 
 
 /* Configuração Sidebar, menu lateral área logada*/
@@ -398,7 +411,55 @@ section {
 
 /* Configuração Sidebar, menu lateral área logada*/
 
-/*Configurações seção de apresentação - starts*/
+/* Configuração sobre - inicio*/
+
+.sobre .row {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.sobre .row .image {
+  flex: 1 1 40rem;
+}
+
+.sobre .row .image img {
+  width: 100%;
+}
+
+.sobre .row .conteudo {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 42rem;
+  flex: 1 1 42rem;
+  margin-bottom: 5rem;
+}
+
+.sobre .row .conteudo h3 {
+  text-align: justify;
+  padding: 1rem;
+  color: #fff;
+  font-size: 5rem;
+}
+
+.sobre .row .conteudo span {
+  text-align: justify;
+  padding: 1rem;
+  color: #00E77F;
+  font-size: 3rem;
+}
+
+.sobre .row .conteudo p {
+  text-align: justify;
+  padding: 1rem;
+  font-size: 2.5rem;
+  color: #aaa;
+
+}
+
+/* Configuração sobre - fim*/
+
+/*Configurações seção de apresentação - inicio*/
 .home {
 
   display: flex;
@@ -438,7 +499,47 @@ section {
 
 /* configurações do corpo do html - início*/
 
-/*Configurações responsáveis pelo CSS do Login - starts*/
+
+
+/* seção de serviços da nossa plataforma - inicio*/
+.servicos .slide {
+  background-color: #11101D;
+  border-radius: .5rem;
+  text-align: center;
+  padding: 2rem;
+  margin-bottom: 4rem;
+  user-select: none;
+}
+
+.servicos .slide img {
+  height: 25rem;
+  width: 100%;
+}
+
+.servicos .slide h3 {
+  margin: 1.5rem 0;
+  font-size: 2rem;
+  color: #eeeeee;
+}
+
+.servicos .slide p {
+  text-align: justify;
+  line-height: 2;
+  font-size: 1.6rem;
+  color: #aaaaaa;
+}
+
+.swiper-pagination-bullet {
+  background-color: #eeeeee;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #00E77F;
+}
+
+/* seção de serviços da nossa plataforma - fim*/
+
+/*Configurações responsáveis pelo CSS do Login - inicio*/
 .main-login {
   width: 100vw;
   height: 100vh;
@@ -540,7 +641,61 @@ section {
 }
 
 /*Configurações responsáveis pelo CSS do Login - fim*/
+
+/* seção de apresentação de desenvolvedores - inicio */
+.desenvolvedores .slide {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 4rem;
+  user-select: none;
+}
+
+.desenvolvedores .slide img {
+  height: 55rem;
+  width: 100%;
+  object-fit: cover;
+  border-radius: .5rem;
+}
+
+.desenvolvedores .slide h3 {
+  margin-top: 1.5rem;
+  font-size: 2rem;
+  text-align: center;
+  color: #eeeeee;
+}
+
+.desenvolvedores .slide .share {
+  position: absolute;
+  top: 1rem;
+  left: -10rem;
+}
+
+.desenvolvedores .slide:hover .share {
+  left: 2rem;
+}
+
+.desenvolvedores .slide .share a {
+  display: block;
+  margin-top: 1rem;
+  height: 4.5rem;
+  width: 4.5rem;
+  line-height: 4.5rem;
+  border-radius: .5rem;
+  background-color: #eeeeee;
+  color: #11101D;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.desenvolvedores .slide .share a:hover {
+  background-color: #00E77F;
+  color: #eeeeee;
+}
+
+/* seção de apresentação de desenvolvedores - inicio */
+
 /*Configurações responsáveis pelo CSS do Painel de Controle- início*/
+
 .banner {
   background: linear-gradient(rgba(17, 17, 17, 0.7), rgba(17, 17, 17, 0.7)), url(../imgs/banner-operadores.jpg) no-repeat;
   background-size: cover;
@@ -898,9 +1053,58 @@ tbody tr td a {
 
 /*Configurações responsáveis pelo CSS do Painel de Controle- fim*/
 
+/* Configurações do Formulário de Contato - inicio*/
+.contato .row{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap:1.5rem;
+}
+
+.contato .row .image{
+  flex: 1 1 40rem;
+}
+
+.contato .row .image img{
+  width: 100%;
+}
+
+.contato .row form{
+  flex:1 1 40rem;
+}
+
+.contato .row form .box{
+  width: 100%;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  border-radius: .5rem;
+  background-color: #11101D;
+  font-size: 1.8rem;
+  color:var(--white);
+  padding:1.4rem;
+  text-transform: none;
+}
+
+.contato .row form span{
+  font-size: 1.6rem;
+  color:#eeeeee;
+}
+
+.contato .row form .radio input{
+  appearance: none;
+  height: 2rem;
+  width: 2rem;
+  background-color: #eeeeee;
+  cursor: pointer;
+}
+
+.contato .row form .radio input:checked{
+  background-color: var(--green);
+  border-radius: 5rem;
+}
+
+/* Configurações do Formulário de Contato - inicio*/
 /*Configurações do Rodapé - início*/
-
-
 
 .footer .box-container {
   display: -ms-grid;
@@ -1011,6 +1215,8 @@ tbody tr td a {
 
 /*Configurações do Rodapé - fim*/
 
+/* media queries  */
+
 @media (max-width: 991px) {
   html {
     font-size: 55%;
@@ -1027,6 +1233,11 @@ tbody tr td a {
   .card-login {
     width: 85%;
   }
+
+  .home .row .conteudo h3 {
+    font-size: 8rem;
+  }
+
 }
 
 @media (max-width: 768px) {
@@ -1054,8 +1265,13 @@ tbody tr td a {
     font-size: 2rem;
     display: block;
   }
+
   .servicos .box-container {
     display: grid;
+  }
+
+  .home .row .conteudo h3 {
+    font-size: 6rem;
   }
 }
 
@@ -1158,278 +1374,12 @@ tbody tr td a {
     width: 80vw;
     outline: 0px;
   }
-}
 
-.sobre {
-  display: flex;
-  align-items: center;
-  justify-content: baseline;
-  padding-top: 30px;
-  padding-bottom: 30px;
-}
-
-.container2 {
-  background-color: #201b2c;
-  width: 900px;
-  height: 690px;
-  color: white;
-}
-
-.container3 {
-  background-color: #201b2c;
-  width: 900px;
-  height: 300px;
-  color: white;
-  display: flex;
-}
-
-.h1 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 60px;
-}
-
-.p1 {
-  border: 4px solid white;
-  font-size: large;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  padding: 5em 5em 5em;
-  font-size: 20px;
-  margin-top: -50px;
-}
-
-.p2 {
-  font-size: large;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  padding: 5em 5em 5em;
-  font-size: 20px;
-  margin-top: -50px;
-}
-
-.cria {
-  margin-top: 40px;
-  padding-bottom: 40px;
-  margin-bottom: 10px;
-  font-size: 30px;
-  color: white;
-  display: flex;
-  justify-content: center;
-}
-
-.img {
-  height: 150px;
-  width: 150px;
-  border-radius: 100px;
-  display: flex;
-}
-
-figure {
-  font-size: 20px;
-}
-
-.dev {
-  border: 4px solid white;
-  background-color: #201b2c;
-  width: 900px;
-  height: 300px;
-  color: white;
-  display: flex;
-}
-
-.container3 {
-  background-color: #201b2c;
-  width: 900px;
-  height: 500px;
-  color: white;
-  display: flex;
-}
-
-.btn2 {
-  display: inline-block;
-  padding: 1rem 3rem;
-  font-size: 1.7rem;
-  color: #00ff88;
-  border: 0.2rem solid #00ff88;
-  border-radius: 5rem;
-  cursor: pointer;
-  background: none;
-  display: flex;
-  align-items: center;
-  width: 15em;
-}
-
-.btn2:hover {
-  background: #00ff88;
-  color: #111;
-}
-
-.container4 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 40px;
-  background-color: #201b2c;
-  height: 50vh;
-  width: 80vw;
-}
-
-
-.title {
-  margin-top: 120px;
-  color: white;
-  font-family: Raleway, sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-.section1 {
-  background-color: #00ff88;
-  height: 140px;
-}
-
-.section2 {
-  background-color: #201b2c;
-  height: 600px;
-}
-
-.img1 {
-  width: 80px;
-}
-
-.img2 {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  align-content: center;
-}
-
-.title2 {
-  color: white;
-  font-family: raleway, sans-serif;
-  display: flex;
-  justify-content: center;
-  text-transform: uppercase;
-  font-size: 2rem;
-}
-
-.title3 {
-  color: white;
-  font-family: raleway, sans-serif;
-  display: flex;
-  justify-content: center;
-  text-transform: uppercase;
-  font-size: 50px;
-  margin-top: 30px;
-}
-
-.img3 {
-  margin-top: 30px;
-  display: flex;
-  justify-content: center;
-}
-
-.section3 {
-  background-color: #00ff88;
-  height: 120px;
-
-}
-
-.title4 {
-  color: black;
-  font-family: raleway, sans-serif;
-  display: flex;
-  justify-content: center;
-  text-transform: uppercase;
-  font-size: 30px;
-  margin-top: -10px;
-}
-
-.order {
-  color: white;
-  margin-top: 50px;
-  display: flex;
-  order: 1;
-}
-
-.bottom {
-  color: #201b2c;
-  height: 50px;
-}
-
-.dashboard1 {
-  border: 4px solid #00ff88;
-  background-color: #201b2c;
-  width: 400px;
-  height: 150px;
-  border-radius: 20px;
-}
-
-
-.pd1 {
-  color: white;
-  text-transform: uppercase;
-  margin-top: -1rem;
-
-}
-
-.pd2 {
-  color: #00ff88;
-  font-size: 50px;
-  align-items: center;
-  justify-content: center;
-}
-
-.dp {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 50px;
-  color: white;
-}
-
-.text-color {
-  color: black;
-}
-
-.best {
-  color: #00ff88;
-}
-
-.pulse {
-  animation: pulse 0.7s infinite;
-  margin: 0 auto;
-  display: table;
-  margin-top: 50px;
-  animation-direction: alternate;
-  -webkit-animation-name: pulse;
-  animation-name: pulse;
-}
-
-@-webkit-keyframes pulse {
-  0% {
-    -webkit-transform: scale(1);
-    -webkit-filter: brightness(100%);
+  .home .row .conteudo h3 {
+    font-size: 5rem;
   }
 
-  100% {
-    -webkit-transform: scale(1.1);
-    -webkit-filter: brightness(200%);
-  }
-}
-
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-    filter: brightness(100%);
-  }
-
-  100% {
-    transform: scale(1.1);
-    filter: brightness(200%);
+  .destaque {
+    font-size: 3rem;
   }
 }
