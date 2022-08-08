@@ -144,7 +144,7 @@
                             <th>Cliente</th>
                             <th>Status</th>
                             <th style="text-align: center;">Exibir</th>
-                            <th style="text-align: center;">Excluir</th>
+                            <th style="text-align: center;">Editar</th>
                         </tr>
                     </thead>
                     <tbody id="entregas">
@@ -165,7 +165,7 @@
                     <td data-label='Cliente: '>${data[i]['nome_cliente']}</td>
                     <td data-label='Status: '>${data[i]['status']}</td>
                     <td style="text-align: center;"><a href="entregas_exibir.html?id=${data[i]['id']}" class="fa fa-eye"></a></td>
-                    <td style="text-align: center;"><i class="fa fa-trash"></i></td>
+                    <td style="text-align: center;"><a href="entregas_editar.html?id=${data[i]['id']}" class="fa fa-eye"></a></td>
                     </tr>
                     `
                                             $('#entregas').append(y)
